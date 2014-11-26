@@ -1,1 +1,84 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Source+Code+Pro);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import '../node_modules/node-bourbon/assets/stylesheets/_bourbon.scss';
+@import 'colors.scss';
+@import 'spacing.scss';
+
+/**
+ * Bare elements
+ */
+
+body, html {
+    font-family: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
+    font-size: 13px;
+    color: $text;
+}
+pre {
+    @include insetShadow();
+
+    background: $panel;
+    padding: $paddingStandard;
+    border-radius: $radius;
+
+    h6 {
+        margin: none;
+        padding: 0 $paddingStandard;
+        font-weight: 400;
+    }
+
+    code, code.hljs {
+        background: $panel;
+
+        padding: 0;
+        margin: 0;
+
+        font-family: 'Inconsolata', 'Menlo', 'Consolas', sans-serif;
+        font-size: 14px;
+    }
+}
+
+
+h1 {
+    @include attention();
+    font-weight: 100;
+    font-size: 55px;
+    margin-bottom: $paddingHuge;
+    padding-bottom: none;
+}
+
+h2, h3, h4, h5, h6 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: $paddingMini;
+    margin-bottom: none;
+}
+
+h2 { color: $textBrightest; }
+h3 { color: $textBright; }
+h4 { color: $text; }
+h5 { color: $textDull; }
+h6 { color: $textDuller; }
+
+a {
+    text-decoration: none;
+    color: $primary;
+    &:hover, &:visited, &:active {
+        text-decoration: none;
+        color: $primary;
+    }
+    &:hover {
+        color: $primaryAlt1;
+    }
+}
+
+/**
+ * Custom classes and elements
+ */
+.sidebar {
+
+}
+
+.footer {
+    background: $compliment;
+    text: $textInverse;
+}
