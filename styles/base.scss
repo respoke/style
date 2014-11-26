@@ -94,11 +94,19 @@ a {
         li {
             font-size: 12px;
             margin: 0;
-            padding: 0;
+            padding: $paddingMiniHalf;
+            &.active {
+                background: $primaryAlt1;
+                color: $textInverse;
+                a {
+                    color: $textInverse !important;
+                }
+            }
             a {
                 display: inline-block;
-                padding: $paddingSmallHalf;
+                width: 100%;
                 margin: 0;
+                padding: 0;
             }
         }
     }
