@@ -1,2 +1,1 @@
-style
-=====
+# styles for Respoke web properties
