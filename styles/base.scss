@@ -10,9 +10,13 @@
 
 body, html {
     font-family: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     color: $text;
+    background: $background;
+    padding: 0;
+    margin: 0;
 }
+
 pre {
     @include insetShadow();
 
@@ -71,14 +75,36 @@ a {
     }
 }
 
+
 /**
  * Custom classes and elements
  */
-.sidebar {
 
+.navbar {
+    background: $primary;
+    color: $textInverse;
+}
+
+.sidebar {
+    background: $panel;
+    ul {
+        list-style-type: none;
+        margin: 0 $paddingStandard;
+        padding: 0;
+        li {
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            a {
+                display: inline-block;
+                padding: $paddingSmallHalf;
+                margin: 0;
+            }
+        }
+    }
 }
 
 .footer {
     background: $compliment;
-    text: $textInverse;
+    color: $textInverse;
 }
