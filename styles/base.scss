@@ -20,7 +20,7 @@ $fontSizeMono: 13px;
  */
 $break-small: 550px;
 $break-medium: 700px;
-$break-large: 900px;
+$break-large: 1200px;
 
 /**
  * Local deps
@@ -123,11 +123,16 @@ a {
     @media screen and (max-width: $break-small) {
         padding-left: $paddingStandard;
     }
-    @media screen and (min-width: $break-medium) {
+    @media screen and (min-width: $break-small + 1) {
         padding-left: $contentLeftOffset - 30px;
     }
-    @media screen and (min-width: $break-large) {
+    @media screen and (min-width: $break-medium + 1) {
         padding-left: $contentLeftOffset;
+    }
+    @media screen and (min-width: $break-large) {
+        position: relative;
+        left: 40%;
+        margin-left: -($contentMaxWidth / 2);
     }
 
     img {
@@ -159,14 +164,14 @@ a {
     /* Responsiveness */
     @media screen and (max-width: $break-small) {
         width: 300px;
-        display: none;
+        display: none!important;
     }
-    @media screen and (min-width: $break-medium) {
+    @media screen and (min-width: $break-small + 1) {
         width: 220px;
         padding-top: 80px;
         padding-bottom: 80px;
     }
-    @media screen and (min-width: $break-large) {
+    @media screen and (min-width: $break-medium) {
         width: 300px;
         padding-top: 80px;
         padding-bottom: 80px;
