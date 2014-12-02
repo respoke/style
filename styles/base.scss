@@ -15,6 +15,12 @@ $fontSize: 14px;
 $fontMono: 'Source Code Pro', 'Menlo', 'Consolas', sans-serif;
 $fontSizeMono: 13px;
 
+/**
+ * Responsive breakpoints
+ */
+$break-small: 430px;
+$break-medium: 660px;
+$break-large: 900px;
 
 /**
  * Local deps
@@ -109,10 +115,22 @@ a {
 
 /* The main section of content */
 .content {
-    max-width: $contentMaxWidth + $contentLeftOffset;
-    padding-left: $contentLeftOffset;
-    padding-right: $paddingStandard;
     padding-bottom: $paddingHuge;
+
+    /* Responsiveness */
+    @media screen and (min-width: $break-small) {
+        padding: 0 $paddingStandard;
+    }
+    @media screen and (min-width: $break-medium) {
+        padding-left: $contentLeftOffset - 40px;
+        padding-right: $paddingStandard;
+    }
+    @media screen and (min-width: $break-large) {
+        max-width: $contentMaxWidth + $contentLeftOffset;
+        padding-left: $contentLeftOffset;
+        padding-right: $paddingStandard;
+        padding-bottom: $paddingHuge;
+    }
 
     img {
         max-width: 100%;
@@ -132,9 +150,6 @@ a {
 }
 
 .sidebar {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    width: 300px;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -142,6 +157,22 @@ a {
     height: 100%;
 
     background: $panel;
+
+    /* Responsiveness */
+    @media screen and (min-width: $break-small) {
+        width: 300px;
+    }
+    @media screen and (min-width: $break-medium) {
+        width: 220px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    @media screen and (min-width: $break-large) {
+        width: 300px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
 
     ul > ul {
         margin: 0;

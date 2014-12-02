@@ -16,9 +16,7 @@ $.ajax({
     }
 });
 
-$('.sidebar a').click(function () {
-    $(this).addClass('active');
-});
+
 
 // Showing and login and signup
 (function () {
