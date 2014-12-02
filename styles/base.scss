@@ -154,8 +154,8 @@ img {
             }
 
             &.l1>a { padding: $paddingMiniHalf 0; }
-            &.l2>a { padding: $paddingMiniHalf $paddingStandardDouble; }
-            &.l3>a { padding: $paddingMiniHalf $paddingHuge; }
+            &.l2>a { padding: $paddingMiniHalf $paddingStandard; }
+            &.l3>a { padding: $paddingMiniHalf $paddingStandardDouble; }
 
             a {
                 display: inline-block;
