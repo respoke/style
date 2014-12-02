@@ -10,6 +10,7 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 $font: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
+$fontSize: 14px;
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
 $fontMono: 'Source Code Pro', 'Menlo', 'Consolas', sans-serif;
 $fontSizeMono: 13px;
@@ -30,7 +31,7 @@ $fontSizeMono: 13px;
 
 body, html {
     font-family: $font;
-    font-size: 13px;
+    font-size: $fontSize;
     color: $text;
     background: $background;
     padding: 0;
@@ -78,7 +79,7 @@ h1 {
 }
 
 h2, h3, h4, h5, h6 {
-    font-size: 13px;
+    font-size: $fontSize;
     font-weight: bold;
     margin-top: $paddingMini;
     margin-bottom: none;
@@ -102,11 +103,6 @@ a {
     }
 }
 
-img {
-    max-width: 100%;
-    @include outsetShadow();
-}
-
 /**
  * Custom classes and elements
  */
@@ -117,6 +113,11 @@ img {
     padding-left: $contentLeftOffset;
     padding-right: $paddingStandard;
     padding-bottom: $paddingHuge;
+
+    img {
+        max-width: 100%;
+        @include outsetShadow();
+    }
 }
 
 .navbar {
