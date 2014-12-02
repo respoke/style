@@ -18,8 +18,8 @@ $fontSizeMono: 13px;
 /**
  * Responsive breakpoints
  */
-$break-small: 430px;
-$break-medium: 660px;
+$break-small: 550px;
+$break-medium: 700px;
 $break-large: 900px;
 
 /**
@@ -115,21 +115,19 @@ a {
 
 /* The main section of content */
 .content {
+    max-width: $contentMaxWidth + $contentLeftOffset;
+    padding-right: $paddingStandard;
     padding-bottom: $paddingHuge;
 
     /* Responsiveness */
-    @media screen and (min-width: $break-small) {
-        padding: 0 $paddingStandard;
+    @media screen and (max-width: $break-small) {
+        padding-left: $paddingStandard;
     }
     @media screen and (min-width: $break-medium) {
-        padding-left: $contentLeftOffset - 40px;
-        padding-right: $paddingStandard;
+        padding-left: $contentLeftOffset - 30px;
     }
     @media screen and (min-width: $break-large) {
-        max-width: $contentMaxWidth + $contentLeftOffset;
         padding-left: $contentLeftOffset;
-        padding-right: $paddingStandard;
-        padding-bottom: $paddingHuge;
     }
 
     img {
@@ -159,8 +157,9 @@ a {
     background: $panel;
 
     /* Responsiveness */
-    @media screen and (min-width: $break-small) {
+    @media screen and (max-width: $break-small) {
         width: 300px;
+        display: none;
     }
     @media screen and (min-width: $break-medium) {
         width: 220px;
