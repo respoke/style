@@ -19,5 +19,8 @@
   "homepage": "https://github.com/respoke/style",
   "dependencies": {
     "node-bourbon": "^1.2.3"
+  },
+  "devDependencies": {
+    "node-neat": "^1.3.0"
   }
 }

@@ -1,13 +1,27 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-@import url(http://fonts.googleapis.com/css?family=Cousine:400,700,700italic,400italic);
-
+/**
+ * External deps
+ */
 @import '../node_modules/node-bourbon/assets/stylesheets/_bourbon.scss';
-@import 'colors.scss';
-@import 'spacing.scss';
+@import '../node_modules/node-neat/assets/stylesheets/_neat.scss';
 
+
+/**
+ * Fonts
+ */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 $font: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Cousine:400,700,700italic,400italic);
 $fontMono: 'Cousine', 'Menlo', 'Consolas', sans-serif;
 $fontSizeMono: 13px;
+
+
+/**
+ * Local deps
+ */
+@import 'colors.scss';
+@import 'spacing.scss';
+@import 'effects.scss';
+
 
 /**
  * Bare elements
@@ -80,18 +94,45 @@ a {
     }
 }
 
+img {
+    max-width: 100%;
+}
 
 /**
  * Custom classes and elements
  */
 
+/* The main section of content */
+.content {
+    max-width: $contentMaxWidth + $contentLeftOffset;
+    padding-left: $contentLeftOffset;
+    padding-right: $paddingStandard;
+    padding-bottom: $paddingHuge;
+}
+
 .navbar {
     background: $primary;
     color: $textInverse;
+    height: $navbarHeight;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 .sidebar {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    height: 100%;
+
     background: $panel;
+
     ul > ul {
         margin: 0;
     }
@@ -102,6 +143,8 @@ a {
         li {
             font-size: 12px;
             margin: 0;
+            padding-left: $paddingStandard;
+
             &.active {
                 background: $primaryAlt1;
                 color: $textInverse;
@@ -110,9 +153,9 @@ a {
                 }
             }
 
-            &.l1 { padding: $paddingMiniHalf; }
-            &.l2 { padding: $paddingMiniHalf $paddingStandardDouble; }
-            &.l3 { padding: $paddingMiniHalf $paddingHuge; }
+            &.l1>a { padding: $paddingMiniHalf 0; }
+            &.l2>a { padding: $paddingMiniHalf $paddingStandardDouble; }
+            &.l3>a { padding: $paddingMiniHalf $paddingHuge; }
 
             a {
                 display: inline-block;
@@ -127,4 +170,10 @@ a {
 .footer {
     background: $compliment;
     color: $textInverse;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: $navbarHeight;
+    z-index: 1000;
 }
