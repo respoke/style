@@ -57,6 +57,8 @@ pre {
 
         font-family: $fontMono;
         font-size: $fontSizeMono;
+
+        word-wrap: break-word;
     }
 }
 
@@ -96,6 +98,7 @@ a {
 
 img {
     max-width: 100%;
+    @include outsetShadow();
 }
 
 /**
