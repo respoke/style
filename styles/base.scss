@@ -118,13 +118,14 @@ a {
     max-width: $contentMaxWidth + $contentLeftOffset;
     padding-right: $paddingStandard;
     padding-bottom: $paddingHuge;
+    margin-top: 0;
 
     /* Responsiveness */
     @media screen and (max-width: $break-small) {
         padding-left: $paddingStandard;
     }
     @media screen and (min-width: $break-small + 1) {
-        padding-left: $contentLeftOffset - 30px;
+        padding-left: $contentLeftOffset - 40px;
     }
     @media screen and (min-width: $break-medium + 1) {
         padding-left: $contentLeftOffset;
@@ -221,4 +222,27 @@ a {
     right: 0;
     height: $navbarHeight;
     z-index: 1000;
+    padding: $paddingSmall;
+
+    text-align: center;
+    font-size: $fontSize - 2px;
+    color: $textDull;
+
+    /* Responsiveness */
+    @media screen and (max-width: $break-small) {
+        width: 300px;
+        position: static;
+        width: 100%;
+    }
+
+    span {
+        display: inline-block;
+        margin-top: -$paddingMini;
+        margin-left: $paddingStandard;
+        vertical-align: text-top;
+    }
+
+    img {
+        max-height: $paddingStandard * 1.5;
+    }
 }
