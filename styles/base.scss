@@ -1,15 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import url(http://fonts.googleapis.com/css?family=Cousine:400,700,700italic,400italic);
+
 @import '../node_modules/node-bourbon/assets/stylesheets/_bourbon.scss';
 @import 'colors.scss';
 @import 'spacing.scss';
+
+$font: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
+$fontMono: 'Cousine', 'Menlo', 'Consolas', sans-serif;
+$fontSizeMono: 13px;
 
 /**
  * Bare elements
  */
 
 body, html {
-    font-family: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
+    font-family: $font;
     font-size: 14px;
     color: $text;
     background: $background;
@@ -36,8 +41,8 @@ pre {
         padding: 0;
         margin: 0;
 
-        font-family: 'Inconsolata', 'Menlo', 'Consolas', sans-serif;
-        font-size: 14px;
+        font-family: $fontMono;
+        font-size: $fontSizeMono;
     }
 }
 
@@ -87,14 +92,16 @@ a {
 
 .sidebar {
     background: $panel;
+    ul > ul {
+        margin: 0;
+    }
     ul {
         list-style-type: none;
-        margin: 0 $paddingStandard;
+        margin: 0;
         padding: 0;
         li {
             font-size: 12px;
             margin: 0;
-            padding: $paddingMiniHalf;
             &.active {
                 background: $primaryAlt1;
                 color: $textInverse;
@@ -102,12 +109,17 @@ a {
                     color: $textInverse !important;
                 }
             }
+
+            &.l1 { padding: $paddingMiniHalf; }
+            &.l2 { padding: $paddingMiniHalf $paddingStandardDouble; }
+            &.l3 { padding: $paddingMiniHalf $paddingHuge; }
+
             a {
                 display: inline-block;
                 width: 100%;
                 margin: 0;
-                padding: 0;
             }
+
         }
     }
 }
