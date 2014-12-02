@@ -16,6 +16,10 @@ $.ajax({
     }
 });
 
+$('.sidebar a').click(function () {
+    alert('h');
+    $(this).addClass('active');
+});
 
 // Showing and login and signup
 (function () {
@@ -69,7 +73,8 @@ $.ajax({
         $(this).attr('href', publicUrl + $(this).attr('href'))
     });
     $logo.attr('src', publicUrl + $logo.attr('src').replace('https://www.respoke.io',''));
-})();
+// })();
+});
 
 function logout() {
     $.removeCookie('token', { domain: '.' + window.location.hostname.split('.').slice(-2).join('.') });

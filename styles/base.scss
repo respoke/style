@@ -36,6 +36,11 @@ body, html {
     margin: 0;
 }
 
+code {
+    font-family: $fontMono;
+    color: $contrast;
+}
+
 pre {
     @include insetShadow();
 
