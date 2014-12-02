@@ -17,7 +17,6 @@ $.ajax({
 });
 
 $('.sidebar a').click(function () {
-    alert('h');
     $(this).addClass('active');
 });
 
