@@ -163,7 +163,8 @@ a {
 
     img {
         margin-top: $paddingMini;
-        height: $paddingHuge * .75;
+        height: 45px;
+        width: 113px;
     }
 
     ul {
@@ -186,7 +187,7 @@ a {
         right: $paddingStandard;
         background: white;
         border-radius: 30px;
-        width: 100px;
+        width: 90px;
         font-size: $fontSize;
         border: 0;
         text-align: center;
@@ -197,7 +198,7 @@ a {
         text-transform: lowercase;
         position: fixed;
         margin-top: $paddingStandard;
-        right: $paddingStandard + 115;
+        right: $paddingStandard + 125;
     }
 }
 
