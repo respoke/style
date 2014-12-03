@@ -19,7 +19,7 @@ $fontSizeMono: 13px;
  */
 $break-small: 550px;
 $break-medium: 700px;
-$break-large: 1200px;
+$break-large: 1250px;
 
 /**
  * Local deps
@@ -92,9 +92,9 @@ h2, h3, h4, h5, h6 {
 
 h2 { color: $textBrightest; }
 h3 { color: $textBright; }
-h4 { color: $text; }
-h5 { color: $textDull; }
-h6 { color: $textDuller; }
+h4 { color: $textDull; }
+h5 { color: $textDuller; }
+h6 { color: $textDullest; }
 
 a {
     text-decoration: none;
@@ -131,7 +131,7 @@ a {
     }
     @media screen and (min-width: $break-large) {
         position: relative;
-        left: 40%;
+        left: 36%;
         margin-left: -($contentMaxWidth / 2);
     }
 
