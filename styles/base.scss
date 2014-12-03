@@ -157,11 +157,8 @@ a {
     color: $textInverse;
     text-transform: uppercase;
 
-    ul, li>a, a.signup, a.login {
+    li>a, a.signup, a.login {
         /* Responsiveness */
-        @media screen and (min-width: $break-small + 1) {
-
-        }
         @media screen and (max-width: $break-medium) {
             display: none;
         }
@@ -186,13 +183,19 @@ a {
         width: 113px;
     }
 
-    ul {
+    ul.nav-links {
         display: inline-block;
         position: absolute;
         margin-top: $paddingStandard;
         padding: 0;
+        // /* Responsiveness */
+        // @media screen and (max-width: $break-medium) {
+        //     position: fixed;
+        //     right: 0;
+        //     top: $navbarHeight;
+        // }
     }
-    ul>li {
+    ul.nav-links>li {
         display: inline-block;
         margin-left: $paddingStandard;
     }
@@ -231,12 +234,14 @@ a {
         ul {
             margin: 16px 0 0 0;
             padding: 0;
+            position: absolute;
+            right: 50%;
+            margin-right: -10px;
         }
         li {
             display: block;
             border-bottom: 3px solid $textInverse;
             width: 20px;
-            margin-left: -10px;
             margin-top: 4px;
             padding: 0;
         }
