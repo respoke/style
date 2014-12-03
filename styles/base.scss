@@ -157,6 +157,25 @@ a {
     color: $textInverse;
     text-transform: uppercase;
 
+    ul, li>a, a.signup, a.login {
+        /* Responsiveness */
+        @media screen and (min-width: $break-small + 1) {
+
+        }
+        @media screen and (max-width: $break-medium) {
+            display: none;
+        }
+    }
+    a.toggler {
+        @media screen and (max-width: $break-medium) {
+            display: inline-block;
+        }
+        @media screen and (min-width: $break-medium + 1) {
+            display: none;
+        }
+    }
+
+
     a, a:visited, a:active {
         color: $textInverse;
     }
@@ -191,7 +210,6 @@ a {
         font-size: $fontSize;
         border: 0;
         text-align: center;
-        display: inline-block;
         padding: $paddingSmall;
     }
     a.login {
@@ -199,6 +217,29 @@ a {
         position: fixed;
         margin-top: $paddingStandard;
         right: $paddingStandard + 125;
+    }
+    a.toggler {
+        text-transform: lowercase;
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: $navbarHeight;
+        width: $navbarHeight + 3;
+        background: $primaryDark;
+        text-align: center;
+        padding: 0;
+        ul {
+            margin: 16px 0 0 0;
+            padding: 0;
+        }
+        li {
+            display: block;
+            border-bottom: 3px solid $textInverse;
+            width: 20px;
+            margin-left: -10px;
+            margin-top: 4px;
+            padding: 0;
+        }
     }
 }
 
