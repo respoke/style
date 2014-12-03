@@ -130,6 +130,7 @@ a {
     /* Responsiveness */
     @media screen and (max-width: $break-small) {
         padding-left: $paddingMini;
+        margin-top: $paddingHuge * 2;
     }
     @media screen and (min-width: $break-small + 1) {
         padding-left: $contentLeftOffset - 40px;
@@ -165,12 +166,6 @@ a {
     color: $textInverse;
     text-transform: uppercase;
 
-    a.signup, a.login {
-        /* Responsiveness */
-        @media screen and (max-width: $break-medium) {
-            display: none;
-        }
-    }
     a.toggler {
         @media screen and (max-width: $break-medium) {
             display: inline-block;
@@ -185,10 +180,27 @@ a {
         color: $textInverse;
     }
 
-    img {
+    img.logo {
         margin-top: $paddingMini;
         height: 45px;
         width: 113px;
+        @media screen and (max-width: $break-small) {
+            display: none;
+        }
+        @media screen and (min-width: $break-small + 1) {
+            display: inline-block;
+        }
+    }
+    img.logo-notext {
+        margin-top: $paddingMini;
+        height: 45px;
+        width: 29px;
+        @media screen and (max-width: $break-small) {
+            display: inline-block;
+        }
+        @media screen and (min-width: $break-small + 1) {
+            display: none;
+        }
     }
 
     ul.nav-links {
@@ -284,7 +296,7 @@ a {
 
 .breadcrumbs {
     background: $panel;
-    position: relative;
+    position: fixed;
     padding: 0;
     margin: 0;
     top: $navbarHeight;
@@ -296,7 +308,7 @@ a {
         font-size: $fontSize - 1;
         min-height: 1em;
     }
-    button {
+    .toggler-sec {
         position: absolute;
         left: 0;
         height: 100%;
@@ -306,8 +318,22 @@ a {
         background: #e1e1e1;
         color: #9a9a9a;
         font-size: $fontSize + 1;
+
         span.close {
             display: none;
+        }
+        span.open {
+            display: block;
+        }
+
+        &.open-state {
+            left: 280px;
+            span.close {
+                display: block;
+            }
+            span.open {
+                display: none;
+            }
         }
     }
 
@@ -325,23 +351,21 @@ a {
     bottom: 0;
     z-index: 0;
     height: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
 
     background: $panel;
 
     /* Responsiveness */
     @media screen and (max-width: $break-small) {
-        width: 300px;
-        display: none!important;
+        width: 280px;
+        display: none;
     }
     @media screen and (min-width: $break-small + 1) {
         width: 220px;
-        padding-top: 80px;
-        padding-bottom: 80px;
     }
     @media screen and (min-width: $break-medium) {
         width: 300px;
-        padding-top: 80px;
-        padding-bottom: 80px;
     }
 
 

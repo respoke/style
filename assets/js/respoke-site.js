@@ -18,6 +18,7 @@ $.ajax({
 
 $(function jqOnReady() {
     $('.navbar a.toggler').click(toggleMainMenu);
+    $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
 });
 
 
@@ -66,11 +67,17 @@ function logout() {
     window.location.reload();
 }
 
-function toggleMainMenu (e) {
+function toggleMainMenu(e) {
     e && e.preventDefault();
 
-    $('.navbar img.logo, .navbar .nav-links, .navbar a.signup, .navbar a.login')
+    $('.navbar .nav-links')
     .each(function () {
         this.style.display = !this.style.display || this.style.display === 'none' ? 'inline-block' : 'none';
     });
+}
+
+function toggleSecondaryNav(e) {
+    e && e.preventDefault();
+    $('.sidebar').toggle();
+    $('.toggler-sec').toggleClass('open-state');
 }

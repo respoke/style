@@ -1,5 +1,7 @@
 .navbar
-    a(href=""): img.logo(src="/images/logo-respoke.png")
+    a(href="")
+        img.logo(src="/images/logo-respoke.png")
+        img.logo-notext(src="/images/logo-respoke-notext.png")
     ul.nav-links
         li: a(href="") How It Works
         li: a(href="") Pricing
@@ -15,7 +17,7 @@
                 
 
 .breadcrumbs
-    button
+    button.toggler-sec
         span.open &#9664;
         span.close &#9654;
     p=breadcrumbs
