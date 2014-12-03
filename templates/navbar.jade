@@ -1,5 +1,5 @@
 .navbar
-    img(src="/images/logo-respoke.png")
+    a(href=""): img.logo(src="/images/logo-respoke.png")
     ul.nav-links
         li: a(href="") How It Works
         li: a(href="") Pricing
@@ -7,11 +7,15 @@
         li: a(href="") Community
     a.login(href="") log in
     a.signup() Sign Up
-    a.toggler()
+    a.toggler(href="#")
         ul
             li
             li
             li
                 
 
-.breadcrumbs asdf / jkl / 33asf
+.breadcrumbs
+    button
+        span.open &#9664;
+        span.close &#9654;
+    p=breadcrumbs

@@ -46,6 +46,7 @@ body, html {
 code {
     font-family: $fontMono;
     color: $contrast;
+    background: $compliment;
 }
 
 pre {
@@ -77,10 +78,17 @@ pre {
 
 h1 {
     @include attention();
+    // color: $contrastMuted;
     font-weight: 100;
     font-size: 55px;
     margin-bottom: $paddingHuge;
     padding-bottom: none;
+
+    /* Responsiveness */
+    @media screen and (max-width: $break-small) {
+        font-size: 36px;
+        margin-bottom: $paddingStandard;
+    }
 }
 
 h2, h3, h4, h5, h6 {
@@ -157,7 +165,7 @@ a {
     color: $textInverse;
     text-transform: uppercase;
 
-    li>a, a.signup, a.login {
+    a.signup, a.login {
         /* Responsiveness */
         @media screen and (max-width: $break-medium) {
             display: none;
@@ -188,16 +196,34 @@ a {
         position: absolute;
         margin-top: $paddingStandard;
         padding: 0;
-        // /* Responsiveness */
-        // @media screen and (max-width: $break-medium) {
-        //     position: fixed;
-        //     right: 0;
-        //     top: $navbarHeight;
-        // }
-    }
-    ul.nav-links>li {
-        display: inline-block;
-        margin-left: $paddingStandard;
+
+        li {
+            display: inline-block;
+            margin-left: $paddingStandard;
+        }
+
+        /* Responsiveness */
+        @media screen and (max-width: $break-medium) {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: $navbarHeight;
+            background: $primary;
+            margin: 0;
+            width: 247px;
+            @include insetShadow();
+
+            li {
+                display: block;
+                margin: 0;
+                width: 100%;
+                text-transform: none;
+                a {
+                    display: block;
+                    padding: $paddingMini $paddingSmall;
+                }
+            }
+        }
     }
 
     a.signup {
@@ -221,6 +247,12 @@ a {
         margin-top: $paddingStandard;
         right: $paddingStandard + 125;
     }
+    a.signup, a.login {
+        /* Responsiveness */
+        @media screen and (max-width: $break-medium) {
+            margin-right: $navbarHeight;
+        }
+    }
     a.toggler {
         text-transform: lowercase;
         position: fixed;
@@ -231,6 +263,8 @@ a {
         background: $primaryDark;
         text-align: center;
         padding: 0;
+
+        /* The bars are generated from a <ul> */
         ul {
             margin: 16px 0 0 0;
             padding: 0;
@@ -249,13 +283,39 @@ a {
 }
 
 .breadcrumbs {
-    display: none;
     background: $panel;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    top: $navbarHeight;
+    left: 0;
+    right: 0;
+    p {
+        padding: $paddingMini $paddingStandard $paddingMini $paddingHuge;
+        margin: 0;
+        font-size: $fontSize - 1;
+        min-height: 1em;
+    }
+    button {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        margin: 0;
+        padding: $paddingMiniHalf $paddingMini $paddingMiniHalf $paddingMiniHalf;
+        border: 0;
+        background: #e1e1e1;
+        color: #9a9a9a;
+        font-size: $fontSize + 1;
+        span.close {
+            display: none;
+        }
+    }
 
-    /* Responsiveness */
     @media screen and (max-width: $break-small) {
-        width: 300px;
-        display: none!important;
+        display: block;
+    }
+    @media screen and (min-width: $break-small + 1) {
+        display: none;
     }
 }
 
@@ -341,6 +401,10 @@ a {
         width: 100%;
     }
 
+    a, a:visited, a:active {
+        color: $textDull;
+    }
+
     span {
         display: inline-block;
         margin-top: -$paddingMini;
@@ -349,6 +413,10 @@ a {
         img {
 
         }
+    }
+
+    img {
+        opacity: .5; // make the white turn gray
     }
 
     img.logo-digium {

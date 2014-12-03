@@ -16,29 +16,17 @@ $.ajax({
     }
 });
 
+$(function jqOnReady() {
+    $('.navbar a.toggler').click(toggleMainMenu);
+});
 
 
 // Showing and login and signup
-(function () {
+(function initVariousThings() {
     var token = $.cookie('token');
-    var $login = $('.log-in');
-    var $logout = $('.log-out');
-    var $signup = $('.sign-up');
-    var $portal = $('.portal');
+    var $login = $('.login');
+    var $signup = $('.signup');
     var $wwwlink = $('.www-link');
-    var $logo = $('img.logo');
-
-    function loggedIn() {
-        $login.remove();
-        $signup.remove();
-
-        $portal.css('display', 'inline-block');
-        $logout.css('display', 'inline-block');
-    }
-    function notLoggedIn() {
-        $portal.remove();
-        $logout.remove();
-    }
 
     var apiBase = window.location.host.replace('docs', 'api').replace(':2003', ':2000');
     var apiUrl = apiBase.indexOf('testing.digiumlabs.com') !== -1 ? 'http://' : 'https://';
@@ -57,23 +45,32 @@ $.ajax({
             headers: {
                 'Admin-Token': token
             },
-            success: loggedIn,
-            error: notLoggedIn
+            success: function () {
+
+            },
+            error: function () {
+
+            }
         });
     }
-    else {
-        notLoggedIn();
-    }
 
-    $portal.attr('href', portalUrl + $portal.attr('href'));
+    $signup.attr('href', portalUrl + $signup.attr('href'));
     $wwwlink.each(function () {
         $(this).attr('href', publicUrl + $(this).attr('href'))
     });
-    $logo.attr('src', publicUrl + $logo.attr('src').replace('https://www.respoke.io',''));
-// })();
-});
+
+})();
 
 function logout() {
     $.removeCookie('token', { domain: '.' + window.location.hostname.split('.').slice(-2).join('.') });
     window.location.reload();
+}
+
+function toggleMainMenu (e) {
+    e && e.preventDefault();
+
+    $('.navbar img.logo, .navbar .nav-links, .navbar a.signup, .navbar a.login')
+    .each(function () {
+        this.style.display = !this.style.display || this.style.display === 'none' ? 'inline-block' : 'none';
+    });
 }
