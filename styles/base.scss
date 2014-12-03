@@ -130,7 +130,7 @@ a {
     /* Responsiveness */
     @media screen and (max-width: $break-small) {
         padding-left: $paddingMini;
-        margin-top: $paddingHuge * 2;
+        margin-top: $paddingHuge * 1.5;
     }
     @media screen and (min-width: $break-small + 1) {
         padding-left: $contentLeftOffset - 40px;
