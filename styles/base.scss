@@ -279,7 +279,7 @@ a {
     bottom: 0;
     left: 0;
     right: 0;
-    height: $navbarHeight;
+    height: $navbarHeight / 2;
     z-index: 1000;
     padding: $paddingSmall;
 
@@ -299,9 +299,28 @@ a {
         margin-top: -$paddingMini;
         margin-left: $paddingStandard;
         vertical-align: text-top;
+        img {
+
+        }
     }
 
-    img {
+    img.logo-digium {
+        margin-top: -$paddingMiniHalf;
         max-height: $paddingStandard * 1.5;
+    }
+
+    img.logo-twitter {
+        height: 16px;
+        width: 16px;
+    }
+    img.logo-fb {
+        margin-left: $paddingSmall;
+        height: 16px;
+        width: 16px;
+    }
+    img.logo-gp {
+        margin-left: $paddingSmall;
+        height: 16px;
+        width: 16px;
     }
 }
