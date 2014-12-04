@@ -4,20 +4,9 @@
 hljs.configure({classPrefix: 'hljs-'});
 hljs.initHighlightingOnLoad(['javascript','css','html','json','bash']);
 
-$.ajax({
-    url: 'https://d3px1qgagsf6ei.cloudfront.net/Scripts/f772acdb-7c45-430c-8c5a-28c3bcbb420e',
-    crossDomain: true,
-    dataType: 'script',
-    success: function () {
-        Payboard.Events.trackPage;
-    },
-    error: function () {
-        console.log("There was an error retrieving the payboard tracking script");
-    }
-});
-
 $(function jqOnReady() {
 
+    // Setup dynamic links
     var token = $.cookie('token');
     var $login = $('.login');
     var $signup = $('.signup');
@@ -58,6 +47,20 @@ $(function jqOnReady() {
 
     $('.navbar a.toggler').click(toggleMainMenu);
     $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
+
+
+    // Payboard
+    $.ajax({
+        url: 'https://d3px1qgagsf6ei.cloudfront.net/Scripts/f772acdb-7c45-430c-8c5a-28c3bcbb420e',
+        crossDomain: true,
+        dataType: 'script',
+        success: function () {
+            Payboard.Events.trackPage;
+        },
+        error: function () {
+            console.warn("There was an error retrieving the payboard tracking script");
+        }
+    });
 });
 
 
