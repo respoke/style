@@ -6,7 +6,7 @@
         li: a.www-link(href="/#howitworks") How It Works
         li: a.www-link(href="/#pricing") Pricing
         li.active: a(href="/") Docs
-        li: a.www-link(href="http://community.respoke.io") Community
+        li: a(href="http://community.respoke.io") Community
     a.login(href="") log in
     a.signup(href="/#sign-up-form") Sign Up
     a.toggler(href="#")
@@ -18,6 +18,6 @@
 
 .breadcrumbs
     button.toggler-sec
-        span.open &#9664;
-        span.close &#9654;
+        span.open: img(src="/images/subnav-arrow-left.png")
+        span.close: img(src="/images/subnav-arrow-right.png")
     p=breadcrumbs

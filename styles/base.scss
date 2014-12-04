@@ -130,7 +130,7 @@ a {
     /* Responsiveness */
     @media screen and (max-width: $break-small) {
         padding-left: $paddingMini;
-        margin-top: $paddingHuge * 1.5;
+        margin-top: $paddingHuge * 2;
     }
     @media screen and (min-width: $break-small + 1) {
         padding-left: $contentLeftOffset - 40px;
@@ -167,7 +167,7 @@ a {
     text-transform: uppercase;
 
     li.active {
-        
+
     }
 
     a.toggler {
@@ -306,23 +306,33 @@ a {
     top: $navbarHeight;
     left: 0;
     right: 0;
+    height: $navbarHeight / 1.5;
+    z-index: 100;
     p {
         padding: $paddingMini $paddingStandard $paddingMini $paddingHuge;
         margin: 0;
         font-size: $fontSize - 1;
-        min-height: 1em;
     }
     .toggler-sec {
-        position: absolute;
+        position: fixed;
         left: 0;
-        height: 100%;
         margin: 0;
-        padding: $paddingMiniHalf $paddingMini $paddingMiniHalf $paddingMiniHalf;
+        padding: $paddingMiniHalf $paddingStandardHalf;
         border: 0;
         background: #e1e1e1;
         color: #9a9a9a;
         font-size: $fontSize + 1;
+        z-index: 2000;
 
+        span.close, span.open {
+            width: $navbarHeight / 2;
+            img {
+                height: 25px;
+                width: 15px;
+                margin-top: $paddingMiniHalf;
+                margin-bottom: $paddingMiniHalf;
+            }
+        }
         span.close {
             display: none;
         }
@@ -331,7 +341,8 @@ a {
         }
 
         &.open-state {
-            left: 280px;
+            right: 0;
+            left: auto;
             span.close {
                 display: block;
             }
@@ -355,15 +366,17 @@ a {
     bottom: 0;
     z-index: 0;
     height: 100%;
-    padding-top: 80px;
-    padding-bottom: 80px;
 
     background: $panel;
 
     /* Responsiveness */
     @media screen and (max-width: $break-small) {
-        width: 280px;
+        width: 100%;
         display: none;
+        padding-top: $navbarHeight / 2;
+        .sidebar-inner {
+            padding-bottom: 300px;
+        }
     }
     @media screen and (min-width: $break-small + 1) {
         width: 220px;
@@ -372,6 +385,15 @@ a {
         width: 300px;
     }
 
+    .sidebar-inner {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
 
     ul > ul {
         margin: 0;
@@ -410,7 +432,7 @@ a {
 .footer {
     background: $compliment;
     color: $textInverse;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
