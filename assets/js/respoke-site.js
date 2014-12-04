@@ -17,25 +17,19 @@ $.ajax({
 });
 
 $(function jqOnReady() {
-    $('.navbar a.toggler').click(toggleMainMenu);
-    $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
-});
 
-
-// Showing and login and signup
-(function initVariousThings() {
     var token = $.cookie('token');
     var $login = $('.login');
     var $signup = $('.signup');
     var $wwwlink = $('.www-link');
 
-    var apiBase = window.location.host.replace('docs', 'api').replace(':2003', ':2000');
+    var apiBase = window.location.host.replace('docs', 'api').replace(':2002', ':2000');
     var apiUrl = apiBase.indexOf('testing.digiumlabs.com') !== -1 ? 'http://' : 'https://';
     apiUrl += apiBase + '/v1/admins/me';
-    var publicBase = window.location.host.replace('docs', 'www').replace(':2003', ':2001');
+    var publicBase = window.location.host.replace('docs', 'www').replace(':2002', ':2001');
     var publicUrl = publicBase.indexOf('testing.digiumlabs.com') !== -1 ? 'http://' : 'https://';
     publicUrl += publicBase;
-    var portalBase = window.location.host.replace('docs', 'portal').replace(':2003', ':2002');
+    var portalBase = window.location.host.replace('docs', 'portal').replace(':2002', ':2003');
     var portalUrl = portalBase.indexOf('testing.digiumlabs.com') !== -1 ? 'http://' : 'https://';
     portalUrl += portalBase;
 
@@ -47,22 +41,28 @@ $(function jqOnReady() {
                 'Admin-Token': token
             },
             success: function () {
-
-            },
-            error: function () {
-
+                $signup.attr('href', portalUrl);
+                $signup.text('Portal');
+                $login.click(logout);
+                $login.text('log out');
             }
         });
     }
-
+    $login.attr('href', portalUrl + '/#/login');
     $signup.attr('href', portalUrl + $signup.attr('href'));
     $wwwlink.each(function () {
         $(this).attr('href', publicUrl + $(this).attr('href'))
     });
 
-})();
+    // Handlers
 
-function logout() {
+    $('.navbar a.toggler').click(toggleMainMenu);
+    $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
+});
+
+
+function logout(e) {
+    e && e.preventDefault();
     $.removeCookie('token', { domain: '.' + window.location.hostname.split('.').slice(-2).join('.') });
     window.location.reload();
 }

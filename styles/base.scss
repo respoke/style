@@ -57,7 +57,7 @@ pre {
     border-radius: $radius;
 
     h6 {
-        margin: none;
+        margin: 0;
         padding: 0 $paddingStandard;
         font-weight: 400;
     }
@@ -95,7 +95,7 @@ h2, h3, h4, h5, h6 {
     font-size: $fontSize;
     font-weight: bold;
     margin-top: $paddingMini;
-    margin-bottom: none;
+    margin-bottom: 0;
 }
 
 h2 { color: $textBrightest; }
@@ -165,6 +165,10 @@ a {
     font-size: $fontSize - 2;
     color: $textInverse;
     text-transform: uppercase;
+
+    li.active {
+        
+    }
 
     a.toggler {
         @media screen and (max-width: $break-medium) {
