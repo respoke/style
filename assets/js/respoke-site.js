@@ -82,5 +82,5 @@ function toggleMainMenu(e) {
 function toggleSecondaryNav(e) {
     e && e.preventDefault();
     $('.sidebar').toggle();
-    $('.toggler-sec').toggleClass('open-state');
+    $('.breadcrumbs').toggleClass('open-state');
 }

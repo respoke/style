@@ -317,20 +317,21 @@ a {
         position: fixed;
         left: 0;
         margin: 0;
-        padding: $paddingMiniHalf $paddingStandardHalf;
+        width: $navbarHeight + $paddingMiniHalf;
         border: 0;
-        background: #e1e1e1;
+        padding-left: 0;
+        height: $navbarHeight / 1.5;
+        background: $buttonColor;
         color: #9a9a9a;
         font-size: $fontSize + 1;
         z-index: 2000;
 
         span.close, span.open {
-            width: $navbarHeight / 2;
             img {
                 height: 25px;
                 width: 15px;
-                margin-top: $paddingMiniHalf;
-                margin-bottom: $paddingMiniHalf;
+                margin-top: 5px;
+                margin-bottom: 1px;
             }
         }
         span.close {
@@ -340,9 +341,16 @@ a {
             display: block;
         }
 
-        &.open-state {
+    }
+
+    &.open-state {
+        background: transparent;
+
+        .toggler-sec {
             right: 0;
             left: auto;
+            padding-left: $paddingMini;
+
             span.close {
                 display: block;
             }
@@ -365,7 +373,7 @@ a {
     top: 0;
     bottom: 0;
     z-index: 0;
-    height: 100%;
+    overflow-y: auto;
 
     background: $panel;
 
@@ -373,9 +381,8 @@ a {
     @media screen and (max-width: $break-small) {
         width: 100%;
         display: none;
-        padding-top: $navbarHeight / 2;
         .sidebar-inner {
-            padding-bottom: 300px;
+            width: 80% !important;
         }
     }
     @media screen and (min-width: $break-small + 1) {
@@ -390,7 +397,6 @@ a {
         height: 100%;
         width: 100%;
         overflow-x: hidden;
-        overflow-y: auto;
         padding-top: 80px;
         padding-bottom: 80px;
     }
