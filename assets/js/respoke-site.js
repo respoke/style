@@ -4,6 +4,14 @@
 hljs.configure({classPrefix: 'hljs-'});
 hljs.initHighlightingOnLoad(['javascript','css','html','json','bash']);
 
+/* see base.scss - these should remain in sync */
+window.breakpoints = {
+    small: 550,
+    medium: 700,
+    large: 1332,
+    current: ''
+};
+
 $(function jqOnReady() {
 
     // Setup dynamic links
@@ -43,8 +51,27 @@ $(function jqOnReady() {
         $(this).attr('href', publicUrl + $(this).attr('href'))
     });
 
-    // Handlers
 
+    // Handlers
+    function getCurrentBreakpoint() {
+        var $width = $(window).width();
+        var $breakpoints = window.breakpoints;
+        var current = 'large';
+        if ($width < $breakpoints.small) {
+            current = 'small';
+        } else if ($width < $breakpoints.medium) {
+            current = 'medium';
+        }
+        return current;
+    }
+    window.breakpoints.current = getCurrentBreakpoint();
+    $(window).on('resize', function (e) {
+        var curr = getCurrentBreakpoint();
+        if (curr !== window.breakpoints.current) {
+            window.breakpoints.current = curr;
+            resetNavState();
+        }
+    });
     $('.navbar a.toggler').click(toggleMainMenu);
     $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
 
@@ -83,4 +110,9 @@ function toggleSecondaryNav(e) {
     e && e.preventDefault();
     $('.sidebar').toggle();
     $('.breadcrumbs').toggleClass('open-state');
+}
+
+function resetNavState() {
+    $('.sidebar, .navbar .nav-links').css('display', '');
+    $('.breadcrumbs').removeClass('open-state');
 }
