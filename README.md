@@ -39,20 +39,24 @@ html
 
 ## Assets
 
-There is no need to use these files, but you will probably want to copy them during your build process.
+These are files you may want to reuse. You will probably want to copy them during your build. See
+the example Gruntfile `copy` task.
 
-`./assets/images`
-`./assets/js`
+`./assets/`
+`./assets/images/`
+`./assets/js/`
 
 ## Exported paths
 
-`./index.js` exports the paths to all of the asset folders which are exported.
+See the list of exported asset paths in `./index.js`.
 
-Then you could inject the paths as local variables for your SCSS and Jade.
+You can use these paths as local variables for your SCSS and Jade, or in your build script. See the
+example Gruntfile.
 
 ## Your project structure
 
-Make sure when you copy the `./assets` to serve the `./assets/js/` folder at the root of your website such that it is at the `/js/` path.
+Make sure when you copy the `./assets` to serve the `./assets/js/` folder at the root of your
+website, such that it is at the `/js/` path (required by `./templates/head.jade`).
 
 
 ## Example Gruntfile
