@@ -26,14 +26,15 @@ Inside your local Jade template:
 
 ```jade
 doctype html
-head
-    include ../node_modules/respoke-style/head.jade
-body
-    include ../node_modules/respoke-style/navbar.jade
+html
+    head
+        include ../node_modules/respoke-style/head.jade
+    body
+        include ../node_modules/respoke-style/navbar.jade
 
-    p Some custom paragraph text
+        p Some custom paragraph text
 
-    include ../node_modules/respoke-style/footer.jade
+        include ../node_modules/respoke-style/footer.jade
 ```
 
 ## Assets
