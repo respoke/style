@@ -6,6 +6,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.initConfig({
         jade: {
@@ -33,13 +34,24 @@ module.exports = function (grunt) {
                     'myLocalStylesheet.css': 'path/to/localStylesheet.scss'
                 }
             }
+        },
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    src: [respoke.paths.assets],
+                    dest: 'path/to/local/project/assets/',
+                    filter: 'isFile'
+                }]
+           }
         }
     });
 
     grunt.registerTask('default',[
         'jade:myFile',
         'sass:dist',
-        'sass:myStyles'
+        'sass:myStyles',
+        'copy:dist'
     ]);
 
 
