@@ -39,7 +39,7 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    src: [respoke.paths.assets],
+                    src: [respokeStyle.paths.assets],
                     dest: 'path/to/local/project/assets/',
                     filter: 'isFile'
                 }]
