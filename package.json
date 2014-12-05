@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/respoke/style",
   "dependencies": {
-    "node-bourbon": "^1.2.3"
+    
   }
 }
