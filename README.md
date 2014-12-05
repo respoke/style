@@ -55,8 +55,8 @@ example Gruntfile.
 
 ## Your project structure
 
-Make sure when you copy the `./assets` to serve the `./assets/js/` folder at the root of your
-website, such that it is at the `/js/` path (required by `./templates/head.jade`).
+When you copy the `./assets` to your local project, you must serve the `./assets/js/` folder at
+the root of your website such that it is at the `/js/` path (required by `./templates/head.jade`).
 
 
 ## Example Gruntfile
