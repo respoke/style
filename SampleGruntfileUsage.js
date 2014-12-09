@@ -1,7 +1,6 @@
 'use strict';
 var respokeStyle = require('respoke-style');
 
-
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jade');
@@ -24,12 +23,19 @@ module.exports = function (grunt) {
         },
         sass: {
             dist: {
+                options: {
+                    // be sure to include the sass-bourbon paths
+                    loadPath: respokeStyle.bourbon.includePaths
+                },
                 files: {
                     // 'to path': 'from path'
                     'assets/styles/base.css': respokeStyle.paths.styles + '/base.scss'
                 }
             },
             myStyles: {
+                options: {
+                    loadPath: respokeStyle.bourbon.includePaths
+                },
                 files: {
                     'myLocalStylesheet.css': 'path/to/localStylesheet.scss'
                 }
@@ -47,12 +53,11 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default',[
+    grunt.registerTask('default', [
         'jade:myFile',
         'sass:dist',
         'sass:myStyles',
         'copy:dist'
     ]);
-
 
 };
