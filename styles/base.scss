@@ -422,6 +422,10 @@ a {
                 }
             }
 
+            &.l1.header { padding: $paddingMiniHalf $paddingStandard; }
+            &.l2.header { padding: $paddingMiniHalf $paddingStandard * 2; }
+            &.l3.header { padding: $paddingMiniHalf $paddingStandardDouble * 2; }
+
             &.l1>a { padding: $paddingMiniHalf 0; }
             &.l2>a { padding: $paddingMiniHalf $paddingStandard; }
             &.l3>a { padding: $paddingMiniHalf $paddingStandardDouble; }
