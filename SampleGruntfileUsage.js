@@ -25,7 +25,7 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     // be sure to include the sass-bourbon paths
-                    loadPath: respokeStyle.bourbon.includePaths
+                    loadPath: respokeStyle.includeStylePaths()
                 },
                 files: {
                     // 'to path': 'from path'
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
             },
             myStyles: {
                 options: {
-                    loadPath: respokeStyle.bourbon.includePaths
+                    loadPath: respokeStyle.includeStylePaths()
                 },
                 files: {
                     'myLocalStylesheet.css': 'path/to/localStylesheet.scss'
