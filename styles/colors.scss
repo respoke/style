@@ -21,6 +21,10 @@ $textDullest: #bbb;
 
 $textInverse: $secondary;
 
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #DDD;
+
 @mixin attention() {
     color: $primaryAlt1;
     background: -webkit-linear-gradient(left, $contrast, $primaryAlt1);
