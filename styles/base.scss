@@ -126,6 +126,7 @@ a {
     padding-right: $paddingStandard;
     padding-bottom: $paddingHuge;
     margin-top: $paddingHuge + $paddingMiniHalf;
+    &.no-header { margin-top: 0!important; }
     min-height: 100%;
 
     /* Responsiveness */
@@ -399,6 +400,7 @@ a {
         width: 100%;
         overflow-x: hidden;
         padding-top: 80px;
+        &.no-header { padding-top: $paddingStandard; }
         padding-bottom: 80px;
     }
 
