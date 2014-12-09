@@ -25,9 +25,9 @@ $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #DDD;
 
-@mixin attention() {
+@mixin attention($left, $right) {
     color: $primaryAlt1;
-    background: -webkit-linear-gradient(left, $contrast, $primaryAlt1);
+    background: -webkit-linear-gradient(left, $left, $right);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
