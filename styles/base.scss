@@ -90,8 +90,8 @@ pre {
 
 
 h1 {
-    @include attention($contrast, $primaryAlt1);
-    // color: $contrastMuted;
+    // @include attention($contrast, $primaryAlt1);
+    color: $contrastMuted;
     font-weight: 100;
     font-size: 55px;
     margin-bottom: $paddingHuge;
