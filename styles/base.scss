@@ -437,11 +437,11 @@ a {
 
             &.l1.header { padding: $paddingMiniHalf $paddingStandard; }
             &.l2.header { padding: $paddingMiniHalf $paddingStandard * 2; }
-            &.l3.header { padding: $paddingMiniHalf $paddingStandardDouble * 2; }
+            &.l3.header { padding: $paddingMiniHalf $paddingStandard * 4; }
 
-            &.l1>a { padding: $paddingMiniHalf 0; }
-            &.l2>a { padding: $paddingMiniHalf $paddingStandard; }
-            &.l3>a { padding: $paddingMiniHalf $paddingStandardDouble; }
+            &.l1>.menuTitle { padding: $paddingMiniHalf 0; }
+            &.l2>.menuTitle { padding: $paddingMiniHalf $paddingStandard; }
+            &.l3>.menuTitle { padding: $paddingMiniHalf $paddingStandard * 2; }
 
             a {
                 display: inline-block;
