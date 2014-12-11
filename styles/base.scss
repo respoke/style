@@ -434,7 +434,9 @@ a {
                     color: $textInverse !important;
                 }
             }
-
+            &.header a {
+                display: inline;
+            }
             &.l1.header { padding: $paddingMiniHalf $paddingStandard; }
             &.l2.header { padding: $paddingMiniHalf $paddingStandard * 2; }
             &.l3.header { padding: $paddingMiniHalf $paddingStandard * 4; }
