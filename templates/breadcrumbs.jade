@@ -1,5 +1,20 @@
+mixin breadcrumbItem(title, link)
+    li
+        if link
+            a(href=link)= title
+        else
+            = title
+
 .breadcrumbs
     button.toggler-sec
         span.open: img(src="/images/subnav-arrow-left.png")
         span.close: img(src="/images/subnav-arrow-right.png")
-    p=breadcrumbs
+    ul.links
+        +breadcrumbItem(home.title, home.path)
+
+        each node in breadcrumbs || []
+            - var title = node.file.data.shortTitle || node.file.data.title;
+            - var link = node.file.data.linkUrl ? node.file.data.linkUrl : ['/', node.path].join('');
+            - link = node.file.data.noLink ? false : link;
+
+            +breadcrumbItem(title, link)

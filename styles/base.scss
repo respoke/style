@@ -313,6 +313,8 @@ a {
 }
 
 .breadcrumbs {
+    $togglerWidth: $navbarHeight + $paddingMiniHalf;
+
     background: $panel;
     position: fixed;
     padding: 0;
@@ -331,7 +333,7 @@ a {
         position: fixed;
         left: 0;
         margin: 0;
-        width: $navbarHeight + $paddingMiniHalf;
+        width: $togglerWidth;
         border: 0;
         padding-left: 0;
         height: $navbarHeight / 1.5;
@@ -370,6 +372,19 @@ a {
             }
             span.open {
                 display: none;
+            }
+        }
+    }
+
+    .links {
+        padding: 0px $paddingStandard 0px $togglerWidth;
+        text-align: right;
+
+        li {
+            display: inline;
+
+            &:not(:first-child):before {
+                content: ' / ';
             }
         }
     }

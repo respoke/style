@@ -110,6 +110,7 @@ function toggleSecondaryNav(e) {
     e && e.preventDefault();
     $('.sidebar').toggle();
     $('.breadcrumbs').toggleClass('open-state');
+    $('.breadcrumbs .links').toggle();
 }
 
 function resetNavState() {
