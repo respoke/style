@@ -314,6 +314,7 @@ a {
 
 .breadcrumbs {
     $togglerWidth: $navbarHeight + $paddingMiniHalf;
+    $breadcrumbsHeight: $navbarHeight / 1.5;
 
     background: $panel;
     position: fixed;
@@ -322,7 +323,7 @@ a {
     top: $navbarHeight;
     left: 0;
     right: 0;
-    height: $navbarHeight / 1.5;
+    height: $breadcrumbsHeight;
     z-index: 100;
     p {
         padding: $paddingMini $paddingStandard $paddingMini $paddingHuge;
@@ -336,7 +337,7 @@ a {
         width: $togglerWidth;
         border: 0;
         padding-left: 0;
-        height: $navbarHeight / 1.5;
+        height: $breadcrumbsHeight;
         background: $buttonColor;
         color: #9a9a9a;
         font-size: $fontSize + 1;
@@ -377,8 +378,13 @@ a {
     }
 
     .links {
-        padding: 0px $paddingStandard 0px $togglerWidth;
-        text-align: right;
+        margin: 0px 0px 0px $togglerWidth;
+        padding: 0px ($paddingStandard * 2) 0px $paddingStandard;
+
+        line-height: $breadcrumbsHeight;
+        text-align: left;
+        font-weight: 600;
+        color: $medium-gray;
 
         li {
             display: inline;
