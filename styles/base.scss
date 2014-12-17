@@ -324,7 +324,7 @@ a {
     left: 0;
     right: 0;
     height: $breadcrumbsHeight;
-    z-index: 100;
+    z-index: 200;
     p {
         padding: $paddingMini $paddingStandard $paddingMini $paddingHuge;
         margin: 0;
@@ -407,7 +407,7 @@ a {
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: 0;
+    z-index: 100;
     overflow-y: auto;
 
     background: $panel;
@@ -417,6 +417,7 @@ a {
         width: 100%;
         display: none;
         .sidebar-inner {
+            padding-top: 100px !important;
             width: 80% !important;
         }
     }
