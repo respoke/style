@@ -46,7 +46,7 @@ $(function jqOnReady() {
         });
     }
     $login.attr('href', portalUrl + '/#/login');
-    $signup.attr('href', portalUrl + $signup.attr('href'));
+    $signup.attr('href', publicUrl + $signup.attr('href'));
     $wwwlink.each(function () {
         $(this).attr('href', publicUrl + $(this).attr('href'))
     });
