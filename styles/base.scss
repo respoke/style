@@ -350,7 +350,7 @@ a {
         font-size: $fontSize - 1;
     }
     .toggler-sec {
-        position: fixed;
+        position: absolute;
         left: 0;
         margin: 0;
         width: $togglerWidth;
