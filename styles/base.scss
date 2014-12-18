@@ -6,7 +6,7 @@
 /**
  * Fonts
  */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800);
 $font: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
 $fontSize: 14px;
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
@@ -36,7 +36,7 @@ $break-large: 1332px;
 body, html {
     font-family: $font;
     font-size: $fontSize;
-    color: $text;
+    color: $textBrightest;
     background: $background;
     padding: 0;
     margin: 0;
@@ -87,6 +87,9 @@ pre {
     }
 }
 
+strong {
+    font-weight: 700;
+}
 
 h1 {
     // @include attention($contrast, $primaryAlt1);
@@ -106,16 +109,32 @@ h1 {
 h2, h3, h4, h5, h6 {
     font-size: $fontSize;
     font-weight: bold;
-    margin-top: $paddingMini;
     margin-bottom: 0;
-    padding-top: 30px;
+    margin-top: $paddingMini;
+    padding-top: $paddingStandard * 1.5;
 }
 
-h2 { color: $textBrightest; }
-h3 { color: $textBright; }
-h4 { color: $textDull; }
-h5 { color: $textDuller; }
-h6 { color: $textDullest; }
+h2 {
+    font-weight: 800;
+    margin-top: $paddingStandard;
+    color: $textBrightest;
+}
+h3 {
+    margin-top: $paddingSmall;
+    color: $textBright;
+    font-weight: 600;
+}
+h4 {
+    color: $textDull;
+    font-weight: 500;
+    font-style: oblique;
+}
+h5 {
+    color: $textDuller;
+}
+h6 {
+    color: $textDullest;
+}
 
 a {
     text-decoration: none;
