@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/respoke/style",
   "dependencies": {
+    "jade": "^1.9.0",
+    "lodash": "^2.4.1",
     "node-bourbon": "^1.2.3"
   }
 }
