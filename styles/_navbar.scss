@@ -1,6 +1,8 @@
 
+/**
+ * nav layout
+ **/
 .navbar {
-    background: $primary;
     height: $navbarHeight;
     position: fixed;
     top: 0;
@@ -8,7 +10,6 @@
     right: 0;
     z-index: 1000;
 
-    color: $textInverse;
     font-size: $fontSize;
     font-weight: bold;
 
@@ -53,14 +54,6 @@
         @media screen and (min-width: $break-medium + 1) {
             display: none;
         }
-    }
-
-    a, a:visited, a:active {
-        color: $white;
-    }
-
-    a:hover {
-        color: $textInverse;
     }
 
     a.logo-link {
@@ -118,54 +111,47 @@
                 -o-transition: all 0.2s;
                 transition: all 0.2s;
             }
+        }
 
-            ul {
-                display: none;
-                position: absolute;
-                top: $navbarHeight;
-                left: 0px;
+        ul.dropdown {
+            display: none;
+            position: absolute;
+            top: $navbarHeight;
+            left: 0px;
+            padding: 0px;
+            width: $navbarHeight * 2.5;
+
+            visibility: hidden;
+            opacity: 0;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            transition: all 0.2s;
+
+            li {
+                display: block;
                 padding: 0px;
-                width: $navbarHeight * 2.5;
+                line-height: normal;
 
-                background: $primary;
-                visibility: hidden;
-                opacity: 0;
-                -webkit-box-shadow: none;
-                -moz-box-shadow: none;
-                box-shadow: none;
+                text-align: left;
 
-                -webkit-transition: all 0.2s;
-                -moz-transition: all 0.2s;
-                -ms-transition: all 0.2s;
-                -o-transition: all 0.2s;
-                transition: all 0.2s;
+                -webkit-transition: background-color 0.2s;
+                -moz-transition: background-color 0.2s;
+                -ms-transition: background-color 0.2s;
+                -o-transition: background-color 0.2s;
+                transition: background-color 0.2s;
 
-                li {
-                    display: block;
-                    padding: 0px;
-                    line-height: normal;
-
-                    text-align: left;
-
+                &:hover {
                     -webkit-transition: background-color 0.2s;
                     -moz-transition: background-color 0.2s;
                     -ms-transition: background-color 0.2s;
                     -o-transition: background-color 0.2s;
                     transition: background-color 0.2s;
-
-                    &:hover {
-                        background-color: $primaryAlt2;
-
-                        -webkit-transition: background-color 0.2s;
-                        -moz-transition: background-color 0.2s;
-                        -ms-transition: background-color 0.2s;
-                        -o-transition: background-color 0.2s;
-                        transition: background-color 0.2s;
-                    }
-
-                    a:hover {
-                        color: $white;
-                    }
                 }
             }
         }
@@ -211,8 +197,6 @@
         padding: $paddingMini;
 
         text-align: center;
-        background: $primary;
-        border: 2px $white solid;
         border-radius: 5px;
     }
 
@@ -249,6 +233,72 @@
             width: 20px;
             margin-top: 4px;
             padding: 0;
+        }
+    }
+}
+
+/**
+ * nav themes
+ **/
+
+.navbar.dark {
+    background: $primary;
+    color: $textInverse;
+
+    a, a:visited, a:active {
+        color: $white;
+    }
+
+    a:hover {
+        color: $textInverse;
+    }
+
+    a.signup {
+        background: $primary;
+        border: 2px solid $white;
+    }
+
+    ul.dropdown {
+        background: $primary;
+
+        li:hover {
+            background-color: $primaryAlt2;
+
+            a:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+.navbar.light {
+    background: transparent;
+    color: $primary;
+
+    a, a:visited, a:active {
+        color: $primary;
+    }
+
+    a:hover {
+        color: $textInverse;
+    }
+
+    a.signup {
+        background: transparent;
+        border: 2px solid $primary;
+    }
+
+    ul.dropdown {
+        background: rgba($primary, 0.35);
+        border: 2px solid rgba($primary, 0.3);
+        border-radius: 5px;
+
+        li:hover {
+            background-color: rgba($primary, 0.1);
+
+            a:hover {
+                color: $white;
+            }
         }
     }
 }

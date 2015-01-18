@@ -1,15 +1,18 @@
-.navbar
+nav(class=['navbar', navTheme].join(' '))
     .navbar-wrapper
         .left-nav
             a.logo-link(href="/")
-                img.logo(src="/images/logo-respoke.png")
+                - if (navTheme === 'light')
+                    img.logo(src="/images/logo-respoke-light.png")
+                - else
+                    img.logo(src="/images/logo-respoke.png")
                 img.logo-notext(src="/images/logo-respoke-notext.png")
         ul.nav-links
             li: a(href="/pricing") Pricing
             li
                 a(href="#") Developers &nbsp;
                     span.fa.fa-caret-down
-                ul
+                ul.dropdown
                     li: a(href="https://docs.respoke.io") Docs
                     li: a(href="http://community.respoke.io") Forums
             li: a(href="http://blog.respoke.io") Blog
