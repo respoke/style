@@ -1,6 +1,6 @@
-$primary: #3b79b4;
-$primaryAlt1: #3878b6;
-$primaryAlt2: #71ade8;
+$primary: #4a4a4a;
+$primaryAlt1: #929292;
+$primaryAlt2: lighten($primary, 20%);
 $primaryDark: #2A669F;
 $secondary: #eff5f9;
 $compliment: #303030;
@@ -19,11 +19,12 @@ $textDull: #888;
 $textDuller: #a0a0a0;
 $textDullest: #bbb;
 
-$textInverse: $secondary;
+$textInverse: $primaryAlt1;
 
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #DDD;
+$white: #fff;
 
 @mixin attention($left, $right) {
     color: $primaryAlt1;

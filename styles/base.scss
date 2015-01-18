@@ -28,6 +28,11 @@ $break-large: 1332px;
 @import 'effects.scss';
 @import 'highlight-js-theme.scss';
 
+/**
+ * Widgets and content blocks
+ */
+@import 'navbar';
+@import 'footer';
 
 /**
  * Bare elements
@@ -181,154 +186,6 @@ a {
     img {
         max-width: 100%;
         @include outsetShadow();
-    }
-}
-
-.navbar {
-    background: $primary;
-    height: $navbarHeight;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    /* the image logo is a little offset */
-    padding-left: $paddingStandard - 5;
-    padding-right: $paddingStandard;
-
-    font-size: $fontSize - 2;
-    color: $textInverse;
-    text-transform: uppercase;
-
-    li.active {
-
-    }
-
-    a.toggler {
-        @media screen and (max-width: $break-medium) {
-            display: inline-block;
-        }
-        @media screen and (min-width: $break-medium + 1) {
-            display: none;
-        }
-    }
-
-
-    a, a:visited, a:active {
-        color: $textInverse;
-    }
-
-    img.logo {
-        margin-top: $paddingMini;
-        height: 45px;
-        width: 113px;
-        @media screen and (max-width: $break-small) {
-            display: none;
-        }
-        @media screen and (min-width: $break-small + 1) {
-            display: inline-block;
-        }
-    }
-    img.logo-notext {
-        margin-top: $paddingMini;
-        height: 45px;
-        width: 29px;
-        @media screen and (max-width: $break-small) {
-            display: inline-block;
-        }
-        @media screen and (min-width: $break-small + 1) {
-            display: none;
-        }
-    }
-
-    ul.nav-links {
-        display: inline-block;
-        position: absolute;
-        margin-top: $paddingStandard;
-        padding: 0;
-
-        li {
-            display: inline-block;
-            margin-left: $paddingStandard;
-        }
-
-        /* Responsiveness */
-        @media screen and (max-width: $break-medium) {
-            display: none;
-            position: fixed;
-            right: 0;
-            top: $navbarHeight;
-            background: $primary;
-            margin: 0;
-            width: 247px;
-            @include insetShadow();
-
-            li {
-                display: block;
-                margin: 0;
-                width: 100%;
-                text-transform: none;
-                a {
-                    display: block;
-                    padding: $paddingMini $paddingSmall;
-                }
-            }
-        }
-    }
-
-    a.signup {
-        position: fixed;
-        text-transform: uppercase;
-        color: $primary;
-        font-weight: bold;
-        margin-top: $paddingMini * 1.25;
-        right: $paddingStandard;
-        background: white;
-        border-radius: 30px;
-        width: 90px;
-        font-size: $fontSize;
-        border: 0;
-        text-align: center;
-        padding: $paddingSmall;
-    }
-    a.login {
-        text-transform: lowercase;
-        position: fixed;
-        margin-top: $paddingStandard;
-        right: $paddingStandard + 125;
-    }
-    a.signup, a.login {
-        /* Responsiveness */
-        @media screen and (max-width: $break-medium) {
-            margin-right: $navbarHeight;
-        }
-    }
-    a.toggler {
-        text-transform: lowercase;
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: $navbarHeight;
-        width: $navbarHeight + 3;
-        background: $primaryDark;
-        text-align: center;
-        padding: 0;
-
-        /* The bars are generated from a <ul> */
-        ul {
-            margin: 16px 0 0 0;
-            padding: 0;
-            position: absolute;
-            right: 50%;
-            margin-right: -10px;
-        }
-        li {
-            display: block;
-            border-bottom: 3px solid $textInverse;
-            width: 20px;
-            margin-top: 4px;
-            padding: 0;
-        }
     }
 }
 
@@ -494,66 +351,5 @@ a {
             }
 
         }
-    }
-}
-
-.footer {
-    background: $compliment;
-    color: $textInverse;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: $navbarHeight / 2;
-    z-index: 1000;
-    padding: $paddingSmall;
-
-    text-align: center;
-    font-size: $fontSize - 2px;
-    color: $textDull;
-
-    /* Responsiveness */
-    @media screen and (max-width: $break-small) {
-        width: 300px;
-        position: static;
-        width: 100%;
-    }
-
-    a, a:visited, a:active {
-        color: $textDull;
-    }
-
-    span {
-        display: inline-block;
-        margin-top: -$paddingMini;
-        margin-left: $paddingStandard;
-        vertical-align: text-top;
-        img {
-
-        }
-    }
-
-    img {
-        opacity: .5; // make the white turn gray
-    }
-
-    img.logo-digium {
-        margin-top: -$paddingMiniHalf;
-        max-height: $paddingStandard * 1.5;
-    }
-
-    img.logo-twitter {
-        height: 16px;
-        width: 16px;
-    }
-    img.logo-fb {
-        margin-left: $paddingSmall;
-        height: 16px;
-        width: 16px;
-    }
-    img.logo-gp {
-        margin-left: $paddingSmall;
-        height: 16px;
-        width: 16px;
     }
 }

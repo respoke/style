@@ -1,0 +1,103 @@
+
+#footer {
+    background: $primary;
+    color: $textInverse;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: hidden;
+    padding: ($paddingStandard * 2.5) 0px;
+
+    text-align: left;
+    font-size: $fontSize - 2px;
+    color: $textDull;
+
+    .footer-wrapper {
+        box-sizing: border-box;
+        padding: 0px $paddingHuge;
+        max-width: $contentMaxWidth;
+        margin: 0px auto;
+    }
+
+    /* Responsiveness */
+    @media screen and (max-width: $break-small) {
+        width: 300px;
+        position: static;
+        width: 100%;
+    }
+
+    a, a:visited {
+        color: $white;
+    }
+
+    > * {
+        position: inline;
+        overflow: hidden;
+    }
+
+    .footer-left {
+        float: left;
+    }
+    .footer-right {
+        float: right;
+    }
+
+    .footer-left > * {
+        float: left;
+        margin: 0px ($paddingStandard * 4) -9999px 0px;
+        padding-bottom: 9999px;
+        overflow: hidden;
+    }
+
+    .footer-right > * {
+        float: right;
+        margin-bottom: -9999px;
+        padding-bottom: 9999px;
+        overflow: hidden;
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dt, dd {
+        margin: 0px;
+        margin-bottom: $paddingMini;
+    }
+
+    .legal {
+        margin-right: $paddingStandard;
+        padding-right: $paddingStandard;
+
+        border-right: 1px solid $textDull;
+
+        > * {
+            margin: $paddingMini 0px;
+
+            &:first-child {
+                margin-top: 0px;
+            }
+
+            &:last-child {
+                margin-bottom: $paddingStandard * 1.5;
+            }
+        }
+    }
+
+    .logos {
+        margin-top: -10px;
+
+        a {
+            display: block;
+        }
+    }
+
+    img.logo-digium {
+        max-height: 50px;
+    }
+
+    img.logo-respoke {
+        max-height: 55px;
+    }
+}
