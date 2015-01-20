@@ -14,9 +14,9 @@
     color: $textDull;
 
     .footer-wrapper {
+        @include container;
+
         padding: 0px $paddingHuge;
-        max-width: $contentMaxWidth;
-        margin: 0px auto;
     }
 
     /* Responsiveness */

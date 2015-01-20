@@ -15,8 +15,7 @@
     font-weight: bold;
 
     .navbar-wrapper {
-        max-width: $contentMaxWidth;
-        margin: 0px auto;
+        @include container;
         padding: 0px $paddingStandard;
     }
 
