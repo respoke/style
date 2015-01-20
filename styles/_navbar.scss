@@ -2,6 +2,7 @@
 /**
  * nav layout
  **/
+
 .navbar {
     height: $navbarHeight;
     position: fixed;
@@ -14,7 +15,7 @@
     font-weight: bold;
 
     .navbar-wrapper {
-        box-sizing: border-box;
+        @include box-sizing(border-box);
         max-width: $contentMaxWidth;
         margin: 0px auto;
         padding: 0px $paddingStandard;
@@ -84,6 +85,8 @@
     }
 
     ul.nav-links {
+        $navbarLinkWidth: 94px;
+
         li {
             display: inline-block;
             position: relative;
@@ -92,12 +95,8 @@
             a {
                 display: block;
                 padding: $paddingSmall;
-
-                -webkit-transition: all 0.2s;
-                -moz-transition: all 0.2s;
-                -ms-transition: all 0.2s;
-                -o-transition: all 0.2s;
-                transition: all 0.2s;
+                width: $navbarLinkWidth;
+                @include transition(all, 0.2s);
             }
 
             &:hover ul {
@@ -105,54 +104,76 @@
                 opacity: 1;
                 visibility: visible;
 
-                -webkit-transition: all 0.2s;
-                -moz-transition: all 0.2s;
-                -ms-transition: all 0.2s;
-                -o-transition: all 0.2s;
-                transition: all 0.2s;
+                @include transition(all, 0.2s)
             }
         }
 
         ul.dropdown {
+            $ddWidth: $navbarHeight * 2.5;
+            $ddBorderWidth: 1px;
+            $ddTriangleSize: 10px;
+
             display: none;
             position: absolute;
             top: $navbarHeight;
-            left: 0px;
+            left: ($navbarLinkWidth / 2) - ($ddWidth / 2) + $paddingSmall;
             padding: 0px;
-            width: $navbarHeight * 2.5;
+            width: $ddWidth;
+
+            border-width: $ddBorderWidth;
+            border-style: solid;
+            border-radius: 5px;
 
             visibility: hidden;
             opacity: 0;
-            -webkit-box-shadow: none;
-            -moz-box-shadow: none;
-            box-shadow: none;
+            @include prefixer(box-shadow, none, webkit moz spec);
 
-            -webkit-transition: all 0.2s;
-            -moz-transition: all 0.2s;
-            -ms-transition: all 0.2s;
-            -o-transition: all 0.2s;
-            transition: all 0.2s;
+            @include transition(all, 0.2s);
+
+            a {
+                width: auto;
+            }
 
             li {
                 display: block;
                 padding: 0px;
                 line-height: normal;
 
-                text-align: left;
+                text-align: center;
 
-                -webkit-transition: background-color 0.2s;
-                -moz-transition: background-color 0.2s;
-                -ms-transition: background-color 0.2s;
-                -o-transition: background-color 0.2s;
-                transition: background-color 0.2s;
+                @include transition(background-color, 0.2s);
+
+                &:after {
+                    display: block;
+                    @include size(70% $ddBorderWidth);
+                    margin: 0 auto;
+
+                    content: " ";
+                }
+
+                &:last-child:after {
+                    visibility: hidden;
+                }
 
                 &:hover {
-                    -webkit-transition: background-color 0.2s;
-                    -moz-transition: background-color 0.2s;
-                    -ms-transition: background-color 0.2s;
-                    -o-transition: background-color 0.2s;
-                    transition: background-color 0.2s;
+                    @include transition(background-color, 0.2s);
                 }
+            }
+
+            &:before {
+                $topOffset: -($ddTriangleSize / 2);
+                $rightOffset: ($ddWidth / 2) - ($ddTriangleSize / 2);
+
+                @include box-sizing(border-box);
+                display: block;
+                @include position(absolute, $topOffset $rightOffset null null);
+                @include size($ddTriangleSize);
+                content: " ";
+                pointer-events: none;
+                @include transform(rotate(-45deg));
+
+                border-width: $ddBorderWidth;
+                @include border-style(solid solid none none);
             }
         }
 
@@ -197,6 +218,7 @@
         padding: $paddingMini;
 
         text-align: center;
+        border: 2px solid;
         border-radius: 5px;
     }
 
@@ -241,6 +263,34 @@
  * nav themes
  **/
 
+.navbar.dark ul.dropdown, .navbar.light ul.dropdown {
+    background: $primaryDark;
+    border-color: $primaryAlt2;
+
+    a, a:visited, a:active {
+        color: $white;
+    }
+
+    a:hover {
+        color: $textInverse;
+    }
+
+    &:before {
+        background-color: $primaryDark;
+        border-color: $primaryAlt2;
+    }
+
+    li {
+        a, a:visited, a:active {
+            font-weight: normal;
+        }
+
+        &:after {
+            background-color: $white;
+        }
+    }
+}
+
 .navbar.dark {
     background: $primary;
     color: $textInverse;
@@ -256,18 +306,6 @@
     a.signup {
         background: $primary;
         border: 2px solid $white;
-    }
-
-    ul.dropdown {
-        background: $primary;
-
-        li:hover {
-            background-color: $primaryAlt2;
-
-            a:hover {
-                color: $white;
-            }
-        }
     }
 }
 
@@ -285,20 +323,6 @@
 
     a.signup {
         background: transparent;
-        border: 2px solid $primary;
-    }
-
-    ul.dropdown {
-        background: rgba($primary, 0.35);
-        border: 2px solid rgba($primary, 0.3);
-        border-radius: 5px;
-
-        li:hover {
-            background-color: rgba($primary, 0.1);
-
-            a:hover {
-                color: $white;
-            }
-        }
+        border-color: $primary;
     }
 }
