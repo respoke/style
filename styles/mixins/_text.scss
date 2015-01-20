@@ -1,0 +1,7 @@
+
+@mixin attention($left, $right) {
+    color: $primaryAlt1;
+    background: -webkit-linear-gradient(left, $left, $right);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

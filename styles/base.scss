@@ -23,10 +23,16 @@ $break-large: 1332px;
 /**
  * Local deps
  */
-@import 'colors.scss';
-@import 'spacing.scss';
-@import 'effects.scss';
-@import 'highlight-js-theme.scss';
+@import 'colors';
+@import 'spacing';
+@import 'highlight-js-theme';
+
+/**
+ * Mixins
+ */
+@import 'mixins/effects';
+@import 'mixins/text';
+@import 'mixins/layout';
 
 /**
  * Widgets and content blocks
