@@ -15,7 +15,6 @@
     font-weight: bold;
 
     .navbar-wrapper {
-        @include box-sizing(border-box);
         max-width: $contentMaxWidth;
         margin: 0px auto;
         padding: 0px $paddingStandard;
@@ -24,7 +23,7 @@
     .left-nav {
         display: block;
         float: left;
-        width: 30%;
+        width: 20%;
         height: $navbarHeight;
         text-align: left;
     }
@@ -32,7 +31,7 @@
     .right-nav {
         display: block;
         float: left;
-        width: 30%;
+        width: 20%;
         height: $navbarHeight;
         text-align: right;
     }
@@ -40,7 +39,7 @@
     .nav-links {
         display: block;
         float: left;
-        width: 40%;
+        width: 60%;
         margin: 0px;
         padding: 0px;
         height: $navbarHeight;
@@ -85,7 +84,7 @@
     }
 
     ul.nav-links {
-        $navbarLinkWidth: 94px;
+        $navbarLinkWidth: $paddingStandard * 6;
 
         li {
             display: inline-block;
@@ -116,7 +115,7 @@
             display: none;
             position: absolute;
             top: $navbarHeight;
-            left: ($navbarLinkWidth / 2) - ($ddWidth / 2) + $paddingSmall;
+            left: ($navbarLinkWidth / 2) - ($ddWidth / 2);
             padding: 0px;
             width: $ddWidth;
 
@@ -164,7 +163,6 @@
                 $topOffset: -($ddTriangleSize / 2);
                 $rightOffset: ($ddWidth / 2) - ($ddTriangleSize / 2);
 
-                @include box-sizing(border-box);
                 display: block;
                 @include position(absolute, $topOffset $rightOffset null null);
                 @include size($ddTriangleSize);
@@ -204,7 +202,7 @@
 
     a.signup, a.login {
         display: inline-block;
-        width: 60px;
+        width: $paddingStandard * 4;
 
         /* Responsiveness */
         @media screen and (max-width: $break-medium) {
