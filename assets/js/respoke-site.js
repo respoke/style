@@ -46,6 +46,7 @@ $(function jqOnReady() {
         });
     }
     $login.attr('href', portalUrl + '/#/login');
+    // TODO: this url is changing to the portal
     $signup.attr('href', publicUrl + $signup.attr('href'));
     $wwwlink.each(function () {
         $(this).attr('href', publicUrl + $(this).attr('href'))

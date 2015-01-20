@@ -1,7 +1,7 @@
-$primary: #3b79b4;
-$primaryAlt1: #3878b6;
-$primaryAlt2: #71ade8;
-$primaryDark: #2A669F;
+$primary: #4a4a4a;
+$primaryAlt1: #929292;
+$primaryAlt2: #9D9D9D;
+$primaryDark: #333333;
 $secondary: #eff5f9;
 $compliment: #303030;
 $contrast: #dc47b1;
@@ -19,11 +19,12 @@ $textDull: #888;
 $textDuller: #a0a0a0;
 $textDullest: #bbb;
 
-$textInverse: $secondary;
+$textInverse: $primaryAlt1;
 
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #DDD;
+$white: #fff;
 
 @mixin attention($left, $right) {
     color: $primaryAlt1;

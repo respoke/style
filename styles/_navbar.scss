@@ -1,0 +1,328 @@
+
+/**
+ * nav layout
+ **/
+
+.navbar {
+    height: $navbarHeight;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    font-size: $fontSize;
+    font-weight: bold;
+
+    .navbar-wrapper {
+        @include box-sizing(border-box);
+        max-width: $contentMaxWidth;
+        margin: 0px auto;
+        padding: 0px $paddingStandard;
+    }
+
+    .left-nav {
+        display: block;
+        float: left;
+        width: 30%;
+        height: $navbarHeight;
+        text-align: left;
+    }
+
+    .right-nav {
+        display: block;
+        float: left;
+        width: 30%;
+        height: $navbarHeight;
+        text-align: right;
+    }
+
+    .nav-links {
+        display: block;
+        float: left;
+        width: 40%;
+        margin: 0px;
+        padding: 0px;
+        height: $navbarHeight;
+
+        text-align: center;
+    }
+
+    a.toggler {
+        @media screen and (max-width: $break-medium) {
+            display: inline-block;
+        }
+        @media screen and (min-width: $break-medium + 1) {
+            display: none;
+        }
+    }
+
+    a.logo-link {
+        display: inline-block;
+        padding-top: $paddingMini;
+        height: $navbarHeight - $paddingMini;
+    }
+
+    img.logo {
+        height: 45px;
+        width: 113px;
+        @media screen and (max-width: $break-small) {
+            display: none;
+        }
+        @media screen and (min-width: $break-small + 1) {
+            display: inline-block;
+        }
+    }
+    img.logo-notext {
+        height: 45px;
+        width: 29px;
+        @media screen and (max-width: $break-small) {
+            display: inline-block;
+        }
+        @media screen and (min-width: $break-small + 1) {
+            display: none;
+        }
+    }
+
+    ul.nav-links {
+        $navbarLinkWidth: 94px;
+
+        li {
+            display: inline-block;
+            position: relative;
+            line-height: $navbarHeight - ($paddingSmall * 2);
+
+            a {
+                display: block;
+                padding: $paddingSmall;
+                width: $navbarLinkWidth;
+                @include transition(all, 0.2s);
+            }
+
+            &:hover ul {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+
+                @include transition(all, 0.2s)
+            }
+        }
+
+        ul.dropdown {
+            $ddWidth: $navbarHeight * 2.5;
+            $ddBorderWidth: 1px;
+            $ddTriangleSize: 10px;
+
+            display: none;
+            position: absolute;
+            top: $navbarHeight;
+            left: ($navbarLinkWidth / 2) - ($ddWidth / 2) + $paddingSmall;
+            padding: 0px;
+            width: $ddWidth;
+
+            border-width: $ddBorderWidth;
+            border-style: solid;
+            border-radius: 5px;
+
+            visibility: hidden;
+            opacity: 0;
+            @include prefixer(box-shadow, none, webkit moz spec);
+
+            @include transition(all, 0.2s);
+
+            a {
+                width: auto;
+            }
+
+            li {
+                display: block;
+                padding: 0px;
+                line-height: normal;
+
+                text-align: center;
+
+                @include transition(background-color, 0.2s);
+
+                &:after {
+                    display: block;
+                    @include size(70% $ddBorderWidth);
+                    margin: 0 auto;
+
+                    content: " ";
+                }
+
+                &:last-child:after {
+                    visibility: hidden;
+                }
+
+                &:hover {
+                    @include transition(background-color, 0.2s);
+                }
+            }
+
+            &:before {
+                $topOffset: -($ddTriangleSize / 2);
+                $rightOffset: ($ddWidth / 2) - ($ddTriangleSize / 2);
+
+                @include box-sizing(border-box);
+                display: block;
+                @include position(absolute, $topOffset $rightOffset null null);
+                @include size($ddTriangleSize);
+                content: " ";
+                pointer-events: none;
+                @include transform(rotate(-45deg));
+
+                border-width: $ddBorderWidth;
+                @include border-style(solid solid none none);
+            }
+        }
+
+        /* Responsiveness */
+        @media screen and (max-width: $break-medium) {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: $navbarHeight;
+            background: $primary;
+            margin: 0;
+            width: 247px;
+            @include insetShadow();
+
+            li {
+                display: block;
+                margin: 0;
+                width: 100%;
+                text-transform: none;
+                a {
+                    display: block;
+                    padding: $paddingMini $paddingSmall;
+                }
+            }
+        }
+    }
+
+
+    a.signup, a.login {
+        display: inline-block;
+        width: 60px;
+
+        /* Responsiveness */
+        @media screen and (max-width: $break-medium) {
+            margin-right: $navbarHeight;
+        }
+    }
+
+    a.signup {
+        margin-top: $paddingSmall;
+        margin-right: $paddingStandard;
+        padding: $paddingMini;
+
+        text-align: center;
+        border: 2px solid;
+        border-radius: 5px;
+    }
+
+    a.login {
+        display: inline-block;
+        width: 60px;
+        line-height: $navbarHeight;
+
+        text-align: center;
+    }
+
+    a.toggler {
+        text-transform: lowercase;
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: $navbarHeight;
+        width: $navbarHeight + 3;
+        background: $primaryDark;
+        text-align: center;
+        padding: 0;
+
+        /* The bars are generated from a <ul> */
+        ul {
+            margin: 16px 0 0 0;
+            padding: 0;
+            position: absolute;
+            right: 50%;
+            margin-right: -10px;
+        }
+        li {
+            display: block;
+            border-bottom: 3px solid $textInverse;
+            width: 20px;
+            margin-top: 4px;
+            padding: 0;
+        }
+    }
+}
+
+/**
+ * nav themes
+ **/
+
+.navbar.dark ul.dropdown, .navbar.light ul.dropdown {
+    background: $primaryDark;
+    border-color: $primaryAlt2;
+
+    a, a:visited, a:active {
+        color: $white;
+    }
+
+    a:hover {
+        color: $textInverse;
+    }
+
+    &:before {
+        background-color: $primaryDark;
+        border-color: $primaryAlt2;
+    }
+
+    li {
+        a, a:visited, a:active {
+            font-weight: normal;
+        }
+
+        &:after {
+            background-color: $white;
+        }
+    }
+}
+
+.navbar.dark {
+    background: $primary;
+    color: $textInverse;
+
+    a, a:visited, a:active {
+        color: $white;
+    }
+
+    a:hover {
+        color: $textInverse;
+    }
+
+    a.signup {
+        background: $primary;
+        border: 2px solid $white;
+    }
+}
+
+.navbar.light {
+    background: transparent;
+    color: $primary;
+
+    a, a:visited, a:active {
+        color: $primary;
+    }
+
+    a:hover {
+        color: $textInverse;
+    }
+
+    a.signup {
+        background: transparent;
+        border-color: $primary;
+    }
+}

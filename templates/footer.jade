@@ -1,15 +1,35 @@
-.footer
-    a(href="http://digium.com/respoke")
-        img.logo-digium(src="/images/digium-white.png")
+footer#footer
+    .footer-wrapper
+        nav.footer-left
+            dl
+                dt Site
+                dd: a(href="/") Home
+                dd: a(href="/pricing") Pricing
+                dd: a(href="/features") Features
+                dd: a(href="https://portal.respoke.io/#/signup") Signup
 
-    span Copyright &copy; #{ new Date().getFullYear() } D.C.S, LLC
-    span: a(href="mailto:info@respoke.io") info@respoke.io
-    span
-        a(href="https://twitter.com/respoke")
-            img.logo-twitter(src="/images/twitter.png")
-        a(href="https://www.facebook.com/respokeIO")
-            img.logo-fb(src="/images/fb.png")
-        a(href="https://plus.google.com/110089434291590810767" rel="publisher")
-            img.logo-gp(src="/images/gp.png")
-    script.
-        window._built = "!{ +new Date() }";
+            dl
+                dt Developers
+                dd: a(href="https://docs.respoke.io/js-library/audio-chat.html") Quickstart
+                dd: a(href="https://docs.respoke.io/") Documentation
+                dd: a(href="http://community.respoke.io") Forums
+                dd: a(href="https://github.com/respoke/") Github
+
+            dl
+                dt Connect
+                dd: a(href="https://twitter.com/respoke") twitter
+                dd: a(href="https://plus.google.com/110089434291590810767" rel="publisher") google+
+                dd: a(href="https://www.facebook.com/respokeIO") facebook
+                dd: a(href="https://www.linkedin.com/company/respoke") linkedin
+
+        .footer-right
+            .logos
+                a(href="https://www.respoke.io")
+                    img.logo-respoke(src="/images/logo-respoke.png")
+                a(href="http://digium.com/respoke")
+                    img.logo-digium(src="/images/digium-white.png")
+            .legal
+                div Copyright &copy; #{ new Date().getFullYear() } D.C.S, LLC
+                div: a(href="#") Terms & Conditions
+                div: a(href="#") Privace Policy
+                div: a(href="mailto:info@respoke.io") info@respoke.io
