@@ -15,7 +15,7 @@
     p {
         padding: $paddingMini $paddingStandard $paddingMini $paddingHuge;
         margin: 0;
-        font-size: $fontSize - 1;
+        font-size: $font-size - 1;
     }
     .toggler-sec {
         position: absolute;
@@ -27,7 +27,7 @@
         height: $breadcrumbsHeight;
         background: $buttonColor;
         color: #9a9a9a;
-        font-size: $fontSize + 1;
+        font-size: $font-size + 1;
         z-index: 2000;
 
         span.close, span.open {

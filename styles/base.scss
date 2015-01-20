@@ -59,7 +59,7 @@ html {
 
 body, html {
     font-family: $font;
-    font-size: $fontSize;
+    font-size: $font-size;
     color: $textBrightest;
     background: $background;
     padding: 0;
@@ -81,7 +81,7 @@ body.no-navbar {
 }
 
 code {
-    font-family: $fontMono;
+    font-family: $font-mono;
     color: $contrast;
     background: $secondary;
 }
@@ -106,8 +106,8 @@ pre {
         padding: 0;
         margin: 0;
 
-        font-family: $fontMono;
-        font-size: $fontSizeMono;
+        font-family: $font-mono;
+        font-size: $font-size-mono;
     }
 }
 
@@ -131,7 +131,7 @@ h1 {
 }
 
 h2, h3, h4, h5, h6 {
-    font-size: $fontSize;
+    font-size: $font-size;
     font-weight: bold;
     margin-bottom: 0;
     margin-top: $paddingMini;
