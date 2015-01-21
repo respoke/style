@@ -46,10 +46,10 @@
             padding-left: $paddingStandard;
 
             &.active {
-                background: $primaryAlt1;
-                color: $textInverse;
+                background: $primary-light;
+                color: $text-inverse;
                 a {
-                    color: $textInverse !important;
+                    color: $text-inverse !important;
                 }
             }
             &.header a {

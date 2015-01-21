@@ -234,7 +234,7 @@
         top: 0;
         height: $navbarHeight;
         width: $navbarHeight + 3;
-        background: $primaryDark;
+        background: $primary-dark;
         text-align: center;
         padding: 0;
 
@@ -248,7 +248,7 @@
         }
         li {
             display: block;
-            border-bottom: 3px solid $textInverse;
+            border-bottom: 3px solid $text-inverse;
             width: 20px;
             margin-top: 4px;
             padding: 0;
@@ -261,20 +261,20 @@
  **/
 
 .navbar.dark ul.dropdown, .navbar.light ul.dropdown {
-    background: $primaryDark;
-    border-color: $primaryAlt2;
+    background: $primary-dark;
+    border-color: $primary-highlight;
 
     a, a:visited, a:active {
         color: $white;
     }
 
     a:hover {
-        color: $textInverse;
+        color: $text-inverse;
     }
 
     &:before {
-        background-color: $primaryDark;
-        border-color: $primaryAlt2;
+        background-color: $primary-dark;
+        border-color: $primary-highlight;
     }
 
     li {
@@ -290,14 +290,14 @@
 
 .navbar.dark {
     background: $primary;
-    color: $textInverse;
+    color: $text-inverse;
 
     a, a:visited, a:active {
         color: $white;
     }
 
     a:hover {
-        color: $textInverse;
+        color: $text-inverse;
     }
 
     a.signup {
@@ -315,7 +315,7 @@
     }
 
     a:hover {
-        color: $textInverse;
+        color: $text-inverse;
     }
 
     a.signup {

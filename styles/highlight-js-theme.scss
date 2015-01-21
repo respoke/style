@@ -3,7 +3,7 @@
     color: $text;
 }
 .hljs-comment,.hljs-template_comment,.hljs-javadoc,.hljs-comment * {
-    color: $textDullest;
+    color: $text-lightest;
 }
 .hljs-keyword,.hljs-literal,.nginx .hljs-title {
     color: $primary;
@@ -12,13 +12,13 @@
     color: $compliment;
 }
 .hljs-envvar,.tex .hljs-special {
-    color: $textDull;
+    color: $text-light;
 }
 .hljs-string {
-    color: $contrastMuted;
+    color: $contrast-muted;
 }
 .hljs-tag .hljs-value,.hljs-cdata,.hljs-filter .hljs-argument,.hljs-attr_selector,.apache .hljs-cbracket,.hljs-date,.hljs-regexp {
-    color: $contrastMuted;
+    color: $contrast-muted;
 }
 .hljs-sub .hljs-identifier,.hljs-pi,.hljs-tag .hljs-keyword,.hljs-decorator,.ini .hljs-title,.hljs-shebang,.hljs-prompt,.hljs-hexcolor,.hljs-rules .hljs-value,.css .hljs-value .hljs-number,.hljs-symbol,.hljs-symbol .hljs-string,.hljs-number,.css .hljs-function,.clojure .hljs-title,.clojure .hljs-built_in,.hljs-function .hljs-title,.coffeescript .hljs-attribute {
     color: $contrast;
@@ -49,7 +49,7 @@
 .css .hljs-tag,
 .css .hljs-id,
 .css .hljs-class {
-    color: $textBrightest;
+    color: $text;
     font-weight: bold;
 }
 .hljs-value .hljs-important {
@@ -77,7 +77,7 @@
 }
 .hljs-addition {
     background-color: $primary;
-    color: $textInverse;
+    color: $text-inverse;
 }
 .hljs-deletion {
     background-color: #ffc8bd;
@@ -86,6 +86,6 @@
     font-weight: bold;
 }
 .method .hljs-id {
-    color: $textBright;
+    color: $text-highlight;
     font-weight: bold;
 }

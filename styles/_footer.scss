@@ -1,7 +1,7 @@
 
 #footer {
     background: $primary;
-    color: $textInverse;
+    color: $text-inverse;
     bottom: 0;
     left: 0;
     right: 0;
@@ -11,7 +11,7 @@
 
     text-align: left;
     font-size: $font-size-normal - 2px;
-    color: $textDull;
+    color: $text-light;
 
     .footer-wrapper {
         @include container;
@@ -69,7 +69,7 @@
         margin-right: $paddingStandard;
         padding-right: $paddingStandard;
 
-        border-right: 1px solid $textDull;
+        border-right: 1px solid $text-light;
 
         > * {
             margin: $paddingMini 0px;

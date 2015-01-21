@@ -1,34 +1,31 @@
-$primary: #4a4a4a;
-$primaryAlt1: #929292;
-$primaryAlt2: #9D9D9D;
-$primaryDark: #333333;
+
+$dark-grey: #4a4a4a;
+$light-grey: #f4f4f4;
+$white: #fff;
+$blue: #3b79b4;
+$light-blue: #57adff;
+$red: #ff7766;
+
+$primary: $dark-grey;
+$primary-light: #929292;
+$primary-highlight: #9D9D9D;
+$primary-dark: #333333;
+
+// TODO: these need to be adjusted and/or renamed
 $secondary: #eff5f9;
 $compliment: #303030;
 $contrast: #dc47b1;
-$contrastMuted: #CB219A;
+$contrast-muted: #CB219A;
 
-$buttonColor: #e1e1e1;
+$button-color: #3E7AB2;
 
 $background: #fff;
 $panel: #f5f5f5;
 
-$textBrightest: #101010;
-$textBright: #4a4a4a;
-$text: #5a5a5a;
-$textDull: #888;
-$textDuller: #a0a0a0;
-$textDullest: #bbb;
+$text-highlight: $blue;
+$text: $primary;
+$text-inverse: $primary-light;
 
-$textInverse: $primaryAlt1;
-
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #DDD;
-$white: #fff;
-
-@mixin attention($left, $right) {
-    color: $primaryAlt1;
-    background: -webkit-linear-gradient(left, $left, $right);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+$text-light: lighten($text, 20%);
+$text-lighter: lighten($text, 40%);
+$text-lightest: lighten($text, 60%);

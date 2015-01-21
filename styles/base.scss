@@ -62,7 +62,7 @@ html {
 body, html {
     font-family: $font;
     font-size: $font-size-normal;
-    color: $textBrightest;
+    color: $text;
     background: $background;
     padding: 0;
     margin: 0;
@@ -118,8 +118,7 @@ strong {
 }
 
 h1 {
-    // @include attention($contrast, $primaryAlt1);
-    color: $contrastMuted;
+    color: $contrast-muted;
     font-weight: 100;
     font-size: 55px;
     margin-bottom: $paddingHuge;
@@ -143,23 +142,23 @@ h2, h3, h4, h5, h6 {
 h2 {
     font-weight: 800;
     margin-top: $paddingStandard;
-    color: $textBrightest;
+    color: $text;
 }
 h3 {
     margin-top: $paddingSmall;
-    color: $textBright;
+    color: $text;
     font-weight: 600;
 }
 h4 {
-    color: $textDull;
+    color: $text-light;
     font-weight: 500;
     font-style: oblique;
 }
 h5 {
-    color: $textDuller;
+    color: $text-lighter;
 }
 h6 {
-    color: $textDullest;
+    color: $text-lightest;
     padding-top: $paddingMini;
 }
 
@@ -171,6 +170,6 @@ a {
         color: $primary;
     }
     &:hover {
-        color: $primaryAlt1;
+        color: $primary-light;
     }
 }
