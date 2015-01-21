@@ -1,0 +1,31 @@
+
+@mixin button {
+    display: inline-block;
+    padding: $paddingStandard/2 $paddingStandard;
+
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px $primary-light;
+    font-size: $font-size-large;
+}
+
+@mixin button-dark {
+    @include button;
+    background: $button-dark;
+    color: $white;
+}
+
+@mixin button-light {
+    @include button;
+    background: $light-grey;
+    color: $primary;
+}
+
+@mixin button-transparent {
+    @include button;
+    background: transparent;
+    border: 2px solid $primary;
+    box-shadow: none;
+    color: $primary;
+    font-weight: bold;
+}
