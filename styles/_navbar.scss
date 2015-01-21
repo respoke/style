@@ -210,13 +210,14 @@
     }
 
     a.signup {
+        @include button-transparent;
+
         margin-top: $paddingSmall;
         margin-right: $paddingStandard;
         padding: $paddingMini;
 
         text-align: center;
-        border: 2px solid;
-        border-radius: $radius;
+        font-size: $font-size-normal;
     }
 
     a.login {
