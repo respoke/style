@@ -120,7 +120,7 @@
 
             border-width: $ddBorderWidth;
             border-style: solid;
-            border-radius: 5px;
+            border-radius: $radius;
 
             visibility: hidden;
             opacity: 0;
@@ -216,7 +216,7 @@
 
         text-align: center;
         border: 2px solid;
-        border-radius: 5px;
+        border-radius: $radius;
     }
 
     a.login {
