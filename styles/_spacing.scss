@@ -1,13 +1,11 @@
-$paddingMiniHalf: 3px;
-$paddingMini: 6px;
-$paddingSmallHalf: 6px;
-$paddingSmall: 12px;
-$paddingStandard: 20px;
-$paddingLarge: $paddingStandard * 2;
-$paddingHuge: $paddingStandard * 3;
+$spacing-standard: 20px;
+
+$spacing-small: 12px;
+$spacing-mini: $spacing-small / 2;
+$spacing-mini-half: $spacing-mini / 2;
 
 $radius: 5px;
 
-$navbarHeight: 60px;
-$contentMaxWidth: 1080px;
-$contentLeftOffset: 162px;
+$navbar-height: 60px;
+$content-max-width: 1080px;
+$content-left-offset: 162px;

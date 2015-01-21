@@ -4,7 +4,7 @@
  **/
 
 .navbar {
-    height: $navbarHeight;
+    height: $navbar-height;
     position: fixed;
     top: 0;
     left: 0;
@@ -16,14 +16,14 @@
 
     .navbar-wrapper {
         @include container;
-        padding: 0px $paddingStandard;
+        padding: 0px $spacing-standard;
     }
 
     .left-nav {
         display: block;
         float: left;
         width: 20%;
-        height: $navbarHeight;
+        height: $navbar-height;
         text-align: left;
     }
 
@@ -31,7 +31,7 @@
         display: block;
         float: left;
         width: 20%;
-        height: $navbarHeight;
+        height: $navbar-height;
         text-align: right;
     }
 
@@ -41,7 +41,7 @@
         width: 60%;
         margin: 0px;
         padding: 0px;
-        height: $navbarHeight;
+        height: $navbar-height;
 
         text-align: center;
     }
@@ -57,8 +57,8 @@
 
     a.logo-link {
         display: inline-block;
-        padding-top: $paddingMini;
-        height: $navbarHeight - $paddingMini;
+        padding-top: $spacing-mini;
+        height: $navbar-height - $spacing-mini;
     }
 
     img.logo {
@@ -83,17 +83,17 @@
     }
 
     ul.nav-links {
-        $navbarLinkWidth: $paddingStandard * 6;
+        $navbar-link-width: $spacing-standard * 6;
 
         li {
             display: inline-block;
             position: relative;
-            line-height: $navbarHeight - ($paddingSmall * 2);
+            line-height: $navbar-height - ($spacing-small * 2);
 
             a {
                 display: block;
-                padding: $paddingSmall;
-                width: $navbarLinkWidth;
+                padding: $spacing-small;
+                width: $navbar-link-width;
                 @include transition(all, 0.2s);
             }
 
@@ -107,18 +107,18 @@
         }
 
         ul.dropdown {
-            $ddWidth: $navbarHeight * 2.5;
-            $ddBorderWidth: 1px;
-            $ddTriangleSize: 10px;
+            $dd-width: $navbar-height * 2.5;
+            $dd-border-width: 1px;
+            $dd-triangle-size: 10px;
 
             display: none;
             position: absolute;
-            top: $navbarHeight;
-            left: ($navbarLinkWidth / 2) - ($ddWidth / 2);
+            top: $navbar-height;
+            left: ($navbar-link-width / 2) - ($dd-width / 2);
             padding: 0px;
-            width: $ddWidth;
+            width: $dd-width;
 
-            border-width: $ddBorderWidth;
+            border-width: $dd-border-width;
             border-style: solid;
             border-radius: $radius;
 
@@ -143,7 +143,7 @@
 
                 &:after {
                     display: block;
-                    @include size(70% $ddBorderWidth);
+                    @include size(70% $dd-border-width);
                     margin: 0 auto;
 
                     content: " ";
@@ -159,17 +159,17 @@
             }
 
             &:before {
-                $topOffset: -($ddTriangleSize / 2);
-                $rightOffset: ($ddWidth / 2) - ($ddTriangleSize / 2);
+                $topOffset: -($dd-triangle-size / 2);
+                $rightOffset: ($dd-width / 2) - ($dd-triangle-size / 2);
 
                 display: block;
                 @include position(absolute, $topOffset $rightOffset null null);
-                @include size($ddTriangleSize);
+                @include size($dd-triangle-size);
                 content: " ";
                 pointer-events: none;
                 @include transform(rotate(-45deg));
 
-                border-width: $ddBorderWidth;
+                border-width: $dd-border-width;
                 @include border-style(solid solid none none);
             }
         }
@@ -179,7 +179,7 @@
             display: none;
             position: fixed;
             right: 0;
-            top: $navbarHeight;
+            top: $navbar-height;
             background: $primary;
             margin: 0;
             width: 247px;
@@ -192,7 +192,7 @@
                 text-transform: none;
                 a {
                     display: block;
-                    padding: $paddingMini $paddingSmall;
+                    padding: $spacing-mini $spacing-small;
                 }
             }
         }
@@ -201,20 +201,20 @@
 
     a.signup, a.login {
         display: inline-block;
-        width: $paddingStandard * 4;
+        width: $spacing-standard * 4;
 
         /* Responsiveness */
         @media screen and (max-width: $break-medium) {
-            margin-right: $navbarHeight;
+            margin-right: $navbar-height;
         }
     }
 
     a.signup {
         @include button-transparent;
 
-        margin-top: $paddingSmall;
-        margin-right: $paddingStandard;
-        padding: $paddingMini;
+        margin-top: $spacing-small;
+        margin-right: $spacing-standard;
+        padding: $spacing-mini;
 
         text-align: center;
         font-size: $font-size-normal;
@@ -223,7 +223,7 @@
     a.login {
         display: inline-block;
         width: 60px;
-        line-height: $navbarHeight;
+        line-height: $navbar-height;
 
         text-align: center;
     }
@@ -233,8 +233,8 @@
         position: fixed;
         right: 0;
         top: 0;
-        height: $navbarHeight;
-        width: $navbarHeight + 3;
+        height: $navbar-height;
+        width: $navbar-height + 3;
         background: $primary-dark;
         text-align: center;
         padding: 0;

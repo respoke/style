@@ -7,7 +7,7 @@
     right: 0;
     z-index: 1000;
     overflow: hidden;
-    padding: ($paddingStandard * 2.5) 0px;
+    padding: ($spacing-standard * 2.5) 0px;
 
     text-align: left;
     font-size: $font-size-normal;
@@ -16,7 +16,7 @@
     .footer-wrapper {
         @include container;
 
-        padding: 0px $paddingHuge;
+        padding: 0px ($spacing-standard * 3);
     }
 
     /* Responsiveness */
@@ -44,7 +44,7 @@
 
     .footer-left > * {
         float: left;
-        margin: 0px ($paddingStandard * 4) -9999px 0px;
+        margin: 0px ($spacing-standard * 4) -9999px 0px;
         padding-bottom: 9999px;
         overflow: hidden;
     }
@@ -62,24 +62,24 @@
 
     dt, dd {
         margin: 0px;
-        margin-bottom: $paddingMini;
+        margin-bottom: $spacing-mini;
     }
 
     .legal {
-        margin-right: $paddingStandard;
-        padding-right: $paddingStandard;
+        margin-right: $spacing-standard;
+        padding-right: $spacing-standard;
 
         border-right: 1px solid $text-light;
 
         > * {
-            margin: $paddingMini 0px;
+            margin: $spacing-mini 0px;
 
             &:first-child {
                 margin-top: 0px;
             }
 
             &:last-child {
-                margin-bottom: $paddingStandard * 1.5;
+                margin-bottom: $spacing-standard * 1.5;
             }
         }
     }

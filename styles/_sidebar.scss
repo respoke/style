@@ -43,7 +43,7 @@
         li {
             font-size: 12px;
             margin: 0;
-            padding-left: $paddingStandard;
+            padding-left: $spacing-standard;
 
             &.active {
                 background: $primary-light;
@@ -55,13 +55,13 @@
             &.header a {
                 display: inline;
             }
-            &.l1.header { padding: $paddingMiniHalf $paddingStandard; }
-            &.l2.header { padding: $paddingMiniHalf $paddingStandard * 2; }
-            &.l3.header { padding: $paddingMiniHalf $paddingStandard * 4; }
+            &.l1.header { padding: $spacing-mini-half $spacing-standard; }
+            &.l2.header { padding: $spacing-mini-half $spacing-standard * 2; }
+            &.l3.header { padding: $spacing-mini-half $spacing-standard * 4; }
 
-            &.l1>a { padding: $paddingMiniHalf 0; }
-            &.l2>a { padding: $paddingMiniHalf $paddingStandard; }
-            &.l3>a { padding: $paddingMiniHalf $paddingStandard * 2; }
+            &.l1>a { padding: $spacing-mini-half 0; }
+            &.l2>a { padding: $spacing-mini-half $spacing-standard; }
+            &.l3>a { padding: $spacing-mini-half $spacing-standard * 2; }
 
             a {
                 display: inline-block;
