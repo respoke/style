@@ -16,7 +16,7 @@
     .footer-wrapper {
         @include container;
 
-        padding: 0px ($spacing-standard * 3);
+        padding: 0px $spacing-large;
     }
 
     /* Responsiveness */
