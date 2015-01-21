@@ -8,11 +8,13 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800);
 $font: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
-$font-size: 13px;
+$font-size-normal: 13px;
+$font-size-large: 15px;
+$font-size-subtitle: 34px;
+$font-size-title: 55px;
 
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
 $font-mono: 'Source Code Pro', 'Menlo', 'Consolas', sans-serif;
-$font-size-mono: 13px;
 
 /**
  * Responsive breakpoints
@@ -59,7 +61,7 @@ html {
 
 body, html {
     font-family: $font;
-    font-size: $font-size;
+    font-size: $font-size-normal;
     color: $textBrightest;
     background: $background;
     padding: 0;
@@ -107,7 +109,7 @@ pre {
         margin: 0;
 
         font-family: $font-mono;
-        font-size: $font-size-mono;
+        font-size: $font-size-normal;
     }
 }
 
@@ -131,7 +133,7 @@ h1 {
 }
 
 h2, h3, h4, h5, h6 {
-    font-size: $font-size;
+    font-size: $font-size-normal;
     font-weight: bold;
     margin-bottom: 0;
     margin-top: $paddingMini;
