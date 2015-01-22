@@ -90,8 +90,9 @@ code {
 }
 
 pre {
-    @include insetShadow();
+    margin: 0;
 
+    @include insetShadow();
     background: $panel;
     padding: $spacing-standard;
     border-radius: $radius;
@@ -120,9 +121,8 @@ strong {
 
 h1 {
     color: $contrast-muted;
-    font-weight: 100;
-    font-size: 55px;
-    margin-bottom: $spacing-standard * 3;
+    font-size: $font-size-title;
+    margin-bottom: $spacing-large;
     padding-bottom: none;
 
     /* Responsiveness */
@@ -132,19 +132,21 @@ h1 {
     }
 }
 
-h2, h3, h4, h5, h6 {
-    font-size: $font-size-normal;
-    font-weight: bold;
-    margin-bottom: 0;
-    margin-top: $spacing-mini;
-    padding-top: $spacing-standard * 1.5;
+h2 {
+    color: $text;
+    font-size: $font-size-subtitle;
+    font-weight: normal;
+
+    padding: 0;
+    margin: 0 0 $spacing-standard 0;
 }
 
-h2 {
-    font-weight: 800;
-    margin-top: $spacing-standard;
-    color: $text;
+h3, h4, h5, h6 {
+    font-size: $font-size-normal;
+    font-weight: bold;
+    margin: $spacing-mini 0;
 }
+
 h3 {
     margin-top: $spacing-small;
     color: $text;
@@ -160,7 +162,6 @@ h5 {
 }
 h6 {
     color: $text-lightest;
-    padding-top: $spacing-mini;
 }
 
 a {
