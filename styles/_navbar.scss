@@ -183,7 +183,7 @@
             background: $primary;
             margin: 0;
             width: 247px;
-            @include insetShadow();
+            @include inset-shadow();
 
             li {
                 display: block;

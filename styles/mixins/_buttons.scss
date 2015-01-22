@@ -5,8 +5,8 @@
 
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 1px 1px 2px $primary-light;
     font-size: $font-size-large;
+    @include outset-shadow;
 }
 
 @mixin button-dark {

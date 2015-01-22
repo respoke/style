@@ -92,7 +92,7 @@ code {
 pre {
     margin: 0;
 
-    @include insetShadow();
+    @include inset-shadow();
     background: $panel;
     padding: $spacing-standard;
     border-radius: $radius;
