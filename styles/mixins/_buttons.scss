@@ -21,6 +21,12 @@
     color: $primary;
 }
 
+@mixin button-white {
+    @include button;
+    background: $white;
+    color: $blue;
+}
+
 @mixin button-transparent {
     @include button;
     background: transparent;
