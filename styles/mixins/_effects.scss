@@ -1,10 +1,10 @@
 
 @mixin inset-shadow() {
-    @include prefixer(box-shadow, inset 1px 1px 2px $primary-light, webkit moz spec);
+    @include prefixer(box-shadow, inset 1px 1px 2px $primary, webkit moz spec);
 }
 
 @mixin outset-shadow() {
-    @include prefixer(box-shadow, 1px 1px 3px $primary-light, webkit moz spec);
+    @include prefixer(box-shadow, 1px 1px 3px $primary, webkit moz spec);
 }
 
 @mixin remove-shadow() {
