@@ -1,64 +1,24 @@
-/**
- * Bourbon.io
- */
-@import 'bourbon';
+@import 'respoke-style';
 
-/**
- * Fonts
- */
+// Import font dependencies
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800);
-$font: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
-$font-size-normal: 13px;
-$font-size-large: 15px;
-$font-size-subtitle: 34px;
-$font-size-title: 55px;
-
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
-$font-mono: 'Source Code Pro', 'Menlo', 'Consolas', sans-serif;
 
-/**
- * Responsive breakpoints
- */
-$break-small: 550px;
-$break-medium: 700px;
-$break-large: 1332px;
-
-/**
- * Local deps
- */
-@import 'colors';
-@import 'spacing';
+// Widgets and content blocks
 @import 'highlight-js-theme';
-
-/**
- * Mixins
- */
-@import 'mixins/effects';
-@import 'mixins/text';
-@import 'mixins/layout';
-@import 'mixins/buttons';
-
-/**
- * Widgets and content blocks
- */
 @import 'navbar';
 @import 'footer';
 
-/**
- * Apply a natural box layout model to all elements, but allowing components
- * to change
- */
+// Apply a natural box layout model to all elements, but allow components to
+// change
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/**
- * Bare elements
- */
+// Bare elements
 
 body, html {
     font-family: $font;
@@ -70,7 +30,7 @@ body, html {
     height: 100%;
 }
 
-/* When there is no navbar, we treat a lot of stuff differently */
+// When there is no navbar, we treat a lot of stuff differently
 body.no-navbar {
     .sidebar .sidebar-inner {
         padding-top: $spacing-standard;
