@@ -1,0 +1,56 @@
+doctype html
+html(lang='en')
+    head
+        title Respoke Style Guide
+
+        != renderSharedTemplate('head')
+
+        link(type="text/css" rel='stylesheet' href='style-guide.css')
+    body
+        != renderSharedTemplate('navbar', { navTheme: 'dark' })
+
+        .container
+            h1 Respoke style guide
+
+            hr
+            .fonts
+                h2 Fonts
+                h1 The quick brown fox
+                h2 Jumped over the fence
+                p.large The quick brown fox jumped over the fence.
+                p.normal The quick brown fox jumped over the fence.
+                a(href="/foo-bar") Here is a link
+
+            hr
+            .colors
+                h2 Colors
+                .colors--boxes
+                    .color
+                    .color
+                    .color
+                    .color
+                    .color
+                    .color
+
+            hr
+            .depth
+                h2 Depth
+                .depth--outset
+                .depth--inset
+
+            hr
+            .spacing
+                h2 Spacing
+                .spacing--small
+                .spacing--standard
+                .spacing--medium
+                .spacing--large
+
+            hr
+            .buttons
+                h2 Buttons
+                button.buttons--light Light button
+                button.buttons--dark Dark button
+                button.buttons--transparent Transparent button
+
+        != renderSharedTemplate('footer')

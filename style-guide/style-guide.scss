@@ -1,0 +1,103 @@
+@import 'base';
+
+.container {
+    @include container;
+    min-height: 100%;
+    margin-top: $navbar-height;
+    padding-bottom: $spacing-large;
+}
+
+.large {
+    font-size: $font-size-large;
+}
+
+.colors--boxes > .color {
+    display: inline-block;
+    @include size(120px);
+    margin-right: $spacing-medium;
+
+    border: 1px solid $dark-grey;
+    border-radius: $radius;
+
+    &:nth-child(1) {
+        background: $white;
+    }
+    &:nth-child(2) {
+        background: $light-grey;
+    }
+    &:nth-child(3) {
+        background: $dark-grey;
+    }
+    &:nth-child(4) {
+        background: $blue;
+    }
+    &:nth-child(5) {
+        background: $light-blue;
+    }
+    &:nth-child(6) {
+        background: $red;
+    }
+}
+
+%depth {
+    display: inline-block;
+    @include size(150px 50px);
+    margin-right: $spacing-standard;
+
+    background: $light-grey;
+}
+
+.depth--outset {
+    @extend %depth;
+
+    @include outset-shadow;
+    border-radius: $radius;
+}
+
+.depth--inset {
+    @extend %depth;
+
+    @include inset-shadow;
+    border-radius: $radius;
+}
+
+%spacing {
+    display: inline-block;
+    height: 150px;
+    margin-right: $spacing-medium;
+
+    border-radius: $radius;
+    background: $dark-grey;
+}
+
+.spacing--small {
+    @extend %spacing;
+    width: $spacing-small;
+}
+
+.spacing--standard {
+    @extend %spacing;
+    width: $spacing-standard;
+}
+
+.spacing--medium {
+    @extend %spacing;
+    width: $spacing-medium;
+}
+
+.spacing--large {
+    @extend %spacing;
+    width: $spacing-large;
+}
+
+.buttons--light {
+    @include button-light;
+}
+
+.buttons--dark {
+    @include button-dark;
+}
+
+.buttons--transparent {
+    @include button-transparent;
+}
