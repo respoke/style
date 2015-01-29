@@ -90,14 +90,21 @@
     width: $spacing-large;
 }
 
+%buttons {
+    margin-right: $spacing-medium;
+}
+
 .buttons--light {
+    @extend %buttons;
     @include button-light;
 }
 
 .buttons--dark {
+    @extend %buttons;
     @include button-dark;
 }
 
 .buttons--transparent {
+    @extend %buttons;
     @include button-transparent;
 }
