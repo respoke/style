@@ -1,32 +1,80 @@
-.hljs,
-.hljs-tag {
-    color: $text;
+@import 'colors';
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: $white;
+  color: $text;
+  -webkit-text-size-adjust: none;
 }
-.hljs-comment,.hljs-template_comment,.hljs-javadoc,.hljs-comment * {
-    color: $text-lightest;
+
+.hljs-comment,
+.hljs-javadoc {
+  color: $text-inverse;
 }
-.hljs-keyword,.hljs-literal,.nginx .hljs-title {
-    color: $primary;
+
+.hljs-keyword,
+.hljs-literal,
+.nginx .hljs-title {
+  color: $dark-pink;
 }
-.method,.hljs-list .hljs-title,.hljs-tag .hljs-title,.setting .hljs-value,.hljs-winutils,.tex .hljs-command,.http .hljs-title,.hljs-request,.hljs-status {
-    color: $compliment;
+.method,
+.hljs-list .hljs-title,
+.hljs-tag .hljs-title,
+.setting .hljs-value,
+.hljs-winutils,
+.tex .hljs-command,
+.http .hljs-title,
+.hljs-request,
+.hljs-status {
+  color: #008;
 }
-.hljs-envvar,.tex .hljs-special {
-    color: $text-light;
+
+.hljs-envvar,
+.tex .hljs-special {
+  color: #660;
 }
+
 .hljs-string {
-    color: $contrast-muted;
+  color: $red;
 }
-.hljs-tag .hljs-value,.hljs-cdata,.hljs-filter .hljs-argument,.hljs-attr_selector,.apache .hljs-cbracket,.hljs-date,.hljs-regexp {
-    color: $contrast-muted;
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.hljs-regexp {
+  color: #080;
 }
-.hljs-sub .hljs-identifier,.hljs-pi,.hljs-tag .hljs-keyword,.hljs-decorator,.ini .hljs-title,.hljs-shebang,.hljs-prompt,.hljs-hexcolor,.hljs-rules .hljs-value,.css .hljs-value .hljs-number,.hljs-symbol,.hljs-symbol .hljs-string,.hljs-number,.css .hljs-function,.clojure .hljs-title,.clojure .hljs-built_in,.hljs-function .hljs-title,.coffeescript .hljs-attribute {
-    color: $contrast;
+
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-decorator,
+.ini .hljs-title,
+.hljs-shebang,
+.hljs-prompt,
+.hljs-hexcolor,
+.hljs-rules .hljs-value,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-number,
+.css .hljs-function,
+.hljs-function .hljs-title,
+.coffeescript .hljs-attribute {
+  color: $light-blue;
 }
+
 .hljs-class .hljs-title,
+.smalltalk .hljs-class,
 .hljs-javadoctag,
 .hljs-yardoctag,
 .hljs-phpdoc,
+.hljs-dartdoc,
+.hljs-type,
 .hljs-typename,
 .hljs-tag .hljs-attribute,
 .hljs-doctype,
@@ -35,57 +83,72 @@
 .setting,
 .hljs-params,
 .clojure .hljs-attribute {
-    color: $primary;
+  color: $blue;
 }
+
 .hljs-variable {
-    color: $contrast;
-}
-.hljs-rules .hljs-property,
-.hljs-pseudo,
-.hljs-subst,
-.css .hljs-attribute {
-    color: $primary;
+ color: #3f6e74;
 }
 .css .hljs-tag,
-.css .hljs-id,
-.css .hljs-class {
-    color: $text;
-    font-weight: bold;
+.hljs-rules .hljs-property,
+.hljs-pseudo,
+.hljs-subst {
+  color: $text;
 }
+
+.css .hljs-class,
+.css .hljs-id {
+  color: #9b703f;
+}
+
 .hljs-value .hljs-important {
-    color: #f70;
-    font-weight: bold;
+  color: #ff7700;
+  font-weight: bold;
 }
+
 .hljs-rules .hljs-keyword {
-    color: $contrast;
+  color: #c5af75;
 }
-.hljs-annotation,.apache .hljs-sqbracket,.nginx .hljs-built_in {
-    color: #9b859d;
+
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
+  color: #9b859d;
 }
-.hljs-preprocessor,.hljs-preprocessor *,.hljs-pragma {
-    color: #643820;
+
+.hljs-preprocessor,
+.hljs-preprocessor *,
+.hljs-pragma {
+  color: #643820;
 }
+
 .tex .hljs-formula {
-    background-color: #EEE;
-    font-style: italic;
+  background-color: #eee;
+  font-style: italic;
 }
-.diff .hljs-header,.hljs-chunk {
-    color: #808080;
+
+.diff .hljs-header,
+.hljs-chunk {
+  color: #808080;
+  font-weight: bold;
 }
+
 .diff .hljs-change {
-    background-color: #bccff9;
+  background-color: $primary-light;
 }
+
 .hljs-addition {
-    background-color: $primary;
-    color: $text-inverse;
+  background-color: #baeeba;
 }
+
 .hljs-deletion {
-    background-color: #ffc8bd;
+  background-color: #ffc8bd;
 }
+
 .hljs-comment .hljs-yardoctag {
-    font-weight: bold;
+  font-weight: bold;
 }
+
 .method .hljs-id {
-    color: $text-highlight;
-    font-weight: bold;
+  color: $text;
 }

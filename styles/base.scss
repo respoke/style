@@ -45,15 +45,14 @@ body.no-navbar {
 
 code {
     font-family: $font-mono;
-    color: $contrast;
-    background: $secondary;
+    color: $dark-grey;
+    background: $light-grey;
 }
 
 pre {
     margin: 0;
 
     @include inset-shadow();
-    background: $panel;
     padding: $spacing-standard;
     border-radius: $radius;
     overflow: auto;
@@ -65,8 +64,6 @@ pre {
     }
 
     code, code.hljs {
-        background: $panel;
-
         padding: 0;
         margin: 0;
 

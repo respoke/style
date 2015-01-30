@@ -11,6 +11,9 @@ html(lang='en')
 
         .container
             h1 Respoke style guide
+            p
+                | Please refer to the SASS file for details on the templates,
+                | mixins, and variables used to build this page.
 
             hr
             .fonts
@@ -52,5 +55,49 @@ html(lang='en')
                 button.buttons--light Light button
                 button.buttons--dark Dark button
                 button.buttons--transparent Transparent button
+
+            hr
+            .code
+                h2 Code
+                pre: code.js
+                    | // Instantiate Respoke object
+                    |var respoke = new Respoke({
+                    |     appId: appId,
+                    |     'App-Secret': appSecret
+                    | });
+                    | &nbsp;
+                    | // Connect to respoke as endpoint
+                    | respoke.auth.connect({
+                    |     endpointId: endpointId
+                    | });
+                    | &nbsp;
+                    | respoke.on('connect', function () {
+                    |     respoke.messages.send({
+                    |         endpointId: endpointId,
+                    |         to: 'destination-endpoint-id',
+                    |         message: 'Hello world!'
+                    |     }).then(function (response) {
+                    |         console.log(response);
+                    |         respoke.close();
+                    |     }).catch(function (error) {
+                    |         console.log(error);
+                    |         respoke.close();
+                    |     });
+                    | });
+                    | &nbsp;
+                    | function $initHighlight(block, flags) {
+                    |     try {
+                    |         if (block.className.search(/\bno\-highlight\b/) != -1)
+                    |             return processBlock(block.function, true, 0x0F) + ' class=""';
+                    |     } catch (e) {
+                    |         /* handle exception */
+                    |         var e4x = "Example 1234";
+                    |     }
+                    |     for (var i = 0 / 2; i < classes.length; i++) { // "0 / 2" should not be parsed as regexp
+                    |         if (checkCondition(classes[i]) === undefined)
+                    |             return /\d+[\s/]/g;
+                    |     }
+                    |     console.log(Array.every(classes, Boolean));
+                    | }
 
         != renderSharedTemplate('footer')
