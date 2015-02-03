@@ -1,4 +1,9 @@
+////
+/// Mixins to work with standard layouts.
+/// @group layout
+////
 
+///
 @mixin container {
     max-width: $content-max-width;
     margin: 0px auto;

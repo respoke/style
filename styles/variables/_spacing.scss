@@ -1,18 +1,38 @@
+////
+/// Variables for standardized spacing.
+/// @group layout
+/// @type Number
+////
+
+///
 $spacing-standard: 20px;
+///
 $spacing-medium: $spacing-standard * 2;
+///
 $spacing-large: $spacing-standard * 3;
 
+///
 $spacing-small: 10px;
+///
 $spacing-mini: $spacing-small / 2;
+///
 $spacing-mini-half: $spacing-mini / 2;
 
+/// Base border radius size.
 $radius: 5px;
 
+///
 $navbar-height: 60px;
+/// The max width of a full-size (desktop) view.
 $content-max-width: 1080px;
+/// Offset used when there is a sidebar menu.
 $content-left-offset: 162px;
 
 // Responsive breakpoints
+
+///
 $break-small: 550px;
+///
 $break-medium: 700px;
+///
 $break-large: 1332px;

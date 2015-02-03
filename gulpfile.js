@@ -3,6 +3,7 @@
 var path = require('path');
 var del = require('del');
 var _ = require('lodash');
+var sassdoc = require('sassdoc');
 var respokeStyle = require('respoke-style');
 
 var gulp = require('gulp');
@@ -12,7 +13,8 @@ var ROOT_PATH = __dirname;
 
 var paths = {
     output: path.join(ROOT_PATH, '.tmp'),
-    source: path.join(ROOT_PATH, 'style-guide')
+    source: path.join(ROOT_PATH, 'style-guide'),
+    sass: path.join(ROOT_PATH, 'styles')
 };
 
 function cleanTask(done) {
@@ -63,6 +65,13 @@ function copyAssets() {
         .pipe(gulp.dest(paths.output));
 }
 
+function sassdocTask() {
+    return gulp.src(path.join(paths.sass, '**/*.scss'))
+        .pipe(sassdoc({
+            dest: 'sassdoc'
+        }));
+}
+
 gulp.task('style-guide', [
     'style-guide:build',
     'style-guide:copy-assets',
@@ -79,3 +88,5 @@ gulp.task('style-guide:copy-assets', ['style-guide:clean'], copyAssets);
 gulp.task('style-guide:webserver', webserverTask);
 
 gulp.task('style-guide:watch', watchTask);
+
+gulp.task('sassdoc', sassdocTask);

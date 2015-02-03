@@ -17,6 +17,7 @@ coverage
 .grunt
 
 .tmp
+sassdoc
 
 # Dependency directory
 # Commenting this out is preferred by some people, see

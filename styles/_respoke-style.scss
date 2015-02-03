@@ -5,11 +5,11 @@
 @import 'bourbon';
 
 // Fonts
-@import 'fonts';
+@import 'variables/fonts';
 
 // Variables
-@import 'colors';
-@import 'spacing';
+@import 'variables/colors';
+@import 'variables/spacing';
 
 // Mixins
 @import 'mixins/effects';

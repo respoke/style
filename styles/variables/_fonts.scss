@@ -1,0 +1,36 @@
+////
+/// Variables for font sizes and types.
+/// @group fonts
+/// @type Number
+////
+
+/// Primary font-family. Be sure to import the Open Sans font from Google Fonts
+/// api. Refer to the attached link.
+/// @example scss - Import Google Font first
+///   @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800);
+///   .my-font {
+///       font-family: $font
+///   }
+/// @link https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800
+/// @type String
+$font: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
+
+/// Mono-spaced font-family. Be sure to import the Open Sans font from Google
+/// Fonts api. Refer to the attached link.
+/// @example scss - Import Google Font first
+///   @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+///   .my-mono-font {
+///       font-family: $font
+///   }
+/// @link https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700
+/// @type String
+$font-mono: 'Source Code Pro', 'Menlo', 'Consolas', sans-serif;
+
+///
+$font-size-normal: 13px;
+///
+$font-size-large: 15px;
+///
+$font-size-subtitle: 34px;
+///
+$font-size-title: 55px;
