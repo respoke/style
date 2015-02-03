@@ -51,11 +51,12 @@ code {
 
 pre {
     margin: 0;
+    padding: $spacing-standard;
+    overflow: auto;
+    background: $light-grey;
 
     @include inset-shadow();
-    padding: $spacing-standard;
     border-radius: $radius;
-    overflow: auto;
 
     h6 {
         margin: 0;
