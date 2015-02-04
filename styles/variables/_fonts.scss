@@ -27,10 +27,10 @@ $font: 'Open Sans', 'Helvetica Nue', 'Helvetica', 'Arial', sans-serif;
 $font-mono: 'Source Code Pro', 'Menlo', 'Consolas', sans-serif;
 
 ///
-$font-size-normal: 13px;
+$font-size-normal: em(13px);
 ///
-$font-size-large: 15px;
+$font-size-large: em(15px);
 ///
-$font-size-subtitle: 34px;
+$font-size-subtitle: em(34px);
 ///
-$font-size-title: 55px;
+$font-size-title: em(55px);

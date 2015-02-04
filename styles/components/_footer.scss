@@ -14,7 +14,7 @@
     color: $text-light;
 
     .footer-wrapper {
-        @include container;
+        @include outer-container;
 
         padding: 0px $spacing-large;
     }

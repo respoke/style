@@ -9,20 +9,11 @@
 @import 'components/navbar';
 @import 'components/footer';
 
-// Apply a natural box layout model to all elements, but allow components to
-// change
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 // Bare elements
 
 body, html {
     font-family: $font;
-    font-size: $font-size-normal;
+    font-size: $em-base;
     color: $text;
     background: $background;
     padding: 0;

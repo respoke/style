@@ -2,6 +2,7 @@
 
 var path = require('path');
 var bourbon = require('node-bourbon');
+var neat = require('node-neat');
 var jade = require('jade');
 var _ = require('lodash');
 
@@ -20,7 +21,7 @@ var RespokeStyle = (function RespokeStyle() {
         var allPaths = myPaths || [];
 
         if (!noBourbonPaths) {
-            allPaths = bourbon.with(paths);
+            allPaths = neat.with(paths);
         }
 
         allPaths.push(paths.styles);
@@ -39,6 +40,7 @@ var RespokeStyle = (function RespokeStyle() {
     return {
         paths: paths,
         bourbon: bourbon,
+        neat: neat,
         includeStylePaths: includeStylePaths,
         templateLocals: {
             renderSharedTemplate: renderSharedTemplate

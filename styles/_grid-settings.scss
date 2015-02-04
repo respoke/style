@@ -1,0 +1,28 @@
+////
+/// Config options for the Neat grid system.
+/// @group config
+////
+
+@import 'neat-helpers';
+@import 'variables/colors';
+
+$visual-grid: true;
+$visual-grid-index: front;
+$visual-grid-color: $primary-light;
+$visual-grid-opacity: 0.2;
+
+$border-box-sizing: true;
+
+/// @type Number
+$column: 40px;
+/// @type Number
+$gutter: 20px;
+/// @type Number
+$grid-columns: 18;
+/// @type Number
+$max-width: em(1080);
+
+///
+$tablet: new-breakpoint(max-width 768px 8);
+///
+$mobile: new-breakpoint(max-width 480px 4);
