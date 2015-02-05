@@ -101,9 +101,8 @@ function logout(e) {
 function toggleMainMenu(e) {
     e && e.preventDefault();
 
-    $('.navbar .nav-links')
-    .each(function () {
-        this.style.display = !this.style.display || this.style.display === 'none' ? 'inline-block' : 'none';
+    $('.navbar .nav-links').each(function () {
+        $(this).toggle();
     });
 }
 

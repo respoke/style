@@ -1,8 +1,4 @@
 
-/**
- * nav layout
- **/
-
 .navbar {
     height: $navbar-height;
     position: fixed;
@@ -14,218 +10,12 @@
     font-size: $font-size-normal;
     font-weight: bold;
 
-    .navbar-wrapper {
-        @include outer-container;
-        padding: 0px $spacing-standard;
-    }
-
-    .left-nav {
-        display: block;
-        float: left;
-        width: 20%;
-        height: $navbar-height;
-        text-align: left;
-    }
-
-    .right-nav {
-        display: block;
-        float: left;
-        width: 20%;
-        height: $navbar-height;
-        text-align: right;
-    }
-
-    .nav-links {
-        display: block;
-        float: left;
-        width: 60%;
-        margin: 0px;
-        padding: 0px;
-        height: $navbar-height;
-
-        text-align: center;
-    }
-
     a.toggler {
-        @media screen and (max-width: $break-medium) {
+        display: none;
+
+        @include media($mobile) {
             display: inline-block;
         }
-        @media screen and (min-width: $break-medium + 1) {
-            display: none;
-        }
-    }
-
-    a.logo-link {
-        display: inline-block;
-        padding-top: $spacing-mini;
-        height: $navbar-height - $spacing-mini;
-    }
-
-    img.logo {
-        height: 45px;
-        width: 113px;
-        @media screen and (max-width: $break-small) {
-            display: none;
-        }
-        @media screen and (min-width: $break-small + 1) {
-            display: inline-block;
-        }
-    }
-    img.logo-notext {
-        height: 45px;
-        width: 29px;
-        @media screen and (max-width: $break-small) {
-            display: inline-block;
-        }
-        @media screen and (min-width: $break-small + 1) {
-            display: none;
-        }
-    }
-
-    ul.nav-links {
-        $navbar-link-width: $spacing-large * 2;
-
-        li {
-            display: inline-block;
-            position: relative;
-            line-height: $navbar-height - ($spacing-small * 2);
-
-            a {
-                display: block;
-                padding: $spacing-small;
-                width: $navbar-link-width;
-                @include transition(all, 0.2s);
-            }
-
-            &:hover ul {
-                display: block;
-                opacity: 1;
-                visibility: visible;
-
-                @include transition(all, 0.2s)
-            }
-        }
-
-        ul.dropdown {
-            $dd-width: $navbar-height * 2.5;
-            $dd-border-width: 1px;
-            $dd-triangle-size: 10px;
-
-            display: none;
-            position: absolute;
-            top: $navbar-height;
-            left: ($navbar-link-width / 2) - ($dd-width / 2);
-            padding: 0px;
-            width: $dd-width;
-
-            border-width: $dd-border-width;
-            border-style: solid;
-            border-radius: $radius;
-
-            visibility: hidden;
-            opacity: 0;
-            @include prefixer(box-shadow, none, webkit moz spec);
-
-            @include transition(all, 0.2s);
-
-            a {
-                width: auto;
-            }
-
-            li {
-                display: block;
-                padding: 0px;
-                line-height: normal;
-
-                text-align: center;
-
-                @include transition(background-color, 0.2s);
-
-                &:after {
-                    display: block;
-                    @include size(70% $dd-border-width);
-                    margin: 0 auto;
-
-                    content: " ";
-                }
-
-                &:last-child:after {
-                    visibility: hidden;
-                }
-
-                &:hover {
-                    @include transition(background-color, 0.2s);
-                }
-            }
-
-            &:before {
-                $topOffset: -($dd-triangle-size / 2);
-                $rightOffset: ($dd-width / 2) - ($dd-triangle-size / 2);
-
-                display: block;
-                @include position(absolute, $topOffset $rightOffset null null);
-                @include size($dd-triangle-size);
-                content: " ";
-                pointer-events: none;
-                @include transform(rotate(-45deg));
-
-                border-width: $dd-border-width;
-                @include border-style(solid solid none none);
-            }
-        }
-
-        /* Responsiveness */
-        @media screen and (max-width: $break-medium) {
-            display: none;
-            position: fixed;
-            right: 0;
-            top: $navbar-height;
-            background: $primary;
-            margin: 0;
-            width: 247px;
-            @include inset-shadow();
-
-            li {
-                display: block;
-                margin: 0;
-                width: 100%;
-                text-transform: none;
-                a {
-                    display: block;
-                    padding: $spacing-mini $spacing-small;
-                }
-            }
-        }
-    }
-
-
-    a.signup, a.login {
-        display: inline-block;
-        width: $spacing-standard * 4;
-
-        /* Responsiveness */
-        @media screen and (max-width: $break-medium) {
-            margin-right: $navbar-height;
-        }
-    }
-
-    a.signup {
-        @include button-transparent;
-
-        margin-top: $spacing-small;
-        margin-right: $spacing-standard;
-        padding: $spacing-mini;
-
-        text-align: center;
-        font-size: $font-size-normal;
-    }
-
-    a.login {
-        display: inline-block;
-        width: 60px;
-        line-height: $navbar-height;
-
-        text-align: center;
     }
 
     a.toggler {
@@ -257,11 +47,194 @@
     }
 }
 
+.navbar--wrapper {
+    @include outer-container;
+}
+
+.navbar--logo {
+    @include span-columns(3);
+    height: $navbar-height;
+
+    text-align: center;
+
+    @include media($tablet) {
+        @include span-columns(2);
+    }
+
+    a.logo--link {
+        display: inline-block;
+        padding-top: $spacing-small;
+        height: $navbar-height;
+    }
+
+    img.logo--image {
+        display: inline-block;
+        width: 113px;
+
+        @include media($mobile) {
+            display: none;
+        }
+    }
+    img.logo--notext {
+        display: none;
+        height: 45px;
+        width: 29px;
+
+        @include media($mobile) {
+            display: inline-block;
+        }
+    }
+}
+
+.navbar--links {
+    @include span-columns(6);
+    @include shift(3);
+    height: $navbar-height;
+    padding: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    text-align: center;
+
+    @include media($tablet) {
+        @include span-columns(4);
+        @include shift(0);
+    }
+}
+
+.navbar--account {
+    @include span-columns(4);
+    @include shift(2);
+    height: $navbar-height;
+
+    text-align: right;
+
+    @include media($tablet) {
+        @include span-columns(2);
+        @include shift(0);
+    }
+
+    a.signup, a.login {
+        display: inline-block;
+        width: $spacing-standard * 4;
+    }
+
+    a.signup {
+        @include button-transparent;
+
+        margin-top: $spacing-small;
+        margin-right: $spacing-standard;
+        padding: $spacing-mini;
+
+        text-align: center;
+        font-size: $font-size-normal;
+    }
+
+    a.login {
+        display: inline-block;
+        width: 60px;
+        line-height: $navbar-height;
+
+        text-align: center;
+    }
+}
+
+ul.navbar--links {
+    li {
+        display: inline-block;
+        position: relative;
+
+        a {
+            display: inline-block;
+            padding: 0 $spacing-standard;
+            line-height: $navbar-height;
+
+            @include transition(all, 0.2s);
+        }
+
+        &:hover ul {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+
+            @include transition(all, 0.2s)
+        }
+    }
+}
+
+ul.navbar--dropdown {
+    $dd-width: $navbar-height * 2.5;
+    $dd-border-width: 1px;
+    $dd-triangle-size: 10px;
+
+    display: none;
+    position: absolute;
+    top: $navbar-height;
+    left: -25%;
+    padding: 0px;
+    width: $dd-width;
+
+    border-width: $dd-border-width;
+    border-style: solid;
+    border-radius: $radius;
+
+    visibility: hidden;
+    opacity: 0;
+    @include prefixer(box-shadow, none, webkit moz spec);
+
+    @include transition(all, 0.2s);
+
+    a {
+        width: auto;
+    }
+
+    li {
+        display: block;
+        padding: 0px;
+        line-height: normal;
+
+        text-align: center;
+
+        @include transition(background-color, 0.2s);
+
+        &:after {
+            display: block;
+            @include size(70% $dd-border-width);
+            margin: 0 auto;
+
+            content: " ";
+        }
+
+        &:last-child:after {
+            visibility: hidden;
+        }
+
+        &:hover {
+            @include transition(background-color, 0.2s);
+        }
+    }
+
+    &:before {
+        $topOffset: -($dd-triangle-size / 2);
+        $rightOffset: ($dd-width / 2) - ($dd-triangle-size / 2);
+
+        display: block;
+        @include position(absolute, $topOffset $rightOffset null null);
+        @include size($dd-triangle-size);
+        content: " ";
+        pointer-events: none;
+        @include transform(rotate(-45deg));
+
+        border-width: $dd-border-width;
+        @include border-style(solid solid none none);
+    }
+}
+
 /**
  * nav themes
  **/
 
-.navbar.dark ul.dropdown, .navbar.light ul.dropdown {
+.navbar.dark ul.navbar--dropdown, .navbar.light ul.navbar--dropdown {
     background: $primary-dark;
     border-color: $primary-highlight;
 

@@ -1,27 +1,27 @@
 nav(class=['navbar', navTheme].join(' '))
-    .navbar-wrapper
-        .left-nav
-            a.logo-link(href="/")
+    .navbar--wrapper
+        .navbar--logo
+            a.logo--link(href="/")
                 - if (navTheme === 'light')
-                    img.logo(src="/images/logo-respoke-light.png")
+                    img.logo--image(src="/images/logo-respoke-light.png")
                 - else
-                    img.logo(src="/images/logo-respoke.png")
-                img.logo-notext(src="/images/logo-respoke-notext.png")
-        ul.nav-links
+                    img.logo--image(src="/images/logo-respoke.png")
+                img.logo--notext(src="/images/logo-respoke-notext.png")
+        ul.navbar--links
             li: a(href="/pricing") Pricing
             li
                 a(href="#") Developers &nbsp;
                     span.fa.fa-caret-down
-                ul.dropdown
+                ul.navbar--dropdown
                     li: a(href="https://docs.respoke.io") Docs
                     li: a(href="http://community.respoke.io") Forums
                     li: a(href="https://github.com/respoke/") Github
             li: a(href="http://blog.respoke.io") Blog
-        .right-nav
+        .navbar--account
             a.signup(href="https://portal.respoke.io/#/signup") Sign up
             a.login(href="https://portal.respoke.io/#/login") Log in
-        a.toggler(href="#")
-            ul
-                li
-                li
-                li
+        //- a.toggler(href="#")
+        //-     ul
+        //-         li
+        //-         li
+        //-         li
