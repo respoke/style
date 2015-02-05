@@ -75,10 +75,9 @@
             display: none;
         }
     }
-    img.logo--notext {
+    img.logo--mobile {
         display: none;
-        height: 45px;
-        width: 29px;
+        width: 113px;
 
         @include media($mobile) {
             display: inline-block;
@@ -234,6 +233,55 @@ ul.navbar--dropdown {
  * nav themes
  **/
 
+@mixin dark-navbar {
+    background: $primary;
+    color: $text-inverse;
+
+    a, a:visited, a:active {
+        color: $white;
+    }
+
+    a:hover {
+        color: $text-inverse;
+    }
+
+    a.signup {
+        background: $primary;
+        border: 2px solid $white;
+    }
+}
+
+@mixin light-navbar {
+    background: transparent;
+    color: $primary;
+
+    a, a:visited, a:active {
+        color: $primary;
+    }
+
+    a:hover {
+        color: $text-inverse;
+    }
+
+    a.signup {
+        background: transparent;
+        border-color: $primary;
+    }
+}
+
+.navbar.dark {
+    @include dark-navbar;
+}
+
+.navbar.light {
+    @include media($mobile) {
+        @include dark-navbar;
+    }
+    @include media(min-width $break-small) {
+        @include light-navbar;
+    }
+}
+
 .navbar.dark ul.navbar--dropdown, .navbar.light ul.navbar--dropdown {
     background: $primary-dark;
     border-color: $primary-highlight;
@@ -259,41 +307,5 @@ ul.navbar--dropdown {
         &:after {
             background-color: $white;
         }
-    }
-}
-
-.navbar.dark {
-    background: $primary;
-    color: $text-inverse;
-
-    a, a:visited, a:active {
-        color: $white;
-    }
-
-    a:hover {
-        color: $text-inverse;
-    }
-
-    a.signup {
-        background: $primary;
-        border: 2px solid $white;
-    }
-}
-
-.navbar.light {
-    background: transparent;
-    color: $primary;
-
-    a, a:visited, a:active {
-        color: $primary;
-    }
-
-    a:hover {
-        color: $text-inverse;
-    }
-
-    a.signup {
-        background: transparent;
-        border-color: $primary;
     }
 }
