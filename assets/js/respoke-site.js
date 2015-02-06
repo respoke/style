@@ -6,9 +6,9 @@ hljs.initHighlightingOnLoad(['javascript','css','html','json','bash']);
 
 /* see base.scss - these should remain in sync */
 window.breakpoints = {
-    small: 550,
-    medium: 700,
-    large: 1332,
+    small: 740,
+    medium: 990,
+    large: 1160,
     current: ''
 };
 
@@ -73,7 +73,7 @@ $(function jqOnReady() {
             resetNavState();
         }
     });
-    $('.navbar a.toggler').click(toggleMainMenu);
+    $('a.navbar--toggler').click(toggleMainMenu);
     $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
 
 
@@ -100,8 +100,9 @@ function logout(e) {
 
 function toggleMainMenu(e) {
     e && e.preventDefault();
+    $(this).toggleClass('navbar--open');
 
-    $('.navbar .nav-links').each(function () {
+    $('.navbar--links').each(function () {
         $(this).toggle();
     });
 }
