@@ -1,0 +1,108 @@
+////
+/// Burger parts
+///
+/// (---) top    -> &:before
+/// [---] middle -> &
+/// (---) bottom -> &:after
+///
+/// @group effects
+////
+
+// Helpers to select parts of the burger
+
+/// Select all burger parts.
+@mixin burger-parts {
+    &, &:before, &:after {
+        @content;
+    }
+}
+
+/// Select top burger part.
+@mixin burger-top {
+    &:before {
+        @content;
+    }
+}
+
+/// Select middle burger part.
+@mixin burger-middle {
+    & {
+        @content;
+    }
+}
+
+/// Select burger bottom.
+@mixin burger-bottom {
+    &:after {
+        @content;
+    }
+}
+
+%burger-buns {
+    position: absolute;
+    content: '';
+}
+
+/// Burger icon.
+/// @param {Number} $width
+/// @param {Number} $height
+/// @param {Number} $gutter
+/// @param {Color} $color
+/// @param {Number} $border-radius
+/// @param {Number} $transition-duration
+@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: $white, $border-radius: 0, $transition-duration: .3s) {
+    $burger-height: $height !global;
+    $burger-gutter: $gutter !global;
+
+    position: relative;
+    margin-top: $height + $gutter;
+    margin-bottom: $height + $gutter;
+
+    @include burger-parts {
+        display: block;
+        width: $width;
+        height: $height;
+        background-color: $color;
+        @if $border-radius != 0 {
+            border-radius: $border-radius;
+        }
+
+        @include transition-property(background-color, transform);
+        @include transition-duration($transition-duration);
+    }
+
+    // TODO: upgrade to libsass 3.2 to use @at-root directive
+    // @at-root {
+    //     %burger-buns {
+    //         position: absolute;
+    //         content: '';
+    //     }
+    // }
+
+    @include burger-top {
+        @extend %burger-buns;
+        top: -($height + $gutter);
+    }
+
+    @include burger-bottom {
+        @extend %burger-buns;
+        top: $height + $gutter;
+    }
+}
+
+/// Burger animations
+/// @todo Remove the parameters and use the !global sass flag in the burger mixin.
+/// @require burger
+/// @param {Number} $burger-gutter - Should match values set in burger mixin.
+/// @param {Number} $burger-height - Should match values set in burger mixin.
+@mixin burger-to-cross($burger-gutter: 3px, $burger-height: 5px) {
+    @include burger-middle {
+        background-color: transparent;
+    }
+    @include burger-top {
+        @include transform(translateY($burger-gutter + $burger-height) rotate(45deg));
+    }
+    @include burger-bottom {
+        @include transform(translateY(-($burger-gutter + $burger-height)) rotate(-45deg));
+    }
+}
