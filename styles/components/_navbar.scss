@@ -9,42 +9,24 @@
 
     font-size: $font-size-normal;
     font-weight: bold;
+}
 
-    a.toggler {
-        display: none;
+.navbar--toggler {
+    display: none;
+    @include size($navbar-height ($navbar-height + 3));
+    padding: $spacing-small $spacing-standard 0 $spacing-small;
 
-        @include media($mobile) {
-            display: inline-block;
-        }
+    @include media($mobile) {
+        @include span-columns(1);
     }
+}
 
-    a.toggler {
-        text-transform: lowercase;
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: $navbar-height;
-        width: $navbar-height + 3;
-        background: $primary-dark;
-        text-align: center;
-        padding: 0;
+.navbar--hamburger {
+    @include burger($width: $spacing-medium, $gutter: $spacing-mini);
+}
 
-        /* The bars are generated from a <ul> */
-        ul {
-            margin: 16px 0 0 0;
-            padding: 0;
-            position: absolute;
-            right: 50%;
-            margin-right: -10px;
-        }
-        li {
-            display: block;
-            border-bottom: 3px solid $text-inverse;
-            width: 20px;
-            margin-top: 4px;
-            padding: 0;
-        }
-    }
+.navbar--open .navbar--hamburger {
+    @include burger-to-cross($burger-gutter: $spacing-mini);
 }
 
 .navbar--wrapper {
@@ -59,6 +41,9 @@
 
     @include media($tablet) {
         @include span-columns(2);
+    }
+    @include media($mobile) {
+        @include span-columns(3);
     }
 
     a.logo--link {
@@ -99,6 +84,10 @@
         @include span-columns(4);
         @include shift(0);
     }
+    @include media($mobile) {
+        // TODO: temporary until slide-out menu is implemented
+        display: none;
+    }
 }
 
 .navbar--account {
@@ -111,6 +100,10 @@
     @include media($tablet) {
         @include span-columns(2);
         @include shift(0);
+    }
+    @include media($mobile) {
+        // TODO: temporary until slide-out menu is implemented
+        display: none;
     }
 
     a.signup, a.login {
@@ -229,9 +222,7 @@ ul.navbar--dropdown {
     }
 }
 
-/**
- * nav themes
- **/
+// Navbar themes
 
 @mixin dark-navbar {
     background: $primary;
