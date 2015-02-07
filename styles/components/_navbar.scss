@@ -1,4 +1,6 @@
 
+$navbar-mobile-width: 84%;
+
 .navbar {
     height: $navbar-height;
     position: fixed;
@@ -9,24 +11,48 @@
 
     font-size: $font-size-normal;
     font-weight: bold;
-}
-
-.navbar--toggler {
-    display: none;
-    @include size($navbar-height ($navbar-height + 3));
-    padding: $spacing-small $spacing-standard 0 $spacing-small;
 
     @include media($mobile) {
-        @include span-columns(1);
+        position: fixed;
+        max-width: $navbar-mobile-width;
+        height: 100%;
+        background: $primary-dark;
+        font-weight: normal;
     }
 }
 
-.navbar--hamburger {
-    @include burger($width: $spacing-medium, $gutter: $spacing-mini);
+@include media($mobile) {
+    .navbar--state:not(:checked) ~ .navbar {
+        @include transform(translate3d(-100%, 0, 0));
+    }
+
+    .navbar--state:checked ~ .navbar {
+        @include transform(translate3d(0, 0, 0));
+    }
+
+    .navbar--state:checked ~ .mobile-header {
+        @include transform(translate3d($navbar-mobile-width, 0, 0));
+    }
+
+    .navbar--state:not(:checked) ~ .mobile-header {
+        @include transform(translate3d(0, 0, 0));
+    }
+
+    .navbar--state:checked ~ .navbar--push-it {
+        @include transform(translate3d($navbar-mobile-width, 0, 0));
+    }
+
+    .navbar--state:not(:checked) ~ .navbar--push-it {
+        @include transform(translate3d(0, 0, 0));
+    }
+
+    .navbar, .navbar--push-it, .mobile-header {
+        @include transition(transform .2s cubic-bezier(.16, .68, .43, .99));
+    }
 }
 
-.navbar--open .navbar--hamburger {
-    @include burger-to-cross($burger-gutter: $spacing-mini);
+.navbar--state {
+    visibility: hidden;
 }
 
 .navbar--wrapper {
@@ -43,7 +69,7 @@
         @include span-columns(2);
     }
     @include media($mobile) {
-        @include span-columns(3);
+        @include fill-parent;
     }
 
     a.logo--link {
@@ -58,14 +84,6 @@
 
         @include media($mobile) {
             display: none;
-        }
-    }
-    img.logo--mobile {
-        display: none;
-        width: 113px;
-
-        @include media($mobile) {
-            display: inline-block;
         }
     }
 }
@@ -264,11 +282,8 @@ ul.navbar--dropdown {
     @include dark-navbar;
 }
 
-.navbar.light {
-    @include media($mobile) {
-        @include dark-navbar;
-    }
-    @include media(min-width $break-small) {
+@include media(min-width $break-small) {
+    .navbar.light {
         @include light-navbar;
     }
 }
@@ -297,6 +312,50 @@ ul.navbar--dropdown {
 
         &:after {
             background-color: $white;
+        }
+    }
+}
+
+// Mobile header
+
+.mobile-header {
+    display: none;
+}
+
+@include media($mobile) {
+    .mobile-header {
+        @include outer-container;
+        display: block;
+        position: fixed;
+        height: $navbar-height-mobile;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+
+        background: $primary;
+    }
+
+    .mobile-header--toggler {
+        @include span-columns(1);
+        height: $navbar-height-mobile;
+        padding: $spacing-small $spacing-standard 0 $spacing-small;
+    }
+
+    .mobile-header--hamburger {
+        @include burger($width: $spacing-medium, $gutter: $spacing-mini);
+    }
+
+    .navbar--state:checked ~ .mobile-header .mobile-header--hamburger {
+        @include burger-to-cross($burger-gutter: $spacing-mini);
+    }
+
+    .mobile-header--logo {
+        @include span-columns(2);
+        text-align: center;
+
+        img {
+            width: 113px;
         }
     }
 }

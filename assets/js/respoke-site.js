@@ -73,7 +73,7 @@ $(function jqOnReady() {
             resetNavState();
         }
     });
-    $('a.navbar--toggler').click(toggleMainMenu);
+
     $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
 
 
@@ -96,15 +96,6 @@ function logout(e) {
     e && e.preventDefault();
     $.removeCookie('token', { domain: '.' + window.location.hostname.split('.').slice(-2).join('.') });
     window.location.reload();
-}
-
-function toggleMainMenu(e) {
-    e && e.preventDefault();
-    $(this).toggleClass('navbar--open');
-
-    $('.navbar--links').each(function () {
-        $(this).toggle();
-    });
 }
 
 function toggleSecondaryNav(e) {
