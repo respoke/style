@@ -14,7 +14,7 @@ $navbar-mobile-width: 84%;
 
     @include media($mobile) {
         position: fixed;
-        max-width: $navbar-mobile-width;
+        width: $navbar-mobile-width;
         height: 100%;
         background: $primary-dark;
         font-weight: normal;
@@ -70,21 +70,20 @@ $navbar-mobile-width: 84%;
     }
     @include media($mobile) {
         @include fill-parent;
+        display: block;
+        margin: 0;
+        float: none;
     }
 
     a.logo--link {
         display: inline-block;
         padding-top: $spacing-small;
-        height: $navbar-height;
+        height: $navbar-height-mobile;
     }
 
     img.logo--image {
         display: inline-block;
         width: 113px;
-
-        @include media($mobile) {
-            display: none;
-        }
     }
 }
 
@@ -92,7 +91,7 @@ $navbar-mobile-width: 84%;
     @include span-columns(6);
     @include shift(3);
     height: $navbar-height;
-    padding: 0px;
+    padding: 0;
     margin-top: 0;
     margin-bottom: 0;
 
@@ -103,8 +102,13 @@ $navbar-mobile-width: 84%;
         @include shift(0);
     }
     @include media($mobile) {
-        // TODO: temporary until slide-out menu is implemented
-        display: none;
+        @include fill-parent;
+        display: block;
+        height: auto;
+        margin: 0;
+        float: none;
+
+        text-align: left;
     }
 }
 
@@ -120,13 +124,24 @@ $navbar-mobile-width: 84%;
         @include shift(0);
     }
     @include media($mobile) {
-        // TODO: temporary until slide-out menu is implemented
-        display: none;
+        display: block;
+        @include fill-parent;
+        height: auto;
+        margin: 0;
+        float: none;
+
+        text-align: left;
     }
 
-    a.signup, a.login {
+    a.navbar--signup, a.navbar--login {
         display: inline-block;
         width: $spacing-standard * 4;
+
+        @include media($mobile) {
+            @include fill-parent;
+            height: $navbar-height-mobile;
+            display: block;
+        }
     }
 
     a.signup {
@@ -154,12 +169,20 @@ ul.navbar--links {
         display: inline-block;
         position: relative;
 
+        @include media($mobile) {
+            display: block;
+        }
+
         a {
             display: inline-block;
             padding: 0 $spacing-standard;
             line-height: $navbar-height;
 
             @include transition(all, 0.2s);
+
+            @include media($mobile) {
+                line-height: em($navbar-height-mobile);
+            }
         }
 
         &:hover ul {
