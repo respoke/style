@@ -390,7 +390,7 @@ ul.navbar--links > li {
 
 @include media($mobile) {
     .navbar {
-        background: $primary-dark;
+        @include textured-background($primary-dark);
 
         a, a:visited, a:active, a:hover {
             color: $navbar-mobile-link;
