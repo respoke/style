@@ -1,7 +1,7 @@
 @import 'base';
 
 .container {
-    @include container;
+    @include outer-container;
     min-height: 100%;
     margin-top: $navbar-height;
     padding-bottom: $spacing-large;

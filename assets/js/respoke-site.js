@@ -6,9 +6,9 @@ hljs.initHighlightingOnLoad(['javascript','css','html','json','bash']);
 
 /* see base.scss - these should remain in sync */
 window.breakpoints = {
-    small: 550,
-    medium: 700,
-    large: 1332,
+    small: 740,
+    medium: 990,
+    large: 1160,
     current: ''
 };
 
@@ -73,7 +73,7 @@ $(function jqOnReady() {
             resetNavState();
         }
     });
-    $('.navbar a.toggler').click(toggleMainMenu);
+
     $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
 
 
@@ -96,15 +96,6 @@ function logout(e) {
     e && e.preventDefault();
     $.removeCookie('token', { domain: '.' + window.location.hostname.split('.').slice(-2).join('.') });
     window.location.reload();
-}
-
-function toggleMainMenu(e) {
-    e && e.preventDefault();
-
-    $('.navbar .nav-links')
-    .each(function () {
-        this.style.display = !this.style.display || this.style.display === 'none' ? 'inline-block' : 'none';
-    });
 }
 
 function toggleSecondaryNav(e) {

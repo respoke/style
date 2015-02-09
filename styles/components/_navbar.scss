@@ -1,7 +1,7 @@
 
-/**
- * nav layout
- **/
+$navbar-mobile-width: 84%;
+$navbar-mobile-link: #4a90e2;
+$navbar-item-height-mobile: em(45px);
 
 .navbar {
     height: $navbar-height;
@@ -14,202 +14,181 @@
     font-size: $font-size-normal;
     font-weight: bold;
 
-    .navbar-wrapper {
-        @include container;
-        padding: 0px $spacing-standard;
+    @include media($mobile) {
+        position: fixed;
+        width: $navbar-mobile-width;
+        height: 100%;
+
+        font-size: $font-size-large;
+        font-weight: normal;
+    }
+}
+
+@include media($mobile) {
+    .navbar--state:not(:checked) ~ .navbar {
+        @include transform(translate3d(-100%, 0, 0));
     }
 
-    .left-nav {
+    .navbar--state:checked ~ .navbar {
+        @include transform(translate3d(0, 0, 0));
+    }
+
+    .navbar--state:checked ~ .mobile-header {
+        @include transform(translate3d($navbar-mobile-width, 0, 0));
+    }
+
+    .navbar--state:not(:checked) ~ .mobile-header {
+        @include transform(translate3d(0, 0, 0));
+    }
+
+    .navbar--state:checked ~ .navbar--push-it {
+        @include transform(translate3d($navbar-mobile-width, 0, 0));
+    }
+
+    .navbar--state:not(:checked) ~ .navbar--push-it {
+        @include transform(translate3d(0, 0, 0));
+    }
+
+    .navbar, .navbar--push-it, .mobile-header {
+        @include transition(transform .2s cubic-bezier(.16, .68, .43, .99));
+    }
+}
+
+.navbar--state {
+    visibility: hidden;
+}
+
+.navbar--wrapper {
+    @include outer-container;
+
+    @include media($mobile) {
+        height: 100%;
+    }
+}
+
+@mixin mobile-menu-item {
+    display: block;
+    height: $navbar-item-height-mobile;
+}
+
+.navbar--logo {
+    @include span-columns(3);
+    height: $navbar-height;
+    text-align: center;
+
+    @include media($tablet) {
+        @include span-columns(2);
+    }
+    @include media($mobile) {
+        @include fill-parent;
+        margin: 0;
+        float: none;
+
+        @include mobile-menu-item;
+    }
+
+    a.logo--link {
+        display: inline-block;
+        padding-top: $spacing-small;
+
+        @include media($mobile) {
+            display: block;
+            height: $navbar-item-height-mobile;
+            padding-top: 0;
+        }
+    }
+
+    img {
+        display: inline-block;
+        width: 113px;
+
+        @include media($mobile) {
+            width: auto;
+            height: 100%;
+        }
+    }
+}
+
+.navbar--links {
+    @include span-columns(6);
+    @include shift(3);
+    height: $navbar-height;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    text-align: center;
+
+    @include media($tablet) {
+        @include span-columns(4);
+        @include shift(0);
+    }
+    @include media($mobile) {
+        @include fill-parent;
         display: block;
-        float: left;
-        width: 20%;
-        height: $navbar-height;
+        height: auto;
+        margin: 0;
+        float: none;
+
         text-align: left;
     }
+}
 
-    .right-nav {
+.navbar--developers > a:after {
+    content: "\f0d7";
+    margin-left: em($spacing-small);
+    font-family: "FontAwesome";
+}
+
+.navbar--account {
+    @include span-columns(4);
+    @include shift(2);
+    height: $navbar-height;
+
+    text-align: right;
+
+    @include media($tablet) {
+        @include span-columns(2);
+        @include shift(0);
+    }
+    @include media($mobile) {
+        @include fill-parent;
         display: block;
-        float: left;
-        width: 20%;
-        height: $navbar-height;
-        text-align: right;
-    }
+        height: 100%;
+        margin: 0;
+        float: none;
 
-    .nav-links {
-        display: block;
-        float: left;
-        width: 60%;
-        margin: 0px;
-        padding: 0px;
-        height: $navbar-height;
+        text-align: left;
 
-        text-align: center;
-    }
-
-    a.toggler {
-        @media screen and (max-width: $break-medium) {
-            display: inline-block;
+        &:before {
+            @include mobile-menu-item;
+            height: $navbar-item-height-mobile * 2;
+            content: "";
         }
-        @media screen and (min-width: $break-medium + 1) {
-            display: none;
+        &:after {
+            @include mobile-menu-item;
+            content: "";
+            height: 100%;
         }
     }
+}
 
-    a.logo-link {
-        display: inline-block;
-        padding-top: $spacing-mini;
-        height: $navbar-height - $spacing-mini;
+.navbar--signup, .navbar--login {
+    display: inline-block;
+    width: $spacing-standard * 4;
+
+    @include media($mobile) {
+        @include fill-parent;
+        @include mobile-menu-item;
+        padding: 0 $spacing-standard;
+        line-height: $navbar-item-height-mobile;
+
+        font-size: $font-size-large;
     }
+}
 
-    img.logo {
-        height: 45px;
-        width: 113px;
-        @media screen and (max-width: $break-small) {
-            display: none;
-        }
-        @media screen and (min-width: $break-small + 1) {
-            display: inline-block;
-        }
-    }
-    img.logo-notext {
-        height: 45px;
-        width: 29px;
-        @media screen and (max-width: $break-small) {
-            display: inline-block;
-        }
-        @media screen and (min-width: $break-small + 1) {
-            display: none;
-        }
-    }
-
-    ul.nav-links {
-        $navbar-link-width: $spacing-large * 2;
-
-        li {
-            display: inline-block;
-            position: relative;
-            line-height: $navbar-height - ($spacing-small * 2);
-
-            a {
-                display: block;
-                padding: $spacing-small;
-                width: $navbar-link-width;
-                @include transition(all, 0.2s);
-            }
-
-            &:hover ul {
-                display: block;
-                opacity: 1;
-                visibility: visible;
-
-                @include transition(all, 0.2s)
-            }
-        }
-
-        ul.dropdown {
-            $dd-width: $navbar-height * 2.5;
-            $dd-border-width: 1px;
-            $dd-triangle-size: 10px;
-
-            display: none;
-            position: absolute;
-            top: $navbar-height;
-            left: ($navbar-link-width / 2) - ($dd-width / 2);
-            padding: 0px;
-            width: $dd-width;
-
-            border-width: $dd-border-width;
-            border-style: solid;
-            border-radius: $radius;
-
-            visibility: hidden;
-            opacity: 0;
-            @include prefixer(box-shadow, none, webkit moz spec);
-
-            @include transition(all, 0.2s);
-
-            a {
-                width: auto;
-            }
-
-            li {
-                display: block;
-                padding: 0px;
-                line-height: normal;
-
-                text-align: center;
-
-                @include transition(background-color, 0.2s);
-
-                &:after {
-                    display: block;
-                    @include size(70% $dd-border-width);
-                    margin: 0 auto;
-
-                    content: " ";
-                }
-
-                &:last-child:after {
-                    visibility: hidden;
-                }
-
-                &:hover {
-                    @include transition(background-color, 0.2s);
-                }
-            }
-
-            &:before {
-                $topOffset: -($dd-triangle-size / 2);
-                $rightOffset: ($dd-width / 2) - ($dd-triangle-size / 2);
-
-                display: block;
-                @include position(absolute, $topOffset $rightOffset null null);
-                @include size($dd-triangle-size);
-                content: " ";
-                pointer-events: none;
-                @include transform(rotate(-45deg));
-
-                border-width: $dd-border-width;
-                @include border-style(solid solid none none);
-            }
-        }
-
-        /* Responsiveness */
-        @media screen and (max-width: $break-medium) {
-            display: none;
-            position: fixed;
-            right: 0;
-            top: $navbar-height;
-            background: $primary;
-            margin: 0;
-            width: 247px;
-            @include inset-shadow();
-
-            li {
-                display: block;
-                margin: 0;
-                width: 100%;
-                text-transform: none;
-                a {
-                    display: block;
-                    padding: $spacing-mini $spacing-small;
-                }
-            }
-        }
-    }
-
-
-    a.signup, a.login {
-        display: inline-block;
-        width: $spacing-standard * 4;
-
-        /* Responsiveness */
-        @media screen and (max-width: $break-medium) {
-            margin-right: $navbar-height;
-        }
-    }
-
-    a.signup {
+@include media(min-width $break-small) {
+    .navbar--signup {
         @include button-transparent;
 
         margin-top: $spacing-small;
@@ -220,76 +199,141 @@
         font-size: $font-size-normal;
     }
 
-    a.login {
-        display: inline-block;
+    .navbar--login {
         width: 60px;
         line-height: $navbar-height;
 
         text-align: center;
     }
+}
 
-    a.toggler {
-        text-transform: lowercase;
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: $navbar-height;
-        width: $navbar-height + 3;
-        background: $primary-dark;
-        text-align: center;
+ul.navbar--links > li {
+    display: inline-block;
+    position: relative;
+
+    @include media($mobile) {
+        @include fill-parent;
+        @include mobile-menu-item;
+
+        &.navbar--developers {
+            height: auto;
+            border: none;
+        }
+
+        &.navbar--developers > a {
+            display: none;
+        }
+    }
+
+    a {
+        display: inline-block;
+        padding: 0 $spacing-standard;
+        line-height: $navbar-height;
+
+        @include transition(all, 0.2s);
+
+        @include media($mobile) {
+            display: block;
+            line-height: $navbar-item-height-mobile;
+        }
+    }
+
+    @include media(min-width $break-small) {
+        &:hover .navbar--dropdown {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+
+            @include transition(all, 0.2s)
+        }
+    }
+}
+
+@include media($mobile) {
+    .navbar--dropdown {
         padding: 0;
 
-        /* The bars are generated from a <ul> */
-        ul {
-            margin: 16px 0 0 0;
-            padding: 0;
-            position: absolute;
-            right: 50%;
-            margin-right: -10px;
-        }
-        li {
-            display: block;
-            border-bottom: 3px solid $text-inverse;
-            width: 20px;
-            margin-top: 4px;
-            padding: 0;
+        > li {
+            @include mobile-menu-item;
         }
     }
 }
 
-/**
- * nav themes
- **/
+@include media(min-width $break-small) {
+    $dd-width: $navbar-height * 2.5;
+    $dd-border-width: 1px;
+    $dd-triangle-size: 10px;
 
-.navbar.dark ul.dropdown, .navbar.light ul.dropdown {
-    background: $primary-dark;
-    border-color: $primary-highlight;
+    .navbar--dropdown {
+        display: none;
+        position: absolute;
+        top: $navbar-height;
+        left: -10%;
+        padding: 0px;
+        width: $dd-width;
 
-    a, a:visited, a:active {
-        color: $white;
-    }
+        border-width: $dd-border-width;
+        border-style: solid;
+        border-radius: $radius;
 
-    a:hover {
-        color: $text-inverse;
-    }
+        visibility: hidden;
+        opacity: 0;
+        @include prefixer(box-shadow, none, webkit moz spec);
 
-    &:before {
-        background-color: $primary-dark;
-        border-color: $primary-highlight;
-    }
+        @include transition(all, 0.2s);
 
-    li {
-        a, a:visited, a:active {
-            font-weight: normal;
+        a {
+            display: block;
+            width: 100%;
         }
+
+        // dropdown triangle with border
+        &:before {
+            $topOffset: -($dd-triangle-size / 2);
+            $rightOffset: ($dd-width / 2) - ($dd-triangle-size / 2);
+
+            display: block;
+            @include position(absolute, $topOffset $rightOffset null null);
+            @include size($dd-triangle-size);
+            content: " ";
+            pointer-events: none;
+            @include transform(rotate(-45deg));
+
+            border-width: $dd-border-width;
+            @include border-style(solid solid none none);
+        }
+    }
+
+    ul.navbar--dropdown li {
+        display: block;
+        padding: 0px;
+        line-height: normal;
+
+        text-align: center;
+
+        @include transition(background-color, 0.2s);
 
         &:after {
-            background-color: $white;
+            display: block;
+            @include size(70% $dd-border-width);
+            margin: 0 auto;
+
+            content: "";
+        }
+
+        &:last-child:after {
+            visibility: hidden;
+        }
+
+        &:hover {
+            @include transition(background-color, 0.2s);
         }
     }
 }
 
-.navbar.dark {
+// Navbar themes
+
+@mixin dark-navbar-theme {
     background: $primary;
     color: $text-inverse;
 
@@ -301,13 +345,20 @@
         color: $text-inverse;
     }
 
-    a.signup {
+    .navbar--signup {
         background: $primary;
         border: 2px solid $white;
     }
+
+    .navbar--logo img.logo--image-dark {
+        display: inline-block;
+    }
+    .navbar--logo img.logo--image-light {
+        display: none;
+    }
 }
 
-.navbar.light {
+@mixin light-navbar-theme {
     background: transparent;
     color: $primary;
 
@@ -319,8 +370,161 @@
         color: $text-inverse;
     }
 
-    a.signup {
-        background: transparent;
-        border-color: $primary;
+    .navbar--logo img.logo--image-dark {
+        display: none;
+    }
+    .navbar--logo img.logo--image-light {
+        display: inline-block;
+    }
+}
+
+@include media(min-width $break-small) {
+    .navbar.dark {
+        @include dark-navbar-theme;
+    }
+
+    .navbar.light {
+        @include light-navbar-theme;
+    }
+}
+
+@include media($mobile) {
+    .navbar {
+        background: $primary-dark;
+
+        a, a:visited, a:active, a:hover {
+            color: $navbar-mobile-link;
+        }
+    }
+
+    .navbar--account {
+        a, a:visited, a:active, a:hover {
+            color: $white;
+        }
+    }
+
+    %account-link-icon {
+        margin-right: em($spacing-small);
+        font-family: "FontAwesome";
+    }
+
+    .navbar--signup:before {
+        @extend %account-link-icon;
+        content: "\f234";
+    }
+
+    .navbar--login:before {
+        @extend %account-link-icon;
+        content: "\f090";
+    }
+
+    .navbar--logo img.logo--image-dark {
+        display: inline-block;
+    }
+    .navbar--logo img.logo--image-light {
+        display: none;
+    }
+
+    %mobile-menu-item {
+        border-top: 1px solid #444;
+        border-bottom: 1px solid $black;
+    }
+
+    .navbar--logo {
+        @extend %mobile-menu-item;
+        border-top: none;
+    }
+
+    .navbar--links > li, .navbar--dropdown > li {
+        @extend %mobile-menu-item;
+    }
+
+    .navbar--account:before {
+        @extend %mobile-menu-item;
+    }
+
+    .navbar--signup, .navbar--login {
+        @extend %mobile-menu-item;
+    }
+
+    .navbar--account:after {
+        @extend %mobile-menu-item;
+        border-bottom: none;
+    }
+}
+
+// Submenu theme
+
+@include media(min-width $break-small) {
+    .navbar.dark ul.navbar--dropdown, .navbar.light ul.navbar--dropdown {
+        background: $primary-dark;
+        border-color: $primary-highlight;
+
+        a, a:visited, a:active {
+            color: $white;
+        }
+
+        a:hover {
+            color: $text-inverse;
+        }
+
+        &:before {
+            background-color: $primary-dark;
+            border-color: $primary-highlight;
+        }
+
+        li {
+            a, a:visited, a:active {
+                font-weight: normal;
+            }
+
+            &:after {
+                background-color: $white;
+            }
+        }
+    }
+}
+
+// Mobile header
+
+.mobile-header {
+    display: none;
+}
+
+@include media($mobile) {
+    .mobile-header {
+        @include outer-container;
+        display: block;
+        position: fixed;
+        height: $navbar-height-mobile;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+
+        background: $primary;
+    }
+
+    .mobile-header--toggler {
+        @include span-columns(1);
+        height: $navbar-height-mobile;
+        padding: $spacing-small $spacing-standard 0 $spacing-small;
+    }
+
+    .mobile-header--hamburger {
+        @include burger($width: $spacing-medium, $gutter: $spacing-mini);
+    }
+
+    .navbar--state:checked ~ .mobile-header .mobile-header--hamburger {
+        @include burger-to-cross($burger-gutter: $spacing-mini);
+    }
+
+    .mobile-header--logo {
+        @include span-columns(2);
+        text-align: center;
+
+        img {
+            width: 113px;
+        }
     }
 }
