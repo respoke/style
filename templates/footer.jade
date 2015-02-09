@@ -1,6 +1,12 @@
 footer#footer.navbar--push-it
-    .footer-wrapper
-        nav.footer-left
+    .footer--wrapper
+        .footer--logos
+            a(href="https://www.respoke.io")
+                img.footer--logo-respoke(src="/images/logo-respoke.png")
+            a(href="http://digium.com/respoke")
+                img.footer--logo-digium(src="/images/digium-white.png")
+
+        nav.footer--nav
             dl
                 dt Site
                 dd: a(href="/") Home
@@ -22,14 +28,8 @@ footer#footer.navbar--push-it
                 dd: a(href="https://www.facebook.com/respokeIO") facebook
                 dd: a(href="https://www.linkedin.com/company/respoke") linkedin
 
-        .footer-right
-            .logos
-                a(href="https://www.respoke.io")
-                    img.logo-respoke(src="/images/logo-respoke.png")
-                a(href="http://digium.com/respoke")
-                    img.logo-digium(src="/images/digium-white.png")
-            .legal
-                div Copyright &copy; #{ new Date().getFullYear() } D.C.S, LLC
-                div: a(href="#") Terms & Conditions
-                div: a(href="#") Privace Policy
-                div: a(href="mailto:info@respoke.io") info@respoke.io
+        .footer--legal
+            div Copyright &copy; #{ new Date().getFullYear() } D.C.S, LLC
+            div: a(href="#") Terms & Conditions
+            div: a(href="#") Privace Policy
+            div: a(href="mailto:info@respoke.io") info@respoke.io

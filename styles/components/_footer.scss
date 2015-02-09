@@ -7,53 +7,71 @@
     right: 0;
     z-index: 1000;
     overflow: hidden;
-    padding: ($spacing-standard * 2.5) 0px;
 
     text-align: left;
     font-size: $font-size-normal;
     color: $text-light;
 
-    .footer-wrapper {
+    .footer--wrapper {
         @include outer-container;
+        padding: $spacing-medium 0;
 
-        padding: 0px $spacing-large;
-    }
-
-    /* Responsiveness */
-    @media screen and (max-width: $break-small) {
-        width: 300px;
-        position: static;
-        width: 100%;
+        @include media($mobile) {
+            > * {
+                margin-bottom: $spacing-medium;
+            }
+        }
     }
 
     a, a:visited {
         color: $white;
     }
 
-    > * {
-        position: inline;
-        overflow: hidden;
+    .footer--logos {
+        @include span-columns(3);
+        @include shift(1);
+
+        @include media($tablet) {
+            @include span-columns(2);
+        }
+        @include media($mobile) {
+            @include fill-parent;
+            @include shift(0);
+
+            text-align: center;
+        }
+
+        a {
+            display: block;
+        }
+
+        img {
+            display: inline-block;
+        }
     }
 
-    .footer-left {
-        float: left;
-    }
-    .footer-right {
-        float: right;
+    .footer--nav {
+        @include span-columns(8);
+        @include shift(1);
+
+        @include media($tablet) {
+            @include span-columns(3);
+            @include shift(0);
+        }
+        @include media($mobile) {
+            @include span-columns(3);
+            @include shift(.5);
+        }
     }
 
-    .footer-left > * {
-        float: left;
-        margin: 0px ($spacing-standard * 4) -9999px 0px;
-        padding-bottom: 9999px;
-        overflow: hidden;
-    }
+    dl {
+        @include span-columns(2.5 of 8);
+        margin-top: 0;
+        margin-bottom: 0;
 
-    .footer-right > * {
-        float: right;
-        margin-bottom: -9999px;
-        padding-bottom: 9999px;
-        overflow: hidden;
+        @include media($tablet) {
+            @include span-columns(1 of 3);
+        }
     }
 
     dt {
@@ -65,38 +83,29 @@
         margin-bottom: $spacing-mini;
     }
 
-    .legal {
-        margin-right: $spacing-standard;
-        padding-right: $spacing-standard;
+    .footer--legal {
+        @include span-columns(4);
+        @include shift(1);
 
-        border-right: 1px solid $text-light;
+        @include media($tablet) {
+            @include span-columns(2.5);
+            @include shift(0);
+        }
+        @include media($mobile) {
+            @include span-columns(2);
+            @include shift(1);
+        }
 
-        > * {
-            margin: $spacing-mini 0px;
-
-            &:first-child {
-                margin-top: 0px;
-            }
-
-            &:last-child {
-                margin-bottom: $spacing-standard * 1.5;
-            }
+        > :first-child {
+            font-weight: bold;
         }
     }
 
-    .logos {
-        margin-top: -10px;
-
-        a {
-            display: block;
-        }
+    .footer--logo-digium {
+        height: em(50px);
     }
 
-    img.logo-digium {
-        max-height: 50px;
-    }
-
-    img.logo-respoke {
-        max-height: 55px;
+    .footer--logo-respoke {
+        height: em(55px);
     }
 }
