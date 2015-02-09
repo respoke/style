@@ -99,6 +99,10 @@
         > :first-child {
             font-weight: bold;
         }
+
+        > * {
+            margin-bottom: $spacing-mini;
+        }
     }
 
     .footer--logo-digium {
