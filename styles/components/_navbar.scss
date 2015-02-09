@@ -56,6 +56,7 @@ $navbar-item-height-mobile: em(45px);
 
 .navbar--state {
     visibility: hidden;
+    @include position(absolute, -100px null null -100px);
 }
 
 .navbar--wrapper {
