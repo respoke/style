@@ -7,6 +7,9 @@
 @import 'variables/colors';
 @import 'variables/spacing';
 
+/// This enables/disables the visual grid guide lines. Be sure to _not_ commit
+/// this value as `true` or it will get deployed with the grid lines visible.
+/// @type Boolean
 $visual-grid: false;
 $visual-grid-index: front;
 $visual-grid-color: $primary-light;
