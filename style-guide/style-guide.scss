@@ -1,5 +1,9 @@
 @import 'base';
 
+h2 {
+    text-align: center;
+}
+
 .container {
     @include outer-container;
     min-height: 100%;
@@ -9,6 +13,10 @@
 
 .large {
     font-size: $font-size-large;
+}
+
+.fonts {
+    text-align: center;
 }
 
 .colors--boxes {
@@ -22,6 +30,7 @@
         border-radius: $radius;
 
         &:nth-child(1) {
+            @include shift(3);
             background: $white;
         }
         &:nth-child(2) {
@@ -55,6 +64,7 @@
 
 .depth--outset {
     @extend %depth--box;
+    @include shift(6);
 
     @include outset-shadow;
     border-radius: $radius;
@@ -81,6 +91,7 @@
 
 .spacing--small {
     @extend %spacing--box;
+    @include shift(7);
     width: $spacing-small;
 }
 
@@ -100,7 +111,7 @@
 }
 
 .buttons {
-    @include row;
+    text-align: center;
 }
 
 %buttons {
@@ -109,6 +120,7 @@
 
 .buttons--light {
     @extend %buttons;
+
     @include button-light;
 }
 
