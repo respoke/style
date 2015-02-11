@@ -5,3 +5,9 @@
 
 ///
 $em-base: 13px;
+
+/// @todo remove this when node-bourbon supports Bourbon >= 4.1.0
+$modular-scale-base: em($em-base);
+
+/// @todo remove this when node-bourbon supports Bourbon >= 4.1.0
+$modular-scale-ratio: $perfect-fourth;
