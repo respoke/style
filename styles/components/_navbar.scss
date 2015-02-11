@@ -359,12 +359,12 @@ ul.navbar--links > li {
     }
 }
 
-@mixin light-navbar-theme {
+@mixin transparent-navbar-theme {
     background: transparent;
-    color: $primary;
+    color: $white;
 
     a, a:visited, a:active {
-        color: $primary;
+        color: $white;
     }
 
     a:hover {
@@ -372,10 +372,14 @@ ul.navbar--links > li {
     }
 
     .navbar--logo img.logo--image-dark {
-        display: none;
+        display: inline-block;
     }
     .navbar--logo img.logo--image-light {
-        display: inline-block;
+        display: none;
+    }
+
+    .navbar--signup {
+        border-color: $white;
     }
 }
 
@@ -384,8 +388,8 @@ ul.navbar--links > li {
         @include dark-navbar-theme;
     }
 
-    .navbar.light {
-        @include light-navbar-theme;
+    .navbar.transparent {
+        @include transparent-navbar-theme;
     }
 }
 
@@ -457,7 +461,7 @@ ul.navbar--links > li {
 // Submenu theme
 
 @include media(min-width $break-small) {
-    .navbar.dark ul.navbar--dropdown, .navbar.light ul.navbar--dropdown {
+    .navbar.dark ul.navbar--dropdown, .navbar.transparent ul.navbar--dropdown {
         background: $primary-dark;
         border-color: $primary-highlight;
 
