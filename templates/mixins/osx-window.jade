@@ -1,0 +1,17 @@
+mixin osx-window(title, actions)
+    - if (!actions) actions = {}
+    .window
+        .window--titlebar
+            .window--buttons
+                .window--close: a.window--buttons--close(href=actions.close)
+                    span.fa.fa-close
+                .window--minimize: a.window--buttons-minimize(href=actions.minimize)
+                    span -
+                .window--zoom: a.window--buttons--zoom(href=actions.zoom)
+                    span.fa.fa-expand
+            span.window--title
+                != title
+
+        .window--content
+            if block
+                block

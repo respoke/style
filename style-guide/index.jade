@@ -57,9 +57,19 @@ html(lang='en')
                 button.buttons--transparent Transparent button
 
             hr
+            //- This include would normally go at the top of the Jade file, but
+            //- keep it here for example clarity.
+            include ../templates/mixins/osx-window
+            .window-example
+                h2 OSX window example
+                +osx-window('OSX window example', { close: '#', minimize: '#', zoom: '#' })
+                    h3 You have a window!
+                    p Into the soul of the world...
+
+            hr
             .code
                 h2 Code
-                pre: code.js
+                pre.code--block: code.js
                     | // Instantiate Respoke object
                     |var respoke = new Respoke({
                     |     appId: appId,

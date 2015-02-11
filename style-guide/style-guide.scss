@@ -1,4 +1,5 @@
 @import 'base';
+@import 'components/osx-window';
 
 h2 {
     text-align: center;
@@ -132,6 +133,22 @@ h2 {
 .buttons--transparent {
     @extend %buttons;
     @include button-transparent;
+}
+
+.window-example {
+    @include row;
+
+    .window {
+        @include span-columns(6);
+        @include shift(6);
+    }
+    .window--content {
+        color: $light-grey;
+
+        h3 {
+            color: $light-grey;
+        }
+    }
 }
 
 .code {
