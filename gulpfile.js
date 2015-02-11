@@ -85,7 +85,7 @@ gulp.task('style-guide:build', ['style-guide:clean'], buildTask);
 
 gulp.task('style-guide:copy-assets', ['style-guide:clean'], copyAssets);
 
-gulp.task('style-guide:webserver', webserverTask);
+gulp.task('style-guide:webserver', ['style-guide:build'], webserverTask);
 
 gulp.task('style-guide:watch', watchTask);
 
