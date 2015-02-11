@@ -11,83 +11,96 @@
     font-size: $font-size-large;
 }
 
-.colors--boxes > .color {
-    display: inline-block;
-    @include size(120px);
-    margin-right: $spacing-medium;
+.colors--boxes {
+    @include row;
 
-    border: 1px solid $dark-grey;
-    border-radius: $radius;
+    > .color {
+        @include span-columns(2);
+        height: 120px;
 
-    &:nth-child(1) {
-        background: $white;
-    }
-    &:nth-child(2) {
-        background: $light-grey;
-    }
-    &:nth-child(3) {
-        background: $dark-grey;
-    }
-    &:nth-child(4) {
-        background: $blue;
-    }
-    &:nth-child(5) {
-        background: $light-blue;
-    }
-    &:nth-child(6) {
-        background: $red;
+        border: 1px solid $dark-grey;
+        border-radius: $radius;
+
+        &:nth-child(1) {
+            background: $white;
+        }
+        &:nth-child(2) {
+            background: $light-grey;
+        }
+        &:nth-child(3) {
+            background: $dark-grey;
+        }
+        &:nth-child(4) {
+            background: $blue;
+        }
+        &:nth-child(5) {
+            background: $light-blue;
+        }
+        &:nth-child(6) {
+            background: $red;
+        }
     }
 }
 
-%depth {
-    display: inline-block;
-    @include size(150px 50px);
-    margin-right: $spacing-standard;
+.depth {
+    @include row;
+}
+
+%depth--box {
+    @include span-columns(3);
+    height: 50px;
 
     background: $light-grey;
 }
 
 .depth--outset {
-    @extend %depth;
+    @extend %depth--box;
 
     @include outset-shadow;
     border-radius: $radius;
 }
 
 .depth--inset {
-    @extend %depth;
+    @extend %depth--box;
 
     @include inset-shadow;
     border-radius: $radius;
 }
 
-%spacing {
-    display: inline-block;
+.spacing {
+    @include row;
+}
+
+%spacing--box {
+    @include span-columns(1);
     height: 150px;
-    margin-right: $spacing-medium;
 
     border-radius: $radius;
     background: $dark-grey;
 }
 
 .spacing--small {
-    @extend %spacing;
+    @extend %spacing--box;
     width: $spacing-small;
 }
 
 .spacing--standard {
-    @extend %spacing;
+    @extend %spacing--box;
     width: $spacing-standard;
 }
 
 .spacing--medium {
-    @extend %spacing;
+    @extend %spacing--box;
     width: $spacing-medium;
 }
 
 .spacing--large {
-    @extend %spacing;
+    @extend %spacing--box;
     width: $spacing-large;
+}
+
+.buttons {
+    @include row;
 }
 
 %buttons {
@@ -107,4 +120,13 @@
 .buttons--transparent {
     @extend %buttons;
     @include button-transparent;
+}
+
+.code {
+    @include row;
+}
+
+.code--block {
+    @include span-columns(14);
+    @include shift(2);
 }
