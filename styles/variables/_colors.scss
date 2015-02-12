@@ -15,13 +15,15 @@ $black: #000;
 ///
 $blue: #3b79b4;
 ///
+$bright-blue: adjust-color($blue, $lightness: 10%, $saturation: 50%);
+///
 $light-blue: #57adff;
 ///
 $red: #ff7766;
 ///
-$light-pink: #dc47b1;
-///
 $dark-pink: #CB219A;
+///
+$light-pink: adjust-color($dark-pink, $lightness: 30%, $saturation: 30%);
 
 ///
 $primary: $dark-grey;

@@ -155,6 +155,13 @@ h2 {
     @include row;
 }
 
+.code--theme-select {
+    @include fill-parent;
+    margin: $spacing-medium 0;
+
+    text-align: center;
+}
+
 .code--block {
     @include span-columns(14);
     @include shift(2);

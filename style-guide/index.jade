@@ -6,6 +6,9 @@ html(lang='en')
         != renderSharedTemplate('head')
 
         link(type="text/css" rel='stylesheet' href='style-guide.css')
+        link(type="text/css" rel='stylesheet' href='hljs-dark.css' disabled)
+        link(type="text/css" rel='stylesheet' href='hljs-light.css')
+        script(src="style-guide.js")
     body
         != renderSharedTemplate('navbar', { navTheme: 'dark' })
 
@@ -69,7 +72,12 @@ html(lang='en')
             hr
             .code
                 h2 Code
-                pre.code--block: code.js
+                .code--theme-select
+                    label Light
+                        input(type="radio" name="code-theme" value="light")
+                    label Dark
+                        input(type="radio" name="code-theme" value="dark" checked)
+                pre.dark.code--block: code.js
                     | // Instantiate Respoke object
                     |var respoke = new Respoke({
                     |     appId: appId,

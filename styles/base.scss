@@ -5,7 +5,6 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
 
 // Widgets and content blocks
-@import 'highlight-js-theme';
 @import 'components/navbar';
 @import 'components/footer';
 
@@ -44,10 +43,17 @@ pre {
     margin: 0;
     padding: $spacing-standard;
     overflow: auto;
-    background: $light-grey;
 
-    @include inset-shadow();
     border-radius: $radius;
+
+    &.dark {
+        @include inset-shadow($white);
+        background: $primary;
+    }
+    &, &.light {
+        @include inset-shadow;
+        background: $light-grey;
+    }
 
     h6 {
         margin: 0;
