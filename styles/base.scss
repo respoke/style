@@ -70,6 +70,14 @@ pre {
     }
 }
 
+.window pre {
+    padding: 0;
+
+    &.dark, &.light {
+        @include remove-shadow;
+    }
+}
+
 strong {
     font-weight: 600;
 }
