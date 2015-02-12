@@ -74,10 +74,10 @@ html(lang='en')
                 h2 Code
                 .code--theme-select
                     label Light
-                        input(type="radio" name="code-theme" value="light")
+                        input(type="radio" name="code-theme" value="light" checked)
                     label Dark
-                        input(type="radio" name="code-theme" value="dark" checked)
-                pre.dark.code--block: code.js
+                        input(type="radio" name="code-theme" value="dark")
+                pre.light.code--block: code.js
                     | // Instantiate Respoke object
                     |var respoke = new Respoke({
                     |     appId: appId,

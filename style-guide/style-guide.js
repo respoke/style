@@ -8,5 +8,5 @@ $(function () {
         $('link[href^="hljs-' + theme + '"]').attr('disabled', false);
         $('pre.code--block').toggleClass('dark');
         $('pre.code--block').toggleClass('light');
-    }).trigger('change');
+    });
 });
