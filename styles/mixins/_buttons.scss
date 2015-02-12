@@ -19,6 +19,10 @@
     @include button;
     background: $button-dark;
     color: $white;
+
+    &:visited, &:active, &:hover {
+        color: $white;
+    }
 }
 
 ///
@@ -26,6 +30,10 @@
     @include button;
     background: $light-grey;
     color: $primary;
+
+    &:visited, &:active, &:hover {
+        color: $primary;
+    }
 }
 
 ///
@@ -33,6 +41,10 @@
     @include button;
     background: $white;
     color: $blue;
+
+    &:visited, &:active, &:hover {
+        color: $blue;
+    }
 }
 
 ///
@@ -43,4 +55,8 @@
     box-shadow: none;
     color: $primary;
     font-weight: bold;
+
+    &:visited, &:active, &:hover {
+        color: $primary;
+    }
 }
