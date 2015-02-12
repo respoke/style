@@ -3,18 +3,18 @@
 //// @group effects
 ////
 
-///
-@mixin inset-shadow() {
-    @include prefixer(box-shadow, inset 1px 1px 2px $primary, webkit moz spec);
+/// @param {Color} $color [$primary] - Color of the shadow.
+@mixin inset-shadow($color: $primary) {
+    @include prefixer(box-shadow, inset 1px 1px 2px $color, webkit moz spec);
 }
 
-///
-@mixin outset-shadow() {
-    @include prefixer(box-shadow, 1px 1px 3px $primary, webkit moz spec);
+/// @param {Color} $color [$primary] - Color of the shadow.
+@mixin outset-shadow($color: $primary) {
+    @include prefixer(box-shadow, 1px 1px 3px $color, webkit moz spec);
 }
 
 /// Removes any box-shadow effects.
-@mixin remove-shadow() {
+@mixin remove-shadow {
     @include prefixer(box-shadow, none, webkit moz spec);
 }
 
