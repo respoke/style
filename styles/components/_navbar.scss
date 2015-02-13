@@ -14,6 +14,8 @@ $navbar-item-height-mobile: em(45px);
     font-size: $font-size-normal;
     font-weight: bold;
 
+    @include transition(background 1s);
+
     @include media($mobile) {
         position: fixed;
         width: $navbar-mobile-width;
@@ -347,7 +349,6 @@ ul.navbar--links > li {
     }
 
     .navbar--signup {
-        background: $primary;
         border: 2px solid $white;
     }
 
@@ -390,6 +391,10 @@ ul.navbar--links > li {
 
     .navbar.transparent {
         @include transparent-navbar-theme;
+    }
+
+    body.scroll-break-passed .navbar {
+        background-color: transparentize($primary, 0.2);
     }
 }
 

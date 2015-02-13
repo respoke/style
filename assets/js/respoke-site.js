@@ -12,7 +12,23 @@ window.breakpoints = {
     current: ''
 };
 
+function scrollBreakHook() {
+    // Add a class when the scroll has passed a certain point.
+    var documentElement = document.documentElement;
+    var body = document.getElementsByTagName('body')[0];
+
+    window.onscroll = function () {
+        var scrollY = (this.pageYOffset || documentElement.scrollTop)  - (documentElement.clientTop || 0);
+        if (scrollY > 60) {
+            body.classList.add('scroll-break-passed');
+        } else {
+            body.classList.remove('scroll-break-passed');
+        }
+    };
+}
+
 $(function jqOnReady() {
+    scrollBreakHook();
 
     // Setup dynamic links
     var token = $.cookie('token');
