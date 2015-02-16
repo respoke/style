@@ -1,1 +1,4 @@
 a img { border: none; }
+body.scroll-break-passed .navbar {
+    background-color: #4a4a4a; /* $primary */
+}
