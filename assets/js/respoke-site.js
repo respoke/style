@@ -1,8 +1,10 @@
+/* global $: false, hljs: false, Payboard: false */
+'use strict';
 //
 // Syntax highlighting http://highlightjs.org/usage/
 //
 hljs.configure({classPrefix: 'hljs-'});
-hljs.initHighlightingOnLoad(['javascript','css','html','json','bash']);
+hljs.initHighlightingOnLoad(['javascript', 'css', 'html', 'json', 'bash']);
 
 /* see base.scss - these should remain in sync */
 window.breakpoints = {
@@ -25,6 +27,24 @@ function scrollBreakHook() {
             body.classList.remove('scroll-break-passed');
         }
     };
+}
+
+function logout(e) {
+    e && e.preventDefault();
+    $.removeCookie('token', { domain: '.' + window.location.hostname.split('.').slice(-2).join('.') });
+    window.location.reload();
+}
+
+function toggleSecondaryNav(e) {
+    e && e.preventDefault();
+    $('.sidebar').toggle();
+    $('.breadcrumbs').toggleClass('open-state');
+    $('.breadcrumbs .links').toggle();
+}
+
+function resetNavState() {
+    $('.sidebar, .navbar .nav-links').css('display', '');
+    $('.breadcrumbs').removeClass('open-state');
 }
 
 $(function jqOnReady() {
@@ -65,9 +85,8 @@ $(function jqOnReady() {
     // TODO: this url is changing to the portal
     $signup.attr('href', publicUrl + $signup.attr('href'));
     $wwwlink.each(function () {
-        $(this).attr('href', publicUrl + $(this).attr('href'))
+        $(this).attr('href', publicUrl + $(this).attr('href'));
     });
-
 
     // Handlers
     function getCurrentBreakpoint() {
@@ -92,36 +111,18 @@ $(function jqOnReady() {
 
     $('.breadcrumbs .toggler-sec').click(toggleSecondaryNav);
 
-
     // Payboard
     $.ajax({
         url: 'https://d3px1qgagsf6ei.cloudfront.net/Scripts/f772acdb-7c45-430c-8c5a-28c3bcbb420e',
         crossDomain: true,
         dataType: 'script',
         success: function () {
+            // jshint ignore: start
             Payboard.Events.trackPage;
+            // jshint ignore: end
         },
         error: function () {
             console.warn("There was an error retrieving the payboard tracking script");
         }
     });
 });
-
-
-function logout(e) {
-    e && e.preventDefault();
-    $.removeCookie('token', { domain: '.' + window.location.hostname.split('.').slice(-2).join('.') });
-    window.location.reload();
-}
-
-function toggleSecondaryNav(e) {
-    e && e.preventDefault();
-    $('.sidebar').toggle();
-    $('.breadcrumbs').toggleClass('open-state');
-    $('.breadcrumbs .links').toggle();
-}
-
-function resetNavState() {
-    $('.sidebar, .navbar .nav-links').css('display', '');
-    $('.breadcrumbs').removeClass('open-state');
-}
