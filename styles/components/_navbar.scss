@@ -20,34 +20,45 @@ $navbar-item-height-mobile: em(45px);
         position: fixed;
         width: $navbar-mobile-width;
         height: 100%;
+        overflow-y: scroll;
 
         font-weight: normal;
     }
 }
 
 @include media($mobile) {
-    .navbar--state:not(:checked) ~ .navbar {
+    %navbar--hide {
         @include transform(translate3d(-100%, 0, 0));
     }
-
-    .navbar--state:checked ~ .navbar {
+    %navbar--neutral {
         @include transform(translate3d(0, 0, 0));
     }
-
-    .navbar--state:checked ~ .mobile-header {
+    %navbar--push {
         @include transform(translate3d($navbar-mobile-width, 0, 0));
     }
 
-    .navbar--state:not(:checked) ~ .mobile-header {
-        @include transform(translate3d(0, 0, 0));
+    body:not(.navbar--mobile-open) .navbar {
+        @extend %navbar--hide;
     }
 
-    .navbar--state:checked ~ .navbar--push-it {
-        @include transform(translate3d($navbar-mobile-width, 0, 0));
+    .navbar--mobile-open .navbar {
+        @extend %navbar--neutral;
     }
 
-    .navbar--state:not(:checked) ~ .navbar--push-it {
-        @include transform(translate3d(0, 0, 0));
+    .navbar--mobile-open .mobile-header {
+        @extend %navbar--push;
+    }
+
+    body:not(.navbar--mobile-open) .mobile-header {
+        @extend %navbar--neutral;
+    }
+
+    .navbar--mobile-open .navbar--push-it {
+        @extend %navbar--push;
+    }
+
+    body:not(.navbar--mobile-open) .navbar--push-it {
+        @extend %navbar--neutral;
     }
 
     .navbar, .navbar--push-it, .mobile-header {
@@ -524,7 +535,7 @@ ul.navbar--links > li {
         @include burger($width: $spacing-medium, $gutter: $spacing-mini);
     }
 
-    .navbar--state:checked ~ .mobile-header .mobile-header--hamburger {
+    .navbar--mobile-open .mobile-header .mobile-header--hamburger {
         @include burger-to-cross($burger-gutter: $spacing-mini);
     }
 

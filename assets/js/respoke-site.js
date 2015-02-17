@@ -47,8 +47,15 @@ function resetNavState() {
     $('.breadcrumbs').removeClass('open-state');
 }
 
+function toggleMobileMenu(event) {
+    event && event.preventDefault();
+    $('body').toggleClass('navbar--mobile-open');
+}
+
 $(function jqOnReady() {
     scrollBreakHook();
+
+    $('.navbar--state').on('change', toggleMobileMenu);
 
     // Setup dynamic links
     var token = $.cookie('token');
