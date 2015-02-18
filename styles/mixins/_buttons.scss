@@ -1,0 +1,62 @@
+////
+/// Mixins for various styles of buttons.
+/// @group buttons
+////
+
+/// Basic button with border-radius and font styles.
+@mixin button {
+    display: inline-block;
+    padding: $spacing-standard/2 $spacing-standard;
+
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: $font-size-large;
+    @include outset-shadow;
+}
+
+///
+@mixin button-dark {
+    @include button;
+    background: $button-dark;
+    color: $white;
+
+    &:visited, &:active, &:hover {
+        color: $white;
+    }
+}
+
+///
+@mixin button-light {
+    @include button;
+    background: $light-grey;
+    color: $primary;
+
+    &:visited, &:active, &:hover {
+        color: $primary;
+    }
+}
+
+///
+@mixin button-white {
+    @include button;
+    background: $white;
+    color: $blue;
+
+    &:visited, &:active, &:hover {
+        color: $blue;
+    }
+}
+
+///
+@mixin button-transparent {
+    @include button;
+    background: transparent;
+    border: 2px solid $primary;
+    box-shadow: none;
+    color: $primary;
+    font-weight: bold;
+
+    &:visited, &:active, &:hover {
+        color: $primary;
+    }
+}

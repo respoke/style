@@ -1,0 +1,168 @@
+@import 'base';
+@import 'components/osx-window';
+
+h2 {
+    text-align: center;
+}
+
+.container {
+    @include outer-container;
+    min-height: 100%;
+    margin-top: $navbar-height;
+    padding-bottom: $spacing-large;
+}
+
+.large {
+    font-size: $font-size-large;
+}
+
+.fonts {
+    text-align: center;
+}
+
+.colors--boxes {
+    @include row;
+
+    > .color {
+        @include span-columns(2);
+        height: 120px;
+
+        border: 1px solid $dark-grey;
+        border-radius: $radius;
+
+        &:nth-child(1) {
+            @include shift(3);
+            background: $white;
+        }
+        &:nth-child(2) {
+            background: $light-grey;
+        }
+        &:nth-child(3) {
+            background: $dark-grey;
+        }
+        &:nth-child(4) {
+            background: $blue;
+        }
+        &:nth-child(5) {
+            background: $light-blue;
+        }
+        &:nth-child(6) {
+            background: $red;
+        }
+    }
+}
+
+.depth {
+    @include row;
+}
+
+%depth--box {
+    @include span-columns(3);
+    height: 50px;
+
+    background: $light-grey;
+}
+
+.depth--outset {
+    @extend %depth--box;
+    @include shift(6);
+
+    @include outset-shadow;
+    border-radius: $radius;
+}
+
+.depth--inset {
+    @extend %depth--box;
+
+    @include inset-shadow;
+    border-radius: $radius;
+}
+
+.spacing {
+    @include row;
+}
+
+%spacing--box {
+    @include span-columns(1);
+    height: 150px;
+
+    border-radius: $radius;
+    background: $dark-grey;
+}
+
+.spacing--small {
+    @extend %spacing--box;
+    @include shift(7);
+    width: $spacing-small;
+}
+
+.spacing--standard {
+    @extend %spacing--box;
+    width: $spacing-standard;
+}
+
+.spacing--medium {
+    @extend %spacing--box;
+    width: $spacing-medium;
+}
+
+.spacing--large {
+    @extend %spacing--box;
+    width: $spacing-large;
+}
+
+.buttons {
+    text-align: center;
+}
+
+%buttons {
+    margin-right: $spacing-medium;
+}
+
+.buttons--light {
+    @extend %buttons;
+
+    @include button-light;
+}
+
+.buttons--dark {
+    @extend %buttons;
+    @include button-dark;
+}
+
+.buttons--transparent {
+    @extend %buttons;
+    @include button-transparent;
+}
+
+.window-example {
+    @include row;
+
+    .window {
+        @include span-columns(6);
+        @include shift(6);
+    }
+    .window--content {
+        color: $light-grey;
+
+        h3 {
+            color: $light-grey;
+        }
+    }
+}
+
+.code {
+    @include row;
+}
+
+.code--theme-select {
+    @include fill-parent;
+    margin: $spacing-medium 0;
+
+    text-align: center;
+}
+
+.code--block {
+    @include span-columns(14);
+    @include shift(2);
+}

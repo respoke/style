@@ -2,6 +2,9 @@
 
 var path = require('path');
 var bourbon = require('node-bourbon');
+var neat = require('node-neat');
+var jade = require('jade');
+var _ = require('lodash');
 
 var basePath = __dirname;
 
@@ -13,20 +16,36 @@ var paths = {
     templates: path.resolve(basePath, 'templates')
 };
 
-var RespokeStyle = {
-  paths: paths,
-    bourbon: bourbon,
-    includeStylePaths: function includeStylePaths(myPaths, noBourbonPaths) {
+var RespokeStyle = (function RespokeStyle() {
+    var includeStylePaths = function includeStylePaths(myPaths, noBourbonPaths) {
         var allPaths = myPaths || [];
 
         if (!noBourbonPaths) {
-            allPaths = bourbon.with(paths);
+            allPaths = neat.with(paths);
         }
 
         allPaths.push(paths.styles);
 
         return allPaths;
-    }
-};
+    };
+    var renderSharedTemplate = function renderSharedTemplate(name, locals) {
+        var templatePath = path.join(paths.templates, name + '.jade');
+        var options = _.merge({}, locals, {
+            filename: templatePath
+        });
+
+        return jade.renderFile(templatePath, options);
+    };
+
+    return {
+        paths: paths,
+        bourbon: bourbon,
+        neat: neat,
+        includeStylePaths: includeStylePaths,
+        templateLocals: {
+            renderSharedTemplate: renderSharedTemplate
+        }
+    };
+})();
 
 module.exports = RespokeStyle;

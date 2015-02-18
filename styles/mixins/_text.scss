@@ -1,0 +1,13 @@
+////
+/// Various mixins for text effects and styles.
+/// @group fonts
+////
+
+/// @param {Color} $left left-most color (start)
+/// @param {Color} $right right-most color (end)
+@mixin attention($left, $right) {
+    color: $primary-light;
+    background: -webkit-linear-gradient(left, $left, $right);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

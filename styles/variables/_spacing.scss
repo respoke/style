@@ -1,0 +1,38 @@
+////
+/// Variables for spacing various elements and base grid values.
+/// @group config
+/// @type Number
+////
+
+///
+$spacing-standard: 20px;
+///
+$spacing-medium: $spacing-standard * 2;
+///
+$spacing-large: $spacing-standard * 3;
+
+///
+$spacing-small: 10px;
+///
+$spacing-mini: $spacing-small / 2;
+///
+$spacing-mini-half: $spacing-mini / 2;
+
+/// Base border radius size.
+$radius: 5px;
+
+///
+$navbar-height: 60px;
+///
+$navbar-height-mobile: 45px;
+/// Offset used when there is a sidebar menu.
+$content-left-offset: 162px;
+
+// Responsive breakpoints
+
+///
+$break-small: 740px;
+///
+$break-medium: 990px;
+///
+$break-large: 1160px;

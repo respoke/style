@@ -1,0 +1,121 @@
+doctype html
+html(lang='en')
+    head
+        title Respoke Style Guide
+
+        != renderSharedTemplate('head')
+
+        link(type="text/css" rel='stylesheet' href='style-guide.css')
+        link(type="text/css" rel='stylesheet' href='hljs-dark.css' disabled)
+        link(type="text/css" rel='stylesheet' href='hljs-light.css')
+        script(src="style-guide.js")
+    body
+        != renderSharedTemplate('navbar', { navTheme: 'dark' })
+
+        .container.navbar--push-it
+            h1 Respoke style guide
+            p
+                | Please refer to the SASS file for details on the templates,
+                | mixins, and variables used to build this page.
+
+            hr
+            .fonts
+                h2 Fonts
+                h1 The quick brown fox
+                h2 Jumped over the fence
+                p.large The quick brown fox jumped over the fence.
+                p.normal The quick brown fox jumped over the fence.
+                a(href="/foo-bar") Here is a link
+
+            hr
+            .colors
+                h2 Colors
+                .colors--boxes
+                    .color
+                    .color
+                    .color
+                    .color
+                    .color
+                    .color
+
+            hr
+            .depth
+                h2 Depth
+                .depth--outset
+                .depth--inset
+
+            hr
+            .spacing
+                h2 Spacing
+                .spacing--small
+                .spacing--standard
+                .spacing--medium
+                .spacing--large
+
+            hr
+            .buttons
+                h2 Buttons
+                button.buttons--light Light button
+                button.buttons--dark Dark button
+                button.buttons--transparent Transparent button
+
+            hr
+            //- This include would normally go at the top of the Jade file, but
+            //- keep it here for example clarity.
+            include ../templates/mixins/osx-window
+            .window-example
+                h2 OSX window example
+                +osx-window('OSX window example', { close: '#', minimize: '#', zoom: '#' })
+                    h3 You have a window!
+                    p Into the soul of the world...
+
+            hr
+            .code
+                h2 Code
+                .code--theme-select
+                    label Light
+                        input(type="radio" name="code-theme" value="light" checked)
+                    label Dark
+                        input(type="radio" name="code-theme" value="dark")
+                pre.light.code--block: code.js
+                    | // Instantiate Respoke object
+                    |var respoke = new Respoke({
+                    |     appId: appId,
+                    |     'App-Secret': appSecret
+                    | });
+                    | &nbsp;
+                    | // Connect to respoke as endpoint
+                    | respoke.auth.connect({
+                    |     endpointId: endpointId
+                    | });
+                    | &nbsp;
+                    | respoke.on('connect', function () {
+                    |     respoke.messages.send({
+                    |         endpointId: endpointId,
+                    |         to: 'destination-endpoint-id',
+                    |         message: 'Hello world!'
+                    |     }).then(function (response) {
+                    |         console.log(response);
+                    |         respoke.close();
+                    |     }).catch(function (error) {
+                    |         console.log(error);
+                    |         respoke.close();
+                    |     });
+                    | });
+                    | &nbsp;
+                    | function $initHighlight(block, flags) {
+                    |     try {
+                    |         if (block.className.search(/\bno\-highlight\b/) != -1)
+                    |             return processBlock(block.function, true, 0x0F) + ' class=""';
+                    |     } catch (e) {
+                    |         /* handle exception */
+                    |         var e4x = "Example 1234";
+                    |     }
+                    |     for (var i = 0 / 2; i < classes.length; i++) { // "0 / 2" should not be parsed as regexp
+                    |         if (checkCondition(classes[i]) === undefined)
+                    |             return /\d+[\s/]/g;
+                    |     }
+                    |     console.log(Array.every(classes, Boolean));
+                    | }
+
+        != renderSharedTemplate('footer')

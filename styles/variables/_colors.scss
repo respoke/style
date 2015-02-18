@@ -1,0 +1,57 @@
+////
+/// Various color variables used throughout Respoke websites and branding.
+/// @group colors
+/// @type Color
+////
+
+///
+$dark-grey: #4a4a4a;
+///
+$light-grey: #f4f4f4;
+///
+$white: #fff;
+///
+$black: #000;
+///
+$blue: #3b79b4;
+///
+$bright-blue: adjust-color($blue, $lightness: 10%, $saturation: 50%);
+///
+$light-blue: #57adff;
+///
+$red: #ff7766;
+///
+$dark-pink: #CB219A;
+///
+$light-pink: adjust-color($dark-pink, $lightness: 30%, $saturation: 30%);
+
+///
+$primary: $dark-grey;
+///
+$primary-light: #929292;
+///
+$primary-highlight: #9D9D9D;
+///
+$primary-dark: #333333;
+
+///
+$button-dark: $blue;
+///
+$button-light: $light-grey;
+
+///
+$background: #fff;
+
+///
+$text: $primary;
+///
+$text-highlight: $blue;
+///
+$text-inverse: $primary-light;
+
+///
+$text-light: lighten($text, 20%);
+///
+$text-lighter: lighten($text, 40%);
+///
+$text-lightest: lighten($text, 60%);

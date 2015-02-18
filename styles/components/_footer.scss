@@ -1,0 +1,115 @@
+
+#footer {
+    background: $primary;
+    color: $text-inverse;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: hidden;
+
+    text-align: left;
+    font-size: $font-size-normal;
+    color: $text-light;
+
+    .footer--wrapper {
+        @include outer-container;
+        padding: $spacing-medium 0;
+
+        @include media($mobile) {
+            > * {
+                margin-bottom: $spacing-medium;
+            }
+        }
+    }
+
+    a, a:visited {
+        color: $white;
+    }
+
+    .footer--logos {
+        @include span-columns(3);
+        @include shift(1);
+
+        @include media($tablet) {
+            @include span-columns(2);
+        }
+        @include media($mobile) {
+            @include fill-parent;
+            @include shift(0);
+
+            text-align: center;
+        }
+
+        a {
+            display: block;
+        }
+
+        img {
+            display: inline-block;
+        }
+    }
+
+    .footer--nav {
+        @include span-columns(8);
+        @include shift(1);
+
+        @include media($tablet) {
+            @include span-columns(3);
+            @include shift(0);
+        }
+        @include media($mobile) {
+            @include span-columns(3);
+            @include shift(.5);
+        }
+    }
+
+    dl {
+        @include span-columns(2.5 of 8);
+        margin-top: 0;
+        margin-bottom: 0;
+
+        @include media($tablet) {
+            @include span-columns(1 of 3);
+        }
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dt, dd {
+        margin: 0px;
+        margin-bottom: $spacing-mini;
+    }
+
+    .footer--legal {
+        @include span-columns(4);
+        @include shift(1);
+
+        @include media($tablet) {
+            @include span-columns(2.5);
+            @include shift(0);
+        }
+        @include media($mobile) {
+            @include span-columns(2);
+            @include shift(1);
+        }
+
+        > :first-child {
+            font-weight: bold;
+        }
+
+        > * {
+            margin-bottom: $spacing-mini;
+        }
+    }
+
+    .footer--logo-digium {
+        height: em(50px);
+    }
+
+    .footer--logo-respoke {
+        height: em(55px);
+    }
+}
