@@ -16,6 +16,10 @@ $navbar-item-height-mobile: em(45px);
 
     @include transition(background 1s);
 
+    .menu {
+        display: none;
+    }
+
     @include media($mobile) {
         position: fixed;
         width: $navbar-mobile-width;
