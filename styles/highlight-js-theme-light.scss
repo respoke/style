@@ -16,7 +16,7 @@
 
 .hljs-keyword,
 .hljs-literal,
-.nginx .hljs-title {
+.lang-nginx .hljs-title {
   color: $dark-pink;
 }
 .method,
@@ -24,15 +24,15 @@
 .hljs-tag .hljs-title,
 .setting .hljs-value,
 .hljs-winutils,
-.tex .hljs-command,
-.http .hljs-title,
+.lang-tex .hljs-command,
+.lang-http .hljs-title,
 .hljs-request,
 .hljs-status {
   color: #008;
 }
 
 .hljs-envvar,
-.tex .hljs-special {
+.lang-tex .hljs-special {
   color: #660;
 }
 
@@ -43,7 +43,7 @@
 .hljs-cdata,
 .hljs-filter .hljs-argument,
 .hljs-attr_selector,
-.apache .hljs-cbracket,
+.lang-apache .hljs-cbracket,
 .hljs-date,
 .hljs-regexp {
   color: #080;
@@ -54,7 +54,7 @@
 .hljs-tag,
 .hljs-tag .hljs-keyword,
 .hljs-decorator,
-.ini .hljs-title,
+.lang-ini .hljs-title,
 .hljs-shebang,
 .hljs-prompt,
 .hljs-hexcolor,
@@ -62,14 +62,14 @@
 .hljs-symbol,
 .hljs-symbol .hljs-string,
 .hljs-number,
-.css .hljs-function,
+.lang-css .hljs-function,
 .hljs-function .hljs-title,
-.coffeescript .hljs-attribute {
+.lang-coffeescript .hljs-attribute {
   color: $light-blue;
 }
 
 .hljs-class .hljs-title,
-.smalltalk .hljs-class,
+.lang-smalltalk .hljs-class,
 .hljs-javadoctag,
 .hljs-yardoctag,
 .hljs-phpdoc,
@@ -82,22 +82,22 @@
 .hljs-built_in,
 .setting,
 .hljs-params,
-.clojure .hljs-attribute {
+.lang-clojure .hljs-attribute {
   color: $blue;
 }
 
 .hljs-variable {
  color: #3f6e74;
 }
-.css .hljs-tag,
+.lang-css .hljs-tag,
 .hljs-rules .hljs-property,
 .hljs-pseudo,
 .hljs-subst {
   color: $text;
 }
 
-.css .hljs-class,
-.css .hljs-id {
+.lang-css .hljs-class,
+.lang-css .hljs-id {
   color: #9b703f;
 }
 
@@ -111,8 +111,8 @@
 }
 
 .hljs-annotation,
-.apache .hljs-sqbracket,
-.nginx .hljs-built_in {
+.lang-apache .hljs-sqbracket,
+.lang-nginx .hljs-built_in {
   color: #9b859d;
 }
 
@@ -122,18 +122,18 @@
   color: #643820;
 }
 
-.tex .hljs-formula {
+.lang-tex .hljs-formula {
   background-color: #eee;
   font-style: italic;
 }
 
-.diff .hljs-header,
+.lang-diff .hljs-header,
 .hljs-chunk {
   color: #808080;
   font-weight: bold;
 }
 
-.diff .hljs-change {
+.lang-diff .hljs-change {
   background-color: $primary-light;
 }
 
