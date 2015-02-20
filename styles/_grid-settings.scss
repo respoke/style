@@ -35,17 +35,21 @@ $grid-columns: 18;
 /// @type Number
 $max-width: em(1080px);
 
-/// The large resolution device media query.
-/// @require $break-large
+/// The large resolution device media query. Unlike the other media queries,
+/// this one targets screen sizes *above* $break-medium *only*. (eg. > $break-medium)
+/// @require $break-medium
 /// @type List
-$full-size: new-breakpoint(max-width $break-large);
+$full-size: new-breakpoint(min-width $break-medium + 1);
 
-/// The medium resolution device media query.
+/// The medium resolution device media query. Targets *all* screen sizes below
+/// $break-medium. (eg. <= $break-medium)
+
 /// @require $break-medium
 /// @type List
 $tablet: new-breakpoint(max-width $break-medium 8);
 
-/// The small resolution device media query.
+/// The small resolution device media query. Targets *all* screen sizes below
+/// $break-small. (eg. < $break-small)
 /// @require $break-small
 /// @type List
 $mobile: new-breakpoint(max-width $break-small 4);
