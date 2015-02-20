@@ -1,4 +1,15 @@
 
+/// Since floated elements cannot easily expand to the height of their parents
+/// this mixin is provided to apply the sidebar background with the correct
+/// column width to a parent element.
+/// @output linear-gradient
+@mixin sidebar-background {
+    $bg-width-left: flex-grid(4);
+    $bg-width-right: 100 - $bg-width-left;
+
+    @include linear-gradient(to left, transparent $bg-width-right, $light-grey $bg-width-left);
+}
+
 .sidebar {
     @include span-columns(4);
     height: 100%;
