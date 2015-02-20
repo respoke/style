@@ -3,16 +3,17 @@
 /// this mixin is provided to apply the sidebar background with the correct
 /// column width to a parent element.
 /// @output linear-gradient
-@mixin sidebar-background {
+/// @param {Color} $color [$light-grey] - Color of background for the sidebar.
+@mixin sidebar-background($color: $light-grey) {
     @include media($full-size) {
-        $bg-width-left: flex-grid(4);
+        $bg-width-left: flex-grid(5);
         $bg-width-right: 100 - $bg-width-left;
-        @include linear-gradient(to left, transparent $bg-width-right, $light-grey $bg-width-left);
+        @include linear-gradient(to left, transparent $bg-width-right, $color $bg-width-left);
     }
     @include media($tablet) {
         $bg-width-left: flex-grid(2, 8);
         $bg-width-right: 100 - $bg-width-left;
-        @include linear-gradient(to left, transparent $bg-width-right, $light-grey $bg-width-left);
+        @include linear-gradient(to left, transparent $bg-width-right, $color $bg-width-left);
     }
     @include media($mobile) {
         background: none;
@@ -20,9 +21,9 @@
 }
 
 .sidebar {
-    @include span-columns(4);
+    @include span-columns(5);
     height: 100%;
-    padding-top: $navbar-height + $spacing-medium;
+    margin-top: $navbar-height + $spacing-medium;
 
     @include media($tablet) {
         @include span-columns(2);
@@ -32,58 +33,38 @@
     }
 }
 
-.sidebar--menu-list {
+.sidebar--menu-list, .sidebar--nested-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
 
+.sidebar--menu-list {
     > :first-child {
         font-weight: bold;
         margin-bottom: $spacing-standard;
     }
 
     a {
-        display: inline-block;
-        width: 100%;
         margin: 0;
     }
 
     li {
         font-size: 12px;
-        margin: 0;
-        padding-left: $spacing-standard;
-
+        margin: $spacing-mini 0 $spacing-mini $spacing-standard;
     }
 }
 
 .sidebar--header {
-    cursor: default;
-    font-weight: bold;
+    margin-left: $spacing-standard;
 
-    // TODO: use this for the open state when this becomes collapsible
-    // &:before {
-    //     // fa-caret-down
-    //     content: '\f0d7';
-    //     font-family: 'FontAwesome';
-    //     margin-right: em($spacing-mini);
-    // }
-}
-
-@for $i from 0 through 2 {
-    $item-vertical-padding: $spacing-mini / 2;
-    $index: $i + 1;
-
-    .sidebar--header.sidebar--level-#{$index} {
-        $horizontal-padding: $spacing-standard;
-        @if $i > 0 {
-            $horizontal-padding: $horizontal-padding * ($i * 2);
-        }
-        padding: $item-vertical-padding $horizontal-padding;
-    }
-    .sidebar--level-#{$index} > a {
-        padding: $item-vertical-padding ($spacing-standard * $i);
+    > a, > span {
+        font-weight: bold;
     }
 
+    > span {
+        cursor: default;
+    }
 }
 
 // Color theme
