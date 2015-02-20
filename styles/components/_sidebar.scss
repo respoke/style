@@ -4,10 +4,19 @@
 /// column width to a parent element.
 /// @output linear-gradient
 @mixin sidebar-background {
-    $bg-width-left: flex-grid(4);
-    $bg-width-right: 100 - $bg-width-left;
-
-    @include linear-gradient(to left, transparent $bg-width-right, $light-grey $bg-width-left);
+    @include media($full-size) {
+        $bg-width-left: flex-grid(4);
+        $bg-width-right: 100 - $bg-width-left;
+        @include linear-gradient(to left, transparent $bg-width-right, $light-grey $bg-width-left);
+    }
+    @include media($tablet) {
+        $bg-width-left: flex-grid(2, 8);
+        $bg-width-right: 100 - $bg-width-left;
+        @include linear-gradient(to left, transparent $bg-width-right, $light-grey $bg-width-left);
+    }
+    @include media($mobile) {
+        background: none;
+    }
 }
 
 .sidebar {
@@ -16,10 +25,9 @@
     padding-top: $navbar-height + $spacing-medium;
 
     @include media($tablet) {
-        @include span-columns(3);
+        @include span-columns(2);
     }
     @include media($mobile) {
-        @include fill-parent;
         display: none;
     }
 }
