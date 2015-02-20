@@ -27,6 +27,10 @@ $navbar-item-height-mobile: em(45px);
         overflow-y: scroll;
 
         font-weight: normal;
+
+        .menu {
+            display: block;
+        }
     }
 }
 

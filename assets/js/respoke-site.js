@@ -52,10 +52,16 @@ function toggleMobileMenu(event) {
     $('body').toggleClass('navbar--mobile-open');
 }
 
+function toggleMenuAccordion(event) {
+    event.preventDefault();
+    $(event.target).parent('.menu--header').toggleClass('menu--open');
+}
+
 $(function jqOnReady() {
     scrollBreakHook();
 
     $('.navbar--state').on('change', toggleMobileMenu);
+    $('.menu--header > :first-child').on('click', toggleMenuAccordion);
 
     // Setup dynamic links
     var token = $.cookie('token');
