@@ -89,7 +89,7 @@ $navbar-item-height-mobile: em(45px);
 
 @mixin mobile-menu-item {
     display: block;
-    height: $navbar-item-height-mobile;
+    min-height: $navbar-item-height-mobile;
 }
 
 .navbar--logo {
@@ -230,7 +230,7 @@ $navbar-item-height-mobile: em(45px);
     }
 }
 
-ul.navbar--links > li {
+ul.navbar--links li {
     display: inline-block;
     position: relative;
 
@@ -248,7 +248,7 @@ ul.navbar--links > li {
         }
     }
 
-    a {
+    a, span {
         display: inline-block;
         padding: 0 $spacing-standard;
         line-height: $navbar-height;
@@ -422,7 +422,9 @@ ul.navbar--links > li {
     .navbar {
         @include textured-background($primary-dark);
 
-        a, a:visited, a:active, a:hover {
+        a, a:visited, a:active, a:hover,
+        .menu--current-item > a,
+        .menu a, .menu a:visited, .menu a:active, .menu a:hover {
             color: $navbar-mobile-link;
         }
     }
@@ -480,6 +482,10 @@ ul.navbar--links > li {
     .navbar--account:after {
         @extend %mobile-menu-item;
         border-bottom: none;
+    }
+
+    .navbar .menu li {
+        @extend mobile-menu-item;
     }
 }
 
@@ -556,5 +562,25 @@ ul.navbar--links > li {
         img {
             width: 113px;
         }
+    }
+}
+
+// Embeded menu
+
+.navbar--links .menu {
+    > :first-child {
+        display: none;
+    }
+
+    li {
+        @include mobile-menu-item;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.navbar .menu--header {
+    &:before {
+        display: none;
     }
 }

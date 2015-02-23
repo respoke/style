@@ -50,7 +50,7 @@
     }
 
     li {
-        font-size: 12px;
+        font-size: em(12px);
         margin: $spacing-mini 0 $spacing-mini $spacing-standard;
     }
 }
@@ -73,7 +73,7 @@
     }
 
     > span {
-        cursor: default;
+        cursor: pointer;
     }
 }
 
