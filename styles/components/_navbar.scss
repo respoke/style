@@ -16,13 +16,23 @@ $navbar-item-height-mobile: em(45px);
 
     @include transition(background 1s);
 
+    .menu {
+        display: none;
+    }
+
     @include media($mobile) {
         position: fixed;
         width: $navbar-mobile-width;
         height: 100%;
         overflow-y: scroll;
 
-        font-weight: normal;
+        &, .menu--header > span, .menu--header > span {
+            font-weight: normal;
+        }
+
+        .menu {
+            display: block;
+        }
     }
 }
 
@@ -81,7 +91,7 @@ $navbar-item-height-mobile: em(45px);
 
 @mixin mobile-menu-item {
     display: block;
-    height: $navbar-item-height-mobile;
+    min-height: $navbar-item-height-mobile;
 }
 
 .navbar--logo {
@@ -173,14 +183,10 @@ $navbar-item-height-mobile: em(45px);
         height: 100%;
         margin: 0;
         float: none;
+        padding: 0;
 
         text-align: left;
 
-        &:before {
-            @include mobile-menu-item;
-            height: $navbar-item-height-mobile * 2;
-            content: "";
-        }
         &:after {
             @include mobile-menu-item;
             content: "";
@@ -198,8 +204,6 @@ $navbar-item-height-mobile: em(45px);
         @include mobile-menu-item;
         padding: 0 $spacing-standard;
         line-height: $navbar-item-height-mobile;
-
-        font-size: $font-size-large;
     }
 }
 
@@ -211,7 +215,6 @@ $navbar-item-height-mobile: em(45px);
         padding: $spacing-mini;
 
         text-align: center;
-        font-size: $font-size-normal;
     }
 
     .navbar--login {
@@ -222,7 +225,7 @@ $navbar-item-height-mobile: em(45px);
     }
 }
 
-ul.navbar--links > li {
+ul.navbar--links li {
     display: inline-block;
     position: relative;
 
@@ -240,7 +243,7 @@ ul.navbar--links > li {
         }
     }
 
-    a {
+    a, span {
         display: inline-block;
         padding: 0 $spacing-standard;
         line-height: $navbar-height;
@@ -343,6 +346,26 @@ ul.navbar--links > li {
         &:hover {
             @include transition(background-color, 0.2s);
         }
+    }
+}
+
+// Embeded menu
+
+.navbar--links .menu {
+    > :first-child {
+        display: none;
+    }
+
+    li {
+        @include mobile-menu-item;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.navbar .menu--header {
+    &:before {
+        display: none;
     }
 }
 
@@ -457,7 +480,8 @@ ul.navbar--links > li {
         border-top: none;
     }
 
-    .navbar--links > li, .navbar--dropdown > li {
+    .navbar--links a,
+    .navbar--links span {
         @extend %mobile-menu-item;
     }
 
@@ -472,6 +496,34 @@ ul.navbar--links > li {
     .navbar--account:after {
         @extend %mobile-menu-item;
         border-bottom: none;
+    }
+
+
+    @mixin nestedColor($color) {
+        a, a:visited, a:active, a:hover, span {
+            color: $color;
+        }
+
+        .menu--current-item a {
+            color: $color;
+        }
+    }
+
+    .navbar .menu {
+        @include nestedColor(#4ECEDE);
+
+        .menu--nested {
+            @include nestedColor(#51ECCA);
+        }
+    }
+
+    .navbar .menu--header > :first-child:after {
+        margin-left: em($spacing-mini);
+        font-family: 'FontAwesome';
+        content: '\f0da';
+    }
+    .navbar .menu--header.menu--open > :first-child:after {
+        content: '\f0d7';
     }
 }
 

@@ -1,0 +1,29 @@
+mixin navbar(theme)
+    input.navbar--state(type="checkbox" id="show-mobile-menu" name="show-mobile-menu")
+
+    nav(class=['navbar', theme].join(' '))
+        .navbar--wrapper
+            .navbar--logo
+                a.logo--link(href="/")
+                    img.logo--image-light(src="/images/logo-respoke-light.png")
+                    img.logo--image-dark(src="/images/logo-respoke.png")
+            ul.navbar--links
+                li: a(href="/pricing") Pricing
+                li.navbar--developers
+                    a(href="#") Developers
+                    ul.navbar--dropdown
+                        li
+                            a(href="https://docs.respoke.io") Docs
+                            block
+                        li: a(href="http://community.respoke.io") Forums
+                        li: a(href="https://github.com/respoke/") GitHub
+                li: a(href="http://blog.respoke.io") Blog
+            .navbar--account
+                a.navbar--signup(href="https://portal.respoke.io/#/signup") Sign up
+                a.navbar--login(href="https://portal.respoke.io/#/login") Log in
+
+    .mobile-header
+        label.mobile-header--toggler(for="show-mobile-menu")
+            .mobile-header--hamburger
+        .mobile-header--logo
+            a(href="/"): img(src="/images/logo-respoke.png")
