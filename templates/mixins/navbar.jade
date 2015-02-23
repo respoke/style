@@ -5,8 +5,8 @@ mixin navbar(theme)
         .navbar--wrapper
             .navbar--logo
                 a.logo--link(href="/")
-                    img.logo--image-light(src="/images/logo-respoke-light.png")
-                    img.logo--image-dark(src="/images/logo-respoke.png")
+                    img.logo--image-light(src="/images/logo-respoke-light.png" alt="respoke header logo")
+                    img.logo--image-dark(src="/images/logo-respoke.png" alt="respoke header logo")
             ul.navbar--links
                 li: a(href="/pricing") Pricing
                 li.navbar--developers
@@ -24,6 +24,6 @@ mixin navbar(theme)
 
     .mobile-header
         label.mobile-header--toggler(for="show-mobile-menu")
-            .mobile-header--hamburger
+            span.mobile-header--hamburger
         .mobile-header--logo
-            a(href="/"): img(src="/images/logo-respoke.png")
+            a(href="/"): img(src="/images/logo-respoke.png" alt="respoke header logo")
