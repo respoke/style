@@ -25,6 +25,8 @@
     height: 100%;
     margin-top: $navbar-height + $spacing-medium;
 
+    font-size: $font-size-normal;
+
     @include media($tablet) {
         @include span-columns(2);
     }
@@ -50,7 +52,6 @@
     }
 
     li {
-        font-size: em(12px);
         margin: $spacing-mini 0 $spacing-mini $spacing-standard;
     }
 }
