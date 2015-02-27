@@ -4,11 +4,11 @@ mixin navbar(theme)
     nav(class=['navbar', theme].join(' '))
         .navbar--wrapper
             .navbar--logo
-                a.logo--link(href="/")
+                a.logo--link.www-link(href="/")
                     img.logo--image-light(src="/images/logo-respoke-light.png" alt="respoke header logo")
                     img.logo--image-dark(src="/images/logo-respoke.png" alt="respoke header logo")
             ul.navbar--links
-                li: a(href="/pricing") Pricing
+                li: a.www-link(href="/pricing") Pricing
                 li.navbar--developers
                     a(href="#") Developers
                     ul.navbar--dropdown
