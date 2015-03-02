@@ -50,6 +50,7 @@ of the actual styles then just import `respoke-style.scss`.
 .my-button {
     @include button-dark;
 }
+```
 
 ### SassDoc generation
 
