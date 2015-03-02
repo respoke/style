@@ -3,6 +3,10 @@
 /// @group fonts
 ////
 
+/// Adds a gradient to the text. Text base color is `$primary-light`.
+///
+/// **NOTE:** This only works in webkit based browsers.
+/// @deprecated No longer in use.
 /// @param {Color} $left left-most color (start)
 /// @param {Color} $right right-most color (end)
 @mixin attention($left, $right) {
