@@ -136,7 +136,15 @@ When you copy the `./assets` to your local project, you must serve the
 `./assets/js/` folder at the root of your website such that it is at the `/js/`
 path (required by `./templates/head.jade`).
 
-
 ## Example Gruntfile
 
 See `./SampleGruntfileUsage.js` for an example of building the Respoke styles into one of your projects.
+
+## Style guide
+
+To view the style guide run the gulp task and open your browser to
+`http://localhost:1236`.
+
+```bash
+gulp style-guide
+```
