@@ -9,38 +9,107 @@ npm i --save-dev respoke/style
 
 ## Stylesheet usage
 
-See `SampleGruntfileUsage.js` for building the stylesheet.
+Be sure to add the include paths to the SASS configuration in your build
+process. Otherwise you will need to provide the full path to the file you wish
+to import.
 
-Recommended usage is from your own `.scss` stylesheet file:
+```js
+var sass = require('gulp-sass');
+var respokeStyle = require('respoke-style');
+
+gulp.task('sass', function () {
+    return gulp.src('styles')
+        .pipe(sass({
+            includePaths: respokeStyle.includeStylePaths()
+        }));
+});
+```
 
 ```scss
-@import '../node_modules/respoke-style/styles/base.scss';
+@import 'base';
 
-/* Now use the styles */
+.my-content {
+    color: $text;
+}
+```
 
+The basic usage is to just include the `base.scss` file which includes all the
+components, helpers, bourbon, neat, config options, and base element styles.
+(See example above).
+
+To use Bourbon, Neat, and Respoke variables and helpers without the added cruft
+of the actual styles then just import `respoke-style.scss`.
+
+```scss
+@import 'respoke-style';
+
+.my-content {
+    color: $text;
+}
+
+.my-button {
+    @include button-dark;
+}
+```
+
+### SassDoc generation
+
+To generate the [SassDoc](http://sassdoc.com/) run the gulp task and open the
+generated html file.
+
+```bash
+gulp sassdoc && open sassdoc/index.html
 ```
 
 ## Jade template usage
 
-Inside your local Jade template:
+To include the provided mixins for Jade just include the mixins.jade file at the
+top of your template.
+
+```jade
+@include node_modules/respoke-style/mixins
+
+doctype html
+html
+    head
+    body
+        +navbar('dark')
+        p Some custom paragraph text
+```
+
+To include a shared template you will need to provide the Jade helpers to the
+template compilation method either globally or locally. There is a
+`renderSharedTemplate` method that will output the compiled shared template. It
+can take an option second `locals` object to pass variables.
+
+```js
+var jade = require('gulp-jade');
+var respokeStyle = require('respoke-style');
+
+gulp.task('jade', function () {
+    return gulp.src('templates')
+        .pipe(jade({
+            locals: respokeStyle.templateLocals
+        }))
+});
+
+```
 
 ```jade
 doctype html
 html
     head
-        include ../node_modules/respoke-style/head.jade
+        != renderSharedTemplate('head')
     body
-        include ../node_modules/respoke-style/navbar.jade
-
         p Some custom paragraph text
 
-        include ../node_modules/respoke-style/footer.jade
+        != renderSharedTemplate('footer')
 ```
 
 ## Assets
 
-These are files you may want to reuse. You will probably want to copy them during your build. See
-the example Gruntfile `copy` task.
+These are files you may want to reuse. You will probably want to copy them
+during your build. See the example Gruntfile `copy` task.
 
 `./assets/`
 `./assets/images/`
@@ -50,15 +119,32 @@ the example Gruntfile `copy` task.
 
 See the list of exported asset paths in `./index.js`.
 
-You can use these paths as local variables for your SCSS and Jade, or in your build script. See the
-example Gruntfile.
+You can use these paths as local variables for your SCSS and Jade, or in your
+build script. See the example Gruntfile.
+
+```js
+var respokeStyle = require('respoke-style');
+
+assetPaths = respokeStyle.paths.assets
+assetPaths = respokeStyle.paths.styles
+assetPaths = respokeStyle.paths.templates
+```
 
 ## Your project structure
 
-When you copy the `./assets` to your local project, you must serve the `./assets/js/` folder at
-the root of your website such that it is at the `/js/` path (required by `./templates/head.jade`).
-
+When you copy the `./assets` to your local project, you must serve the
+`./assets/js/` folder at the root of your website such that it is at the `/js/`
+path (required by `./templates/head.jade`).
 
 ## Example Gruntfile
 
 See `./SampleGruntfileUsage.js` for an example of building the Respoke styles into one of your projects.
+
+## Style guide
+
+To view the style guide run the gulp task and open your browser to
+`http://localhost:1236`.
+
+```bash
+gulp style-guide
+```

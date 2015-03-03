@@ -68,7 +68,10 @@ function copyAssets() {
 function sassdocTask() {
     return gulp.src(path.join(paths.sass, '**/*.scss'))
         .pipe(sassdoc({
-            dest: 'sassdoc'
+            dest: 'sassdoc',
+            display: {
+                access: ['public']
+            }
         }));
 }
 

@@ -6,6 +6,7 @@
 /// (---) bottom -> &:after
 ///
 /// @group effects
+/// @access private
 ////
 
 // Helpers to select parts of the burger
@@ -50,6 +51,7 @@
 /// @param {Color} $color
 /// @param {Number} $border-radius
 /// @param {Number} $transition-duration
+/// @access public
 @mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: $white, $border-radius: 0, $transition-duration: .3s) {
     $burger-height: $height !global;
     $burger-gutter: $gutter !global;
