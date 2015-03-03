@@ -62,6 +62,7 @@ $(function jqOnReady() {
 
     $('.navbar--state').on('change', toggleMobileMenu);
     $('.menu--header > :first-child').on('click', toggleMenuAccordion);
+    $('.menu a[href="' + location.pathname + location.hash + '"]').parents('.menu--header').addClass('menu--open');
 
     // Setup dynamic links
     var token = $.cookie('token');
