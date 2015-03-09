@@ -1,0 +1,37 @@
+mixin footer
+    footer#footer.navbar--push-it
+        .footer--wrapper
+            .footer--logos
+                a(href="https://www.respoke.io")
+                    img.footer--logo-respoke(src="/images/logo-respoke.png" alt="respoke logo")
+                a(href="http://digium.com/respoke")
+                    img.footer--logo-digium(src="/images/digium-white.png" alt="digium logo")
+
+            nav.footer--nav
+                dl
+                    dt Site
+                    dd: a.www-link(href="/") Home
+                    dd: a.www-link(href="/pricing") Pricing
+                    dd: a.www-link(href="/features") Features
+                    dd: a(href="https://portal.respoke.io/#/signup") Signup
+
+                dl
+                    dt Developers
+                    dd: a(href="https://docs.respoke.io/js-library/audio-chat.html") Quickstart
+                    dd: a(href="https://docs.respoke.io/") Documentation
+                    dd: a(href="http://community.respoke.io") Forums
+                    dd: a(href="https://github.com/respoke/") GitHub
+
+                dl
+                    dt Connect
+                    dd: a(href="https://twitter.com/respoke") Twitter
+                    dd: a(href="https://plus.google.com/110089434291590810767" rel="publisher") Google+
+                    dd: a(href="https://www.facebook.com/respokeIO") Facebook
+                    dd: a(href="https://www.linkedin.com/company/respoke") Linkedin
+
+            .footer--legal
+                div Copyright &copy; #{ new Date().getFullYear() } Digium, Inc.
+                div: a.www-link(href="/terms-of-service") Terms & Conditions
+                div: a(href="http://www.digium.com/en/company/policies/privacy-policy") Privacy Policy
+                div: a(href="mailto:info@respoke.io") info@respoke.io
+                div +1 256-428-6254

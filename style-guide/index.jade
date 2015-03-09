@@ -1,16 +1,18 @@
+include ../templates/mixins
+
 doctype html
 html(lang='en')
     head
         title Respoke Style Guide
 
-        != renderSharedTemplate('head')
+        +head
 
         link(type="text/css" rel='stylesheet' href='style-guide.css')
         link(type="text/css" rel='stylesheet' href='hljs-dark.css' disabled)
         link(type="text/css" rel='stylesheet' href='hljs-light.css')
-        script(src="style-guide.js")
+        script(src="style-guide.js" defer)
     body
-        != renderSharedTemplate('navbar', { navTheme: 'dark' })
+        +navbar('dark')
 
         .container.navbar--push-it
             h1 Respoke style guide
@@ -118,4 +120,4 @@ html(lang='en')
                     |     console.log(Array.every(classes, Boolean));
                     | }
 
-        != renderSharedTemplate('footer')
+        +footer
