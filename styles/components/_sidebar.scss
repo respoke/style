@@ -78,6 +78,12 @@
 
     > span {
         cursor: pointer;
+        // Fake the :before element clickable
+        margin-left: -$spacing-standard;
+        padding-left: $spacing-standard;
+        @include media($mobile) {
+            margin-left: 0;
+        }
     }
 }
 
