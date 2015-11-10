@@ -1,6 +1,6 @@
 {
   "name": "respoke-style",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "private": true,
   "description": "styles for Respoke web properties",
   "main": "index.js",
