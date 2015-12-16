@@ -21,7 +21,7 @@
     "jade": "^1.9.0",
     "lodash": "^2.4.1",
     "node-bourbon": "^1.2.3",
-    "node-neat": "^1.4.2"
+    "node-neat": "1.4.2"
   },
   "devDependencies": {
     "del": "^1.1.1",
